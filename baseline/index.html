@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="html" lang="pt-BR"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://www.bizsys.com.br/", "replayHost": "www.bizsys.com.br.localhost", "entryPath": "/", "captureId": "bizsys.com.br-634f9afb", "capturedAt": "2026-10-23T14:39:43+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+	<meta charset="UTF-8">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Bizsys | Viabilizando ideias</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- All In One SEO Pack 3.6.2[135,182] -->
+<meta name="description" content="Desenvolvemos soluções criativas usando nossa expertise, focando em conectar marcas a seus consumidores, gerando engajamento e proximidade.">
+
+
+<link rel="canonical" href="site/www.bizsys.com.br/index.html">
+<!-- All In One SEO Pack -->
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Feed para Bizsys »" href="https://www.bizsys.com.br/feed/">
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Bizsys »" href="https://www.bizsys.com.br/comments/feed/">
+		
+		<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+	<link rel="stylesheet" id="wp-block-library-css" href="site/www.bizsys.com.br/wp-includes/css/dist/block-library/style.min__q02cd9d81.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="site/www.bizsys.com.br/wp-includes/css/dist/block-library/theme.min__q02cd9d81.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="site/www.bizsys.com.br/wp-content/plugins/contact-form-7/includes/css/styles__q92d11d28.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-video-popup-css" href="site/www.bizsys.com.br/wp-content/plugins/responsive-youtube-vimeo-popup/assets/css/wp-video-popup__q0aece9c5.css" type="text/css" media="all">
+<link rel="stylesheet" id="rs-plugin-settings-css" href="site/www.bizsys.com.br/wp-content/plugins/revslider/public/assets/css/rs6__qde995415.css" type="text/css" media="all">
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+<link rel="stylesheet" id="Rich_Web_Video_Slider-css" href="site/www.bizsys.com.br/wp-content/plugins/slider-video/Style/Rich-Web-Video-Slider-Widget__q02cd9d81.css" type="text/css" media="all">
+<link rel="stylesheet" id="fontawesomeSl-css-css" href="site/www.bizsys.com.br/wp-content/plugins/slider-video/Style/richwebicons__q02cd9d81.css" type="text/css" media="all">
+<link rel="stylesheet" id="trp-language-switcher-style-css" href="site/www.bizsys.com.br/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher__q1345ac56.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min__qa273edc9.css" type="text/css" media="all">
+<link rel="stylesheet" id="simple-line-icons-css" href="site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min__qb141f471.css" type="text/css" media="all">
+<link rel="stylesheet" id="magnific-popup-css" href="site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/magnific-popup.min__q69545069.css" type="text/css" media="all">
+<link rel="stylesheet" id="slick-css" href="site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/slick.min__q3ceb97fd.css" type="text/css" media="all">
+<link rel="stylesheet" id="oceanwp-style-css" href="site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/style.min__q1345ac56.css" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='vc_lte_ie9-css'  href='https://www.bizsys.com.br/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.5' type='text/css' media='screen' />
+<![endif]-->
+<link rel="stylesheet" id="elementor-icons-css" href="site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min__q6949a4a8.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/animations/animations.min__q41f78f3e.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="site/www.bizsys.com.br/wp-content/plugins/elementor/assets/css/frontend.min__q41f78f3e.css" type="text/css" media="all">
+<link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style="">
+<link rel="stylesheet" id="elementor-post-5090-css" href="site/www.bizsys.com.br/wp-content/uploads/elementor/css/post-5090__q96503df1.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="site/www.bizsys.com.br/wp-content/uploads/elementor/css/global__q144f01c0.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-8-css" href="site/www.bizsys.com.br/wp-content/uploads/elementor/css/post-8__q992157be.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="site/fonts.googleapis.com/css__qd059eb69.css" type="text/css" media="all">
+
+
+
+
+
+
+
+
+
+<link rel="https://api.w.org/" href="https://www.bizsys.com.br/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.bizsys.com.br/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.bizsys.com.br/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.3.26">
+<link rel="shortlink" href="site/www.bizsys.com.br/index.html">
+<link rel="alternate" type="application/json+oembed" href="https://www.bizsys.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bizsys.com.br%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.bizsys.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bizsys.com.br%2F&amp;format=xml">
+				<link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style="">
+				<meta name="generator" content="Site Kit by Google 1.8.1"><link rel="alternate" hreflang="pt-BR" href="site/www.bizsys.com.br/index.html">
+<link rel="alternate" hreflang="pt" href="site/www.bizsys.com.br/index.html">
+<link rel="alternate" hreflang="en-US" href="https://www.bizsys.com.br/en/">
+<link rel="alternate" hreflang="en" href="https://www.bizsys.com.br/en/">
+		<!-- Google Tag Manager added by Site Kit -->
+		
+		<!-- End Google Tag Manager -->
+		<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+<meta name="generator" content="Powered by Slider Revolution 6.1.0 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+<link rel="icon" href="site/www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg" sizes="32x32">
+<link rel="icon" href="site/www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="site/www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg">
+<meta name="msapplication-TileImage" content="https://www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg">
+
+		<link rel="stylesheet" href="site/_runtime/style-4.css" data-wd3-runtime-style="">
+		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><!-- OceanWP CSS -->
+<link rel="stylesheet" href="site/_runtime/style-5.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-6.css" data-wd3-runtime-style=""></head>
+
+<body class="home page-template page-template-elementor_header_footer page page-id-8 wp-custom-logo wp-embed-responsive brunn-core-1.1 translatepress-pt_BR oceanwp-theme fullscreen-mobile has-transparent-header no-header-border default-breakpoint content-full-width content-max-width page-header-disabled has-breadcrumbs has-blog-grid pagination-center wpb-js-composer js-comp-ver-6.0.5 vc_responsive elementor-default elementor-template-full-width elementor-kit-5090 elementor-page elementor-page-8 e--ua-blink e--ua-chrome e--ua-mac e--ua-webkit" data-elementor-device-mode="desktop">
+
+			<!-- Google Tag Manager (noscript) added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K53DP29" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		
+	
+	<div id="outer-wrap" class="site clr">
+
+		<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+		
+		<div id="wrap" class="clr">
+
+			
+				<div id="transparent-header-wrap" class="clr">
+	
+<header id="site-header" class="transparent-header search-overlay center-menu effect-one clr" data-height="73" role="banner">
+
+	
+					
+			<div id="site-header-inner" class="clr ">
+
+				
+				
+
+<div id="site-logo" class="clr">
+
+	
+	<div id="site-logo-inner" class="clr">
+
+		<a href="https://www.bizsys.com.br/" class="custom-logo-link" rel="home"><img width="593" height="114" src="site/www.bizsys.com.br/wp-content/uploads/2021/06/cropped-LOGO-BIZSYS_preto-1-2.png" class="custom-logo" alt="Bizsys" srcset="site/www.bizsys.com.br/wp-content/uploads/2021/06/cropped-LOGO-BIZSYS_preto-1-2.png 593w, https://www.bizsys.com.br/wp-content/uploads/2021/06/cropped-LOGO-BIZSYS_preto-1-2-300x58.png 300w" sizes="(max-width: 593px) 100vw, 593px"></a>
+	</div><!-- #site-logo-inner -->
+
+	
+	
+</div><!-- #site-logo -->
+
+			<div id="site-navigation-wrap" class="no-top-border clr">
+			
+			
+			
+			<nav id="site-navigation" class="navigation main-navigation clr" role="navigation">
+
+				<ul id="menu-principal" class="main-menu dropdown-menu sf-menu sf-js-enabled" style="touch-action: pan-y;"><li class="search-toggle-li"><a href="javascript:void(0)" class="site-search-toggle search-overlay-toggle" aria-label="Search website"><i class=" icon-magnifier" aria-hidden="true" role="img"></i></a></li></ul>
+			</nav><!-- #site-navigation -->
+
+			
+			
+					</div><!-- #site-navigation-wrap -->
+			
+		
+	
+				
+	<div class="oceanwp-mobile-menu-icon clr mobile-right">
+
+		
+		
+		
+		<a href="javascript:void(0)" class="mobile-menu" aria-label="Menu Móvel">
+							<i class="fas fa-grip-lines" aria-hidden="true"></i>
+						</a>
+
+		
+		
+		
+	</div><!-- #oceanwp-mobile-menu-navbar -->
+
+
+			</div><!-- #site-header-inner -->
+
+			
+			
+			
+		
+		
+</header><!-- #site-header -->
+
+	</div>
+	
+			
+			<main id="main" class="site-main clr" role="main">
+
+						<div data-elementor-type="wp-page" data-elementor-id="8" class="elementor elementor-8" data-elementor-settings="[]">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-916fa90 elementor-section-full_width elementor-section-height-full elementor-section-height-default elementor-section-items-middle" data-id="916fa90" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/www.youtube.com\/watch?v=IfXxwk2Nt3k&amp;ab_channel=BIZSYS&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+								<div class="elementor-background-video-container">
+													<iframe class="elementor-background-video-embed" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="BIZSYS - Showreel 2025" width="640" height="360" src="https://www.youtube.com/embed/IfXxwk2Nt3k?controls=0&amp;rel=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fwww.bizsys.com.br&amp;widgetid=1&amp;forigin=https%3A%2F%2Fwww.bizsys.com.br%2F&amp;aoriginsup=1&amp;vf=6" id="widget2" style="width: 1600px; height: 900px;"></iframe>
+												</div>
+									<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e781114" data-id="e781114" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-efbf05b elementor-widget elementor-widget-spacer" data-id="efbf05b" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-f72d50e elementor-widget__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-heading" data-id="f72d50e" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Tecnologia e Criatividade</h1>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-0eb248f elementor-section-full_width elementor-section-content-middle elementor-section-height-default elementor-section-height-default" data-id="0eb248f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-wider">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5288b65" data-id="5288b65" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-6dbc75c elementor-widget elementor-widget-text-editor" data-id="6dbc75c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>Bizsys é uma produtora sediada em São Paulo, que há mais de<br>15 anos projeta experiências que unem marcas e público através<br>da criatividade, tecnologia, engenharia de produto e projetos especiais.</p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-df82456 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df82456" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0ff0e06" data-id="0ff0e06" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5e15775 elementor-widget elementor-widget-image-carousel" data-id="5e15775" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;none&quot;,&quot;effect&quot;:&quot;fade&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image-carousel-wrapper swiper-container swiper-container-fade swiper-container-initialized swiper-container-horizontal" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper" style="transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="4" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(0px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="7" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/7-1-pbeyokg2ptprepfatrrojnd3sl7vhc68c9o6zne95m.jpg" alt="#BatuqueChallenge   Chevrolet"><figcaption class="elementor-image-carousel-caption">#BatuqueChallenge   Chevrolet</figcaption></figure></a></div>
+				<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1120px; transition-duration: 0ms; opacity: 1; transform: translate3d(-1120px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="AlgoritmoDaVida" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/AlgoritmoDaVida-2-pbeyzbpkxkfwa1ss0f5z2xn0jc73kmvn5ig8png1y2.png" alt="O Algoritmo da Vida - RollingStone"><figcaption class="elementor-image-carousel-caption">O Algoritmo da Vida - RollingStone</figcaption></figure></a></div><div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(-2240px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="mia2" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mia2-onfvdxm2akbi4hvcc6twj1jnc1s6ay65pgj7wdallm.jpg" alt="MIA - Whiskas"><figcaption class="elementor-image-carousel-caption">MIA - Whiskas</figcaption></figure></a></div><div class="swiper-slide" data-swiper-slide-index="2" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(-3360px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="mccode" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mccode-pbsv6kxt5n0nb996a5ncgv6ci4q0mifs95mm6fwo2i.png" alt="McCode - McDonald's"><figcaption class="elementor-image-carousel-caption">McCode - McDonald's</figcaption></figure></a></div><div class="swiper-slide" data-swiper-slide-index="3" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(-4480px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="stranger2" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/stranger2-pc3i7rf4cbd67np95lt5o7pxvflxxqizf9dwfyjwey.png" alt="Strangerama - Netflix"><figcaption class="elementor-image-carousel-caption">Strangerama - Netflix</figcaption></figure></a></div><div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(-5600px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="7" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/7-1-pbeyokg2ptprepfatrrojnd3sl7vhc68c9o6zne95m.jpg" alt="#BatuqueChallenge   Chevrolet"><figcaption class="elementor-image-carousel-caption">#BatuqueChallenge   Chevrolet</figcaption></figure></a></div>			<div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1120px; transition-duration: 0ms; opacity: 0; transform: translate3d(-6720px, 0px, 0px);"><a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="5e15775" data-elementor-lightbox-title="AlgoritmoDaVida" href="https://www.bizsys.com.br/work"><figure class="swiper-slide-inner"><img class="swiper-slide-image" src="site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/AlgoritmoDaVida-2-pbeyzbpkxkfwa1ss0f5z2xn0jc73kmvn5ig8png1y2.png" alt="O Algoritmo da Vida - RollingStone"><figcaption class="elementor-image-carousel-caption">O Algoritmo da Vida - RollingStone</figcaption></figure></a></div></div>
+																<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-6e49f58 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-heading" data-id="6e49f58" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">WORK</h1>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a2e2c71 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a2e2c71" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;none&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0d1db62" data-id="0d1db62" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-9af72db elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-spacer" data-id="9af72db" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-9ae6be3 elementor-widget elementor-widget-text-editor" data-id="9ae6be3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<a class="menu2" href="https://www.bizsys.com.br/category/ooh/">OOH</a><a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/webapp/"> Web App</a> <a class="menu2" href="https://www.bizsys.com.br/category/lives/">Lives</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/ar/">AR</a> <a class="menu2" href="https://www.bizsys.com.br/category/sensor-de-movimento/">Sensor de Movimento</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/cenografia/">Cenografia</a> <a class="menu2" href="https://www.bizsys.com.br/category/ia/">IA</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/player-de-audio/">Player de Áudio</a> <a class="menu2" href="https://www.bizsys.com.br/category/led/">LED</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/impressao-lenticular/">Impressão Lenticular</a> <a class="menu2" href="https://www.bizsys.com.br/category/aromatizador/">Aromatizador</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/projetos-especiais/">Projetos Especiais</a> <a class="menu2" href="https://www.bizsys.com.br/category/produto/">Produto</a> <a class="menu2" style="color: #656362;" href="https://www.bizsys.com.br/category/sampling/">Sampling</a>						</div>
+				</div>
+				<div class="elementor-element elementor-element-41dc4d8 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-spacer" data-id="41dc4d8" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-eec4710 elementor-section-height-min-height elementor-section-content-middle elementor-hidden-desktop elementor-hidden-tablet elementor-section-items-bottom elementor-section-boxed elementor-section-height-default" data-id="eec4710" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-wider">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-053bbb6" data-id="053bbb6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-ce6ffb1 elementor-widget elementor-widget-text-editor" data-id="ce6ffb1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>Projetos reconhecidos com 60 Prêmios de excelência.</p><p><span style="border-bottom: 3px solid white;">Cases Premiados →</span></p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a8576c5 elementor-section-height-full elementor-section-content-middle elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="a8576c5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ed4b5d9" data-id="ed4b5d9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-ed5b2c4 elementor-widget elementor-widget-text-editor" data-id="ed5b2c4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>Projetos reconhecidos com<br>60 Prêmios de excelência.<br><a class="premiosLink" href="https://www.bizsys.com.br/premios-2/">Cases Premiados →</a></p>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-271dd59 elementor-section-content-middle elementor-section-height-full elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="271dd59" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-cee8191" data-id="cee8191" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-a8536e8 elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-id="a8536e8" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<span style="border-bottom: 2px solid white">
+
+hello@bizsys.com.br
+
+</span>						</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7c1138f8 elementor-hidden-phone elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7c1138f8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-7672057a" data-id="7672057a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5bdcc53f elementor-widget elementor-widget-text-editor" data-id="5bdcc53f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>©2025 BIZSYS</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-23c8a3f0" data-id="23c8a3f0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-202270e8 elementor-widget elementor-widget-text-editor" data-id="202270e8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>Rua Hassib Mofarref, 200 Vila Leopoldina – São Paulo</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-1b4d185f" data-id="1b4d185f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7d8e0b83 elementor-widget elementor-widget-text-editor" data-id="7d8e0b83" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>+55 (11) 3288-2121</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-7d15a47d" data-id="7d15a47d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7c9a154 elementor-widget elementor-widget-heading" data-id="7c9a154" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://www.instagram.com/_bizsys/" target="_blank">INSTAGRAM</a></h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-1c28369" data-id="1c28369" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-392e493 elementor-widget elementor-widget-heading" data-id="392e493" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://facebook.com/bizsystech/" target="_blank">FACEBOOK</a></h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-top-column elementor-element elementor-element-34c45cdd" data-id="34c45cdd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7e26b1c elementor-widget elementor-widget-heading" data-id="7e26b1c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://br.linkedin.com/company/bizsys" target="_blank">LINKEDIN</a></h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-23f8e96 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="23f8e96" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9f9fed3 elementor-hidden-desktop elementor-hidden-tablet" data-id="9f9fed3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-5656e51 elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5656e51" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-fe02be3" data-id="fe02be3" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-dcd66cc elementor-widget elementor-widget-text-editor" data-id="dcd66cc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<p>©2025 BIZSYS</p><p>Rua Hassib Mofarref, 200<br>Vila Leopoldina – São Paulo</p><p>+55 (11) 3288-2121</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-3837922" data-id="3837922" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-103fe6e elementor-widget elementor-widget-heading" data-id="103fe6e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://www.instagram.com/_bizsys/" target="_blank">INSTAGRAM</a></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-274ee7d elementor-widget elementor-widget-heading" data-id="274ee7d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://facebook.com/bizsystech/" target="_blank">FACEBOOK</a></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b1a93ff elementor-widget elementor-widget-heading" data-id="b1a93ff" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://br.linkedin.com/company/bizsys" target="_blank">LINKEDIN</a></h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+						</div>
+					</div>
+		
+	</main><!-- #main -->
+
+	
+	
+	
+		
+	
+	
+</div><!-- #wrap -->
+
+
+</div><!-- #outer-wrap -->
+
+
+
+<a id="scroll-top" class="scroll-top-right" href="#"><i class=" fa fa-arrow-alt-circle-up" aria-hidden="true" role="img"></i></a>
+
+
+<div id="searchform-overlay" class="header-searchform-wrap clr">
+	<div class="container clr">
+	<form role="search" method="get" action="https://www.bizsys.com.br/" class="header-searchform">
+			<a href="javascript:void(0)" class="search-overlay-close" aria-label="Close search form"><span></span></a>
+			<span class="screen-reader-text">Search for:</span>
+			<input class="searchform-overlay-input" type="search" name="s" autocomplete="off" value="" aria-placeholder="Type then hit enter to search">
+			<label>Type then hit enter to search<span aria-hidden="true"><i></i><i></i><i></i></span></label>
+							<input type="hidden" name="post_type" value="post">
+								</form>
+	</div>
+</div><!-- #searchform-overlay -->
+
+
+
+<div id="mobile-fullscreen" class="clr">
+
+	<div id="mobile-fullscreen-inner" class="clr">
+
+		<a href="javascript:void(0)" class="close" aria-label="Fechar Menu">
+			<div class="close-icon-wrap">
+				<div class="close-icon-inner"></div>
+			</div>
+		</a>
+
+		<nav class="clr" role="navigation">
+
+			<ul id="menu-principal-1" class="fs-dropdown-menu"><li class="search-toggle-li"><a href="javascript:void(0)" class="site-search-toggle search-overlay-toggle" aria-label="Search website"><i class=" icon-magnifier" aria-hidden="true" role="img"></i></a></li></ul>
+<div id="mobile-search" class="clr">
+	<form method="get" action="https://www.bizsys.com.br/" class="header-searchform" role="search" aria-label="Mobile Search">
+		<input type="search" name="s" value="" autocomplete="off">
+							<input type="hidden" name="post_type" value="post">
+			</form>
+</div>
+
+		</nav>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/third/html5.min.js?ver=2.1.1'></script>
+<![endif]-->
+
+
+
+
+
+
+
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span>
+
+
+
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

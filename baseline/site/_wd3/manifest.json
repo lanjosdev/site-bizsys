@@ -1,0 +1,1120 @@
+{
+ "entryUrl": "https://www.bizsys.com.br/",
+ "capturedAt": "2026-10-23T14:39:43+00:00",
+ "indexHtml": {
+  "kind": "snapshot",
+  "description": "DOM renderizado (depois do JS), sem os scripts do site; CSS gerado em runtime em site/_runtime/style-*.css; <canvas> ficam vazios (o desenho só existe no site vivo)",
+  "runtimeStyles": 7
+ },
+ "files": [
+  {
+   "url": "https://www.bizsys.com.br/favicon.ico",
+   "file": "site/www.bizsys.com.br/favicon.ico",
+   "type": "image/vnd.microsoft.icon",
+   "resourceType": "other",
+   "size": 0,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/",
+   "file": "site/www.bizsys.com.br/index.html",
+   "type": "text/html",
+   "resourceType": "document",
+   "size": 68859,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.9",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/contact-form-7/includes/css/styles__q92d11d28.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 1746,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.9",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/contact-form-7/includes/js/scripts__q92d11d28.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 14627,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/css/frontend.min__q41f78f3e.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 117828,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/js/frontend-modules.min__q41f78f3e.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 64914,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/js/frontend.min__q41f78f3e.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 67690,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/js/preloaded-modules.min__q41f78f3e.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 58080,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/js/webpack.runtime.min__q41f78f3e.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 4769,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/animations/animations.min__q41f78f3e.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 18468,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/dialog/dialog.min__q645cc1c3.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 10863,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.11.0",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min__q6949a4a8.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 17232,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.5",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/share-link/share-link.min__q41f78f3e.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 2578,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/swiper/swiper.min__q7a571842.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 139153,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min__q1df6fb7f.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 12198,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/responsive-youtube-vimeo-popup/assets/css/wp-video-popup.css?ver=2.7",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/responsive-youtube-vimeo-popup/assets/css/wp-video-popup__q0aece9c5.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 851,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/responsive-youtube-vimeo-popup/assets/js/wp-video-popup.js?ver=2.7",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/responsive-youtube-vimeo-popup/assets/js/wp-video-popup__q0aece9c5.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 1758,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.1.0",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/revslider/public/assets/css/rs6__qde995415.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 56106,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/revslider/public/assets/js/revolution.tools.min.js?ver=6.0",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/revslider/public/assets/js/revolution.tools.min__q1b264346.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 150436,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.1.0",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/revslider/public/assets/js/rs6.min__qde995415.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 266921,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/slider-video/Scripts/Rich-Web-Video-Slider-Widget.js?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/slider-video/Scripts/Rich-Web-Video-Slider-Widget__q02cd9d81.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 955,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/slider-video/Style/Rich-Web-Video-Slider-Widget.css?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/slider-video/Style/Rich-Web-Video-Slider-Widget__q02cd9d81.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 1469,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/slider-video/Style/richwebicons.css?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/slider-video/Style/richwebicons__q02cd9d81.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 38534,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher.css?ver=2.1.1",
+   "file": "site/www.bizsys.com.br/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher__q1345ac56.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 2574,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/style.min.css?ver=2.1.1",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/style.min__q1345ac56.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 166814,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/magnific-popup.min.css?ver=1.0.0",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/magnific-popup.min__q69545069.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 5235,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min.css?ver=2.4.0",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min__qb141f471.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 10927,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/slick.min.css?ver=1.6.0",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/css/third/slick.min__q3ceb97fd.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 1636,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min.css?ver=5.15.1",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min__qa273edc9.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 59344,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 80300,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/fonts/simple-line-icons/Simple-Line-Icons__qeaf92150.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 30064,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/main.min.js?ver=2.1.1",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/main.min__q1345ac56.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 124413,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/third/lightbox.min.js?ver=2.1.1",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/third/lightbox.min__q1345ac56.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 1243,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/third/magnific-popup.min.js?ver=2.1.1",
+   "file": "site/www.bizsys.com.br/wp-content/themes/oceanwp/assets/js/third/magnific-popup.min__q1345ac56.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 19869,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/2021/06/GoodSans-Light.otf",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/2021/06/GoodSans-Light.otf",
+   "type": "font/otf",
+   "resourceType": "font",
+   "size": 76280,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/2021/06/cropped-LOGO-BIZSYS_preto-1-2.png",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/2021/06/cropped-LOGO-BIZSYS_preto-1-2.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 2553,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/2021/06/image.imgs_.full_-6.png",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/2021/06/image.imgs_.full_-6.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 214643,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/2021/07/LOGO_BIZ_s_texto.svg",
+   "type": "image/svg+xml",
+   "resourceType": "other",
+   "size": 2264,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/css/global.css?ver=1742996794",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/css/global__q144f01c0.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 52260,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/css/post-5090.css?ver=1742996793",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/css/post-5090__q96503df1.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 1171,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/css/post-8.css?ver=1752095315",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/css/post-8__q992157be.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 14860,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/thumbs/7-1-pbeyokg2ptprepfatrrojnd3sl7vhc68c9o6zne95m.jpg",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/7-1-pbeyokg2ptprepfatrrojnd3sl7vhc68c9o6zne95m.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 89724,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/thumbs/AlgoritmoDaVida-2-pbeyzbpkxkfwa1ss0f5z2xn0jc73kmvn5ig8png1y2.png",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/AlgoritmoDaVida-2-pbeyzbpkxkfwa1ss0f5z2xn0jc73kmvn5ig8png1y2.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 555518,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mccode-pbsv6kxt5n0nb996a5ncgv6ci4q0mifs95mm6fwo2i.png",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mccode-pbsv6kxt5n0nb996a5ncgv6ci4q0mifs95mm6fwo2i.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 937692,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mia2-onfvdxm2akbi4hvcc6twj1jnc1s6ay65pgj7wdallm.jpg",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/mia2-onfvdxm2akbi4hvcc6twj1jnc1s6ay65pgj7wdallm.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 59339,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-content/uploads/elementor/thumbs/stranger2-pc3i7rf4cbd67np95lt5o7pxvflxxqizf9dwfyjwey.png",
+   "file": "site/www.bizsys.com.br/wp-content/uploads/elementor/thumbs/stranger2-pc3i7rf4cbd67np95lt5o7pxvflxxqizf9dwfyjwey.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 1187259,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/css/dist/block-library/style.min.css?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-includes/css/dist/block-library/style.min__q02cd9d81.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 41045,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/css/dist/block-library/theme.min.css?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-includes/css/dist/block-library/theme.min__q02cd9d81.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 1939,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/imagesloaded.min.js?ver=3.2.0",
+   "file": "site/www.bizsys.com.br/wp-includes/js/imagesloaded.min__q8d216917.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 8113,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1",
+   "file": "site/www.bizsys.com.br/wp-includes/js/jquery/jquery-migrate.min__q5e6126f3.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 10056,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp",
+   "file": "site/www.bizsys.com.br/wp-includes/js/jquery/jquery__q451cf490.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 96873,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "jquery",
+    "version": "1.12.4"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4",
+   "file": "site/www.bizsys.com.br/wp-includes/js/jquery/ui/core.min__q390d31ed.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 3929,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4",
+   "file": "site/www.bizsys.com.br/wp-includes/js/jquery/ui/position.min__q390d31ed.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 6438,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/wp-embed.min.js?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-includes/js/wp-embed.min__q02cd9d81.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 1443,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://www.bizsys.com.br/wp-includes/js/wp-emoji-release.min.js?ver=5.3.26",
+   "file": "site/www.bizsys.com.br/wp-includes/js/wp-emoji-release.min__q02cd9d81.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 13849,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "site"
+  },
+  {
+   "url": "https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=auto&ver=5.3.26",
+   "file": "site/fonts.googleapis.com/css__qd059eb69.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 119043,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+   "file": "site/fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBHMdazQ.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 34668,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+   "file": "site/jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT__post480297df.bin",
+   "type": "application/json+protobuf",
+   "resourceType": "xhr",
+   "size": 106,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+   "file": "site/jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT__post7fa284cf.bin",
+   "type": "application/json+protobuf",
+   "resourceType": "xhr",
+   "size": 110,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://ssl.gstatic.com/docs/picker/images/youtube_logo_dark.svg",
+   "file": "site/ssl.gstatic.com/docs/picker/images/youtube_logo_dark.svg",
+   "type": "image/svg+xml",
+   "resourceType": "image",
+   "size": 3238,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.google.com/js/th/YI2XvVwvdBJTNOg4tmE81lkRxYCcxVDASxYzC3ult3w.js",
+   "file": "site/www.google.com/js/th/YI2XvVwvdBJTNOg4tmE81lkRxYCcxVDASxYzC3ult3w.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 63128,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://www.youtube.com/embed/IfXxwk2Nt3k?controls=0&rel=0&playsinline=1&enablejsapi=1&origin=https%3A%2F%2Fwww.bizsys.com.br&widgetid=1&forigin=https%3A%2F%2Fwww.bizsys.com.br%2F&aoriginsup=1&vf=6",
+   "file": "site/www.youtube.com/embed/IfXxwk2Nt3k__q1cfa6ac9.html",
+   "type": "text/html",
+   "resourceType": "document",
+   "size": 157357,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/iframe_api",
+   "file": "site/www.youtube.com/iframe_api.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 993,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/am=AAAAQABj/d=1/excm=base,root/br=1/rs=AGKMywHcutbrkbp0N2d5TwCMmQMw1Eb2yg/m=root,base",
+   "file": "site/www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/am=AAAAQABj/d=1/excm=base,root/br=1/rs=AGKMywHcutbrkbp0N2d5TwCMmQMw1Eb2yg/m=root,base.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 464682,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/ck=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/exm=base,r78Drb,root/excm=base,root/ed=1/br=1/rs=AGKMywE8yt4uqQowDa1RdTm-NbXG3Gn2qA/m=n7eo2",
+   "file": "site/www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/ck=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/exm=base,r78Drb,root/excm=base,root/ed=1/br=1/rs=AGKMywE8yt4uqQowDa1RdTm-NbXG3Gn2qA/m=n7eo2.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 21740,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/ck=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/exm=base,root/excm=base,root/ed=1/br=1/rs=AGKMywE8yt4uqQowDa1RdTm-NbXG3Gn2qA/m=r78Drb",
+   "file": "site/www.youtube.com/s/_/ytembeds/_/js/k=ytembeds.base.en_US.dKMtlNiIBfY.2021.O/ck=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/exm=base,root/excm=base,root/ed=1/br=1/rs=AGKMywE8yt4uqQowDa1RdTm-NbXG3Gn2qA/m=r78Drb.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 941736,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://www.youtube.com/s/_/ytembeds/_/ss/k=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/br=1/rs=AGKMywFYuJLFEvAt25qeLpwSMVYZjL5Ilw/m=root,base",
+   "file": "site/www.youtube.com/s/_/ytembeds/_/ss/k=ytembeds.base.dwAWnvNaGxA.L.W.O/am=AAAAQABj/d=1/br=1/rs=AGKMywFYuJLFEvAt25qeLpwSMVYZjL5Ilw/m=root,base.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 11682,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/cbcfbf2f/player_embed_es6.vflset/pt_BR/base.js",
+   "file": "site/www.youtube.com/s/player/cbcfbf2f/player_embed_es6.vflset/pt_BR/base.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 1629920,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/cbcfbf2f/www-player.css",
+   "file": "site/www.youtube.com/s/player/cbcfbf2f/www-player.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 550424,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/cbcfbf2f/www-widgetapi.vflset/www-widgetapi.js",
+   "file": "site/www.youtube.com/s/player/cbcfbf2f/www-widgetapi.vflset/www-widgetapi.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 27034,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/dce23b30/player_embed_es6.vflset/pt_BR/base.js",
+   "file": "site/www.youtube.com/s/player/dce23b30/player_embed_es6.vflset/pt_BR/base.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 1632390,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/dce23b30/www-player.css",
+   "file": "site/www.youtube.com/s/player/dce23b30/www-player.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 550424,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/s/player/dce23b30/www-widgetapi.vflset/www-widgetapi.js",
+   "file": "site/www.youtube.com/s/player/dce23b30/www-widgetapi.vflset/www-widgetapi.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 27034,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ],
+   "library": {
+    "name": "youtube player",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+   "file": "site/www.youtube.com/youtubei/v1/log_event__qc1bd48af__post7e2dbba8.json",
+   "type": "application/json",
+   "resourceType": "xhr",
+   "size": 28,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+   "file": "site/www.youtube.com/youtubei/v1/log_event__qc1bd48af__postb036263c.json",
+   "type": "application/json",
+   "resourceType": "xhr",
+   "size": 28,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/navigation/resolve_url?prettyPrint=false",
+   "file": "site/www.youtube.com/youtubei/v1/navigation/resolve_url__qb15e901f__postec0938be.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 864,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/next?prettyPrint=false",
+   "file": "site/www.youtube.com/youtubei/v1/next__qb15e901f__post8bae55a6.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 17466,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/next?prettyPrint=false",
+   "file": "site/www.youtube.com/youtubei/v1/next__qb15e901f__postca80e92c.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 12634,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/player?prettyPrint=false",
+   "file": "site/www.youtube.com/youtubei/v1/player__qb15e901f__post341d4fc6.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 3345,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://www.youtube.com/youtubei/v1/player?prettyPrint=false",
+   "file": "site/www.youtube.com/youtubei/v1/player__qb15e901f__postdb941e16.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 3345,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  }
+ ]
+}
