@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { CLIENTS_LIST } from '../data/wpData';
 
 const pageTitle = 'Nossos Clientes';
-const pageDescription = 'Conheça as marcas que inovam conosco. Mais de 80 clientes globais atendidos com tecnologia criativa e engenharia de produto.';
+const pageDescription = 'Algumas das marcas que fazem de tudo para inovar e acreditam que conversar com seu consumidor de forma inovadora é o melhor jeito de aumentar seu poder de venda.';
 
-const metrics = [
-  { value: '15+', label: 'Anos de Inovação' },
-  { value: '60+', label: 'Prêmios Internacionais' },
-  { value: '80+', label: 'Grandes Marcas Atendidas' },
-  { value: '500+', label: 'Projetos Especiais Entregues' },
+const colSize = Math.ceil(CLIENTS_LIST.length / 3);
+const clientCols = [
+  CLIENTS_LIST.slice(0, colSize),
+  CLIENTS_LIST.slice(colSize, colSize * 2),
+  CLIENTS_LIST.slice(colSize * 2),
 ];
 ---
 
@@ -18,370 +18,239 @@ const metrics = [
   description={pageDescription}
   isTransparentHeader={false}
 >
-  <div class="clients-page">
-    <!-- Hero Section -->
-    <section class="clients-hero">
-      <div class="container clients-hero-inner">
-        <span class="section-tag">PARCEIROS</span>
-        <h1 class="clients-main-title">As marcas que inovam conosco.</h1>
-        <p class="clients-manifesto">
+  <div class="clientes-page">
+    <!-- 1. HERO -->
+    <section class="section-clientes-hero" aria-label="Apresentação">
+      <div class="container container-clientes">
+        <h1 class="clientes-headline">As marcas que inovam conosco.</h1>
+        <p class="clientes-subheadline">
           Algumas das marcas que fazem de tudo para inovar e acreditam que conversar com seu consumidor de forma inovadora é o melhor jeito de aumentar seu poder de venda.
         </p>
       </div>
     </section>
 
-    <!-- Métricas de Impacto & Alcance -->
-    <section class="metrics-section">
-      <div class="container">
-        <div class="metrics-grid">
-          {metrics.map((m) => (
-            <div class="metric-card">
-              <span class="metric-value">{m.value}</span>
-              <span class="metric-label">{m.label}</span>
+    <!-- 2. ONDE ESTÃO NOSSOS CLIENTES -->
+    <section class="section-onde-estao" aria-label="Onde Estão Nossos Clientes">
+      <div class="container container-clientes">
+        <h2 class="section-clientes-title">Onde estão nossos clientes</h2>
+        <div class="onde-grid">
+          <div class="onde-card">
+            <h3 class="onde-card-title">Ativações OOH e Praças Públicas</h3>
+            <p class="onde-card-desc">
+              Interações instaladas em locais de altíssimo fluxo nas principais capitais do país: aeroportos, shopping centers e vias públicas de grande circulação.
+            </p>
+          </div>
+          <div class="onde-card">
+            <h3 class="onde-card-title">Plataformas Conectadas & Nuvem</h3>
+            <p class="onde-card-desc">
+              Projetos especiais integrando dados em tempo real, sensores eletrônicos, inteligência artificial e streaming para ativações no Brasil e América Latina.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MARCAS EM 3 COLUNAS (Fiel ao design system do site) -->
+    <section class="section-marcas-grid" aria-label="Lista de Clientes">
+      <div class="container container-clientes">
+        <h2 class="section-clientes-title">Clientes</h2>
+        <div class="marcas-cols-grid">
+          {clientCols.map((col) => (
+            <div class="marcas-col">
+              <ul class="marcas-list">
+                {col.map((client) => (
+                  <li class="marca-item">{client}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Onde estão nossos clientes -->
-    <section class="reach-section">
-      <div class="container reach-inner">
-        <div class="reach-text">
-          <span class="section-tag">ALCANCE GLOBAL</span>
-          <h2 class="reach-title">Onde estão nossos clientes</h2>
-          <p class="reach-description">
-            Com sede em São Paulo e atuação em todo o território nacional e América Latina, a Bizsys desenvolve ativações que operam em aeroportos, shopping centers, festivais, vias públicas de grande circulação, ambientes corporativos e plataformas digitais globais.
+    <!-- 4. CTA FINAL (Fiel ao original) -->
+    <section class="section-clientes-cta" aria-label="Chamada para Contato">
+      <div class="container container-clientes">
+        <div class="cta-box">
+          <p class="cta-manifesto">
+            Além das marcas, existem aqueles que confiam em nosso trabalho para que possamos compartilhar ideias e fazer acontecer.
           </p>
+          <a href="/contato" class="cta-link animated-link">
+            Vamos viabilizar sua ideia? Fale com a gente →
+          </a>
         </div>
-        <div class="reach-features">
-          <div class="reach-feature-card">
-            <h3 class="feature-title">Ativações OOH e Praças Públicas</h3>
-            <p class="feature-text">Interações imersivas instaladas em locais de altíssimo fluxo nas principais capitais do país.</p>
-          </div>
-          <div class="reach-feature-card">
-            <h3 class="feature-title">Soluções Híbridas & Streaming</h3>
-            <p class="feature-text">Projetos conectados com plataformas em nuvem, lives interativas e visões em tempo real.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Grid Completo de Marcas -->
-    <section class="brands-section">
-      <div class="container">
-        <div class="brands-header">
-          <h2 class="brands-title">Marcas Atendidas</h2>
-          <p class="brands-subtitle">
-            Algumas das empresas e agências que escolheram a Bizsys para viabilizar seus maiores desafios criativos.
-          </p>
-        </div>
-
-        <div class="brands-grid">
-          {CLIENTS_LIST.map((client) => (
-            <div class="brand-card">
-              <span class="brand-dot" aria-hidden="true">•</span>
-              <span class="brand-name">{client}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <h2 class="cta-title">Pronto para tirar a sua ideia do papel?</h2>
-        <p class="cta-text">
-          Nossa equipe de engenharia e tecnologia está pronta para analisar seu briefing e construir um protótipo sob medida.
-        </p>
-        <a href="/contato" class="cta-button">
-          Fale com a Bizsys →
-        </a>
       </div>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .clients-page {
-    background-color: var(--color-bg);
+  .clientes-page {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    padding-bottom: 100px;
   }
 
-  /* Hero */
-  .clients-hero {
-    padding: 160px 0 80px;
-    background: radial-gradient(circle at 50% 15%, #151515 0%, #000000 80%);
-    border-bottom: 1px solid var(--color-border);
+  .container-clientes {
+    max-width: 1120px;
   }
 
-  .clients-hero-inner {
-    max-width: 960px;
+  /* 1. HERO */
+  .section-clientes-hero {
+    padding: 160px 0 60px 0;
   }
 
-  .section-tag {
-    display: inline-block;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    font-weight: 400;
-    color: var(--color-text-secondary);
+  .clientes-headline {
+    font-family: var(--font-primary);
+    font-size: clamp(32px, 5.5vw, 72px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -3.5px;
+    color: #ffffff;
     margin-bottom: 24px;
-    text-transform: uppercase;
   }
 
-  .clients-main-title {
-    font-size: clamp(36px, 6vw, 68px);
+  .clientes-subheadline {
+    font-family: var(--font-primary);
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 300;
+    line-height: 34px;
+    color: #656362;
+    max-width: 900px;
+  }
+
+  /* TÍTULOS COMUNS */
+  .section-clientes-title {
+    font-family: var(--font-primary);
+    font-size: clamp(36px, 5vw, 60px);
     font-weight: 300;
     line-height: 1.15;
     letter-spacing: -2.5px;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 36px;
   }
 
-  .clients-manifesto {
-    font-size: clamp(17px, 2vw, 22px);
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-  }
-
-  /* Métricas */
-  .metrics-section {
+  /* 2. ONDE ESTÃO */
+  .section-onde-estao {
     padding: 60px 0;
-    border-bottom: 1px solid var(--color-border);
-    background-color: #050505;
+    border-top: 1px solid var(--color-border);
   }
 
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  @media (min-width: 960px) {
-    .metrics-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-  }
-
-  .metric-card {
-    padding: 24px 20px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .metric-value {
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 300;
-    color: #ffffff;
-    letter-spacing: -1.5px;
-    line-height: 1;
-  }
-
-  .metric-label {
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
-    font-weight: 300;
-  }
-
-  /* Alcance */
-  .reach-section {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--color-border);
-    background-color: var(--color-bg);
-  }
-
-  .reach-inner {
+  .onde-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 32px;
   }
 
-  @media (min-width: 960px) {
-    .reach-inner {
-      grid-template-columns: 1.2fr 1fr;
-      align-items: center;
-      gap: 80px;
+  @media (min-width: 768px) {
+    .onde-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
   }
 
-  .reach-title {
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300;
-    letter-spacing: -1.5px;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-
-  .reach-description {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-  }
-
-  .reach-features {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .reach-feature-card {
-    padding: 28px 24px;
+  .onde-card {
+    padding: 36px 30px;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .feature-title {
-    font-size: 18px;
+  .onde-card-title {
+    font-family: var(--font-primary);
+    font-size: 20px;
     font-weight: 300;
     color: #ffffff;
-    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
-  .feature-text {
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
-
-  /* Brands Grid */
-  .brands-section {
-    padding: 100px 0;
-    background-color: #030303;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .brands-header {
-    margin-bottom: 50px;
-    max-width: 800px;
-  }
-
-  .brands-title {
-    font-size: clamp(32px, 4vw, 48px);
+  .onde-card-desc {
+    font-family: var(--font-primary);
+    font-size: 15px;
     font-weight: 300;
-    letter-spacing: -1.5px;
-    color: #ffffff;
-    margin-bottom: 12px;
+    line-height: 24px;
+    color: #656362;
   }
 
-  .brands-subtitle {
-    font-size: 16px;
-    color: var(--color-text-secondary);
+  /* 3. MARCAS */
+  .section-marcas-grid {
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
   }
 
-  .brands-grid {
+  .marcas-cols-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   @media (min-width: 640px) {
-    .brands-grid {
+    .marcas-cols-grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
     }
   }
 
-  @media (min-width: 1024px) {
-    .brands-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-  }
-
-  .brand-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 22px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
-  }
-
-  .brand-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.35);
-    background-color: var(--color-surface-hover);
-  }
-
-  .brand-dot {
-    color: var(--color-text-secondary);
-    font-size: 16px;
-  }
-
-  .brand-name {
-    font-size: 15px;
-    font-weight: 300;
-    color: #ffffff;
-    letter-spacing: 0.02em;
-  }
-
-  /* CTA */
-  .cta-section {
-    padding: 120px 0;
-    background: radial-gradient(circle at 50% 50%, #111111 0%, #000000 80%);
-    text-align: center;
-  }
-
-  .cta-inner {
-    max-width: 760px;
-    margin: 0 auto;
+  .marcas-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    gap: 6px;
   }
 
-  .cta-title {
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight: 300;
-    letter-spacing: -2px;
-    line-height: 1.15;
-    color: #ffffff;
-  }
-
-  .cta-text {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-  }
-
-  .cta-button {
-    margin-top: 12px;
-    display: inline-block;
-    padding: 16px 40px;
-    background-color: #ffffff;
-    color: #000000;
+  .marca-item {
+    font-family: var(--font-primary);
     font-size: 15px;
-    letter-spacing: 0.05em;
-    font-weight: 400;
-    border-radius: 4px;
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    font-weight: 300;
+    line-height: 24px;
+    color: #ffffff;
+    opacity: 0.85;
+    transition: opacity var(--transition-fast);
   }
 
-  .cta-button:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+  .marca-item:hover {
+    opacity: 1;
+  }
+
+  /* 4. CTA */
+  .section-clientes-cta {
+    padding: 80px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+  }
+
+  .cta-manifesto {
+    font-family: var(--font-primary);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .cta-link {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+    align-self: flex-start;
   }
 
   @media (max-width: 767px) {
-    .clients-hero {
-      padding: 120px 0 60px;
+    .section-clientes-hero {
+      padding: 120px 0 40px 0;
     }
-    .metrics-section,
-    .reach-section,
-    .brands-section,
-    .cta-section {
-      padding: 60px 0;
+    .clientes-headline {
+      letter-spacing: -1.5px;
     }
   }
 </style>
