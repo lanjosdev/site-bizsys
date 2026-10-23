@@ -19,11 +19,11 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 
 ## 🚀 Fases do Projeto
 
-### [ ] Fase 0: Inicialização, Setup e Extração Analítica
-- [ ] Inicialização do repositório Git e `.gitignore`
-- [ ] Extração de metadados completos da WP REST API (`data/raw/pages.json`, `data/raw/posts.json`, `data/raw/taxonomies.json`)
-- [ ] Mapeamento e análise de dependências: identificar quais posts/cases são linkados nas páginas institucionais prioritárias (`data/linked_posts.json`)
-- [ ] Incorporação do baseline visual local (`D:\Downloads\bizsys.com.br`) com CSS compilado, fontes WOFF/WOFF2 e assets da Home
+### [x] Fase 0: Inicialização, Setup e Extração Analítica
+- [x] Inicialização do repositório Git e `.gitignore`
+- [x] Extração de metadados completos da WP REST API (`data/raw/pages.json`, `data/raw/posts.json`, `data/raw/taxonomies.json`)
+- [x] Mapeamento e análise de dependências: identificar quais posts/cases são linkados nas páginas institucionais prioritárias (`data/linked_posts.json` - 15 posts identificados)
+- [x] Incorporação do baseline visual local (`baseline/`) com CSS compilado, fontes WOFF/WOFF2 e assets da Home
 
 ### [ ] Fase 1: Astro Shell & Design System
 - [ ] Inicialização da estrutura Astro (`output: 'static'`)
