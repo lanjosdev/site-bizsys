@@ -1,0 +1,882 @@
+[
+  {
+    "id": 68,
+    "count": 4,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/ar/",
+    "name": "AR",
+    "slug": "ar",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/68"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=68"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/aromatizador/",
+    "name": "Aromatizador",
+    "slug": "aromatizador",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/71"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=71"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 64,
+    "count": 23,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/cenografia/",
+    "name": "Cenografia",
+    "slug": "cenografia",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/64"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=64"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 63,
+    "count": 5,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/ia/",
+    "name": "IA",
+    "slug": "ia",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/63"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=63"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 65,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/impressao-lenticular/",
+    "name": "Impressão Lenticular",
+    "slug": "impressao-lenticular",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/65"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=65"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 66,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/led/",
+    "name": "LED",
+    "slug": "led",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/66"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=66"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "count": 3,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/lives/",
+    "name": "Lives",
+    "slug": "lives",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/72"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=72"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "count": 1,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/midia/",
+    "name": "Mídia",
+    "slug": "midia",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/8"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=8"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/na-bizys/",
+    "name": "Na BIzys",
+    "slug": "na-bizys",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/28"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=28"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 62,
+    "count": 42,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/news/",
+    "name": "News",
+    "slug": "news",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/62"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=62"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "count": 48,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/ooh/",
+    "name": "OOH",
+    "slug": "ooh",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/29"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=29"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/player-de-audio/",
+    "name": "Player de Áudio",
+    "slug": "player-de-audio",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/73"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=73"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 60,
+    "count": 16,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/produto/",
+    "name": "Produto",
+    "slug": "produto",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/60"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=60"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "count": 0,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/projeto-especial/",
+    "name": "Projeto Especial",
+    "slug": "projeto-especial",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/31"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=31"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 61,
+    "count": 44,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/projetos-especiais/",
+    "name": "Projetos Especiais",
+    "slug": "projetos-especiais",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/61"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=61"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "count": 1,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/reconhecimento-de-voz/",
+    "name": "Reconhecimento de Voz",
+    "slug": "reconhecimento-de-voz",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/77"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=77"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 67,
+    "count": 7,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/sampling/",
+    "name": "Sampling",
+    "slug": "sampling",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/67"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=67"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "count": 0,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/sem-categoria/",
+    "name": "Sem categoria",
+    "slug": "sem-categoria",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/1"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 69,
+    "count": 2,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/sensor-de-movimento/",
+    "name": "Sensor de Movimento",
+    "slug": "sensor-de-movimento",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/69"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=69"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "count": 0,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/software/",
+    "name": "Software",
+    "slug": "software",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/32"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=32"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "count": 1,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/vr/",
+    "name": "VR",
+    "slug": "vr",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/76"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=76"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "count": 7,
+    "description": "",
+    "link": "https://www.bizsys.com.br/category/webapp/",
+    "name": "WebApp",
+    "slug": "webapp",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories/70"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://www.bizsys.com.br/wp-json/wp/v2/posts?categories=70"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
