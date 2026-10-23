@@ -1,0 +1,574 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Contato';
+const pageDescription = 'Entre em contato com a Bizsys. Viabilizamos projetos especiais unindo criatividade, tecnologia e engenharia.';
+
+// Web3Forms: suporta variável de ambiente ou fallback para testes
+const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  isTransparentHeader={false}
+>
+  <div class="contact-page">
+    <!-- Header / Apresentação -->
+    <section class="contact-header-section">
+      <div class="container contact-header-inner">
+        <span class="section-tag">FALE CONOSCO</span>
+        <h1 class="contact-main-title">
+          Para mais infos, colaborações e ideias, você pode nos encontrar no:
+        </h1>
+      </div>
+    </section>
+
+    <!-- Cards de Informações Rápidas -->
+    <section class="contact-info-section">
+      <div class="container contact-info-grid">
+        <!-- Email -->
+        <div class="info-card">
+          <span class="info-label">E-MAIL</span>
+          <h2 class="info-value">
+            <a href="mailto:orcamento@bizsys.com.br" class="animated-link">
+              orcamento@bizsys.com.br
+            </a>
+          </h2>
+          <p class="info-note">Ou escreva para hello@bizsys.com.br</p>
+        </div>
+
+        <!-- Telefone -->
+        <div class="info-card">
+          <span class="info-label">TELEFONE</span>
+          <h2 class="info-value">
+            <a href="tel:+551132882121" class="animated-link">
+              +55 (11) 3288-2121
+            </a>
+          </h2>
+          <p class="info-note">Segunda a Sexta, das 9h às 18h</p>
+        </div>
+
+        <!-- Endereço -->
+        <div class="info-card">
+          <span class="info-label">ENDEREÇO</span>
+          <address class="info-value address-text">
+            Rua Hassib Mofarrej, 200<br />
+            Vila Leopoldina – São Paulo, SP
+          </address>
+          <a
+            href="https://maps.google.com/?q=Rua+Hassib+Mofarrej+200+Vila+Leopoldina+Sao+Paulo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-link animated-link"
+          >
+            Ver no Google Maps →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulário Web3Forms -->
+    <section class="contact-form-section">
+      <div class="container form-container">
+        <div class="form-header">
+          <h2 class="form-section-title">
+            Ou nos contate preenchendo o formulário abaixo:
+          </h2>
+          <p class="form-section-desc">
+            Conte-nos sobre a sua ideia ou desafio técnico. Retornaremos com agilidade.
+          </p>
+        </div>
+
+        <form
+          id="web3forms-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="bizsys-form"
+        >
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value={web3formsAccessKey} />
+          <input type="hidden" name="subject" value="Novo Contato via Site Bizsys" />
+          <input type="hidden" name="from_name" value="Bizsys Website" />
+
+          <!-- Campo Honeypot Anti-Spam (invisível para humanos) -->
+          <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" />
+
+          <div class="form-grid">
+            <!-- Nome -->
+            <div class="form-group">
+              <label for="form-name" class="form-label">Nome Completo *</label>
+              <input
+                type="text"
+                id="form-name"
+                name="name"
+                required
+                placeholder="Seu nome ou da sua empresa"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="form-email" class="form-label">E-mail Corporativo *</label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                required
+                placeholder="nome@empresa.com.br"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Telefone -->
+            <div class="form-group">
+              <label for="form-phone" class="form-label">Telefone / WhatsApp</label>
+              <input
+                type="tel"
+                id="form-phone"
+                name="phone"
+                placeholder="(11) 99999-9999"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Assunto -->
+            <div class="form-group">
+              <label for="form-subject" class="form-label">Tipo de Projeto</label>
+              <select id="form-subject" name="project_type" class="form-input form-select">
+                <option value="Projetos Especiais">Projetos Especiais & Inovação</option>
+                <option value="Cenografia">Cenografia & Grandes Estruturas</option>
+                <option value="OOH / Interatividade">OOH / Interatividade / Telas</option>
+                <option value="Software / App / IA">Software / WebApp / IA</option>
+                <option value="Outro">Outro assunto</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Mensagem -->
+          <div class="form-group full-width">
+            <label for="form-message" class="form-label">Mensagem ou Detalhes da Ideia *</label>
+            <textarea
+              id="form-message"
+              name="message"
+              rows="6"
+              required
+              placeholder="Explique o contexto, prazo previsto e objetivos da ativação..."
+              class="form-input form-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Feedback Status Box -->
+          <div id="form-status" class="form-status-message" aria-live="polite"></div>
+
+          <!-- Botão de Envio -->
+          <div class="form-actions">
+            <button type="submit" id="submit-btn" class="submit-button">
+              <span class="btn-text">Enviar Mensagem</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Oportunidades & Banco de Talentos -->
+    <section class="opportunities-section">
+      <div class="container opportunities-inner">
+        <div class="opportunities-card">
+          <span class="section-tag">CARREIRAS</span>
+          <h2 class="opportunities-title">Oportunidades</h2>
+          <p class="opportunities-desc">
+            No momento não temos vagas em aberto, mas se você quiser fazer parte do nosso banco de talentos, envie seu currículo e portfólio para o e-mail:
+            <a href="mailto:orcamento@bizsys.com.br" class="email-highlight animated-link">
+              orcamento@bizsys.com.br
+            </a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    background-color: var(--color-bg);
+  }
+
+  /* Header */
+  .contact-header-section {
+    padding: 160px 0 80px;
+    background: radial-gradient(circle at 50% 10%, #151515 0%, #000000 80%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact-header-inner {
+    max-width: 960px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .contact-main-title {
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -2px;
+    color: #ffffff;
+  }
+
+  /* Info Cards */
+  .contact-info-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .contact-info-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .info-card {
+    padding: 36px 30px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .info-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+
+  .info-value {
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  .address-text {
+    font-style: normal;
+  }
+
+  .info-note {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: auto;
+  }
+
+  .map-link {
+    font-size: 13px;
+    color: #ffffff;
+    margin-top: auto;
+  }
+
+  /* Form Section */
+  .contact-form-section {
+    padding: 100px 0;
+    background-color: #030303;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .form-container {
+    max-width: 860px;
+  }
+
+  .form-header {
+    margin-bottom: 50px;
+    text-align: left;
+  }
+
+  .form-section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+
+  .form-section-desc {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+  }
+
+  .bizsys-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .form-label {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    font-weight: 300;
+  }
+
+  .form-input {
+    width: 100%;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 14px 16px;
+    color: #ffffff;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .form-input:focus {
+    border-color: #ffffff;
+    background-color: #121212;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .form-select {
+    cursor: pointer;
+  }
+
+  .form-select option {
+    background-color: #111111;
+    color: #ffffff;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.5;
+  }
+
+  /* Botão de Envio */
+  .form-actions {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .submit-button {
+    position: relative;
+    padding: 16px 40px;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .submit-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-top-color: #000000;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+  }
+
+  .submit-button.is-loading .btn-spinner {
+    display: inline-block;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Mensagem de Status */
+  .form-status-message {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+  }
+
+  .form-status-message.success {
+    padding: 16px 20px;
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+  }
+
+  .form-status-message.error {
+    padding: 16px 20px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+  }
+
+  /* Oportunidades */
+  .opportunities-section {
+    padding: 100px 0;
+    background-color: var(--color-bg);
+  }
+
+  .opportunities-inner {
+    max-width: 860px;
+  }
+
+  .opportunities-card {
+    padding: 48px 40px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .opportunities-title {
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .opportunities-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .email-highlight {
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  @media (max-width: 767px) {
+    .contact-header-section {
+      padding: 120px 0 60px;
+    }
+    .contact-info-section,
+    .contact-form-section,
+    .opportunities-section {
+      padding: 60px 0;
+    }
+    .opportunities-card {
+      padding: 32px 24px;
+    }
+  }
+</style>
+
+<script>
+  function setupWeb3Forms() {
+    const form = document.getElementById('web3forms-form') as HTMLFormElement | null;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    const statusBox = document.getElementById('form-status');
+
+    if (!form || !submitBtn || !statusBox) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Desabilitar botão e mostrar loading
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+      statusBox.className = 'form-status-message';
+      statusBox.textContent = '';
+
+      const formData = new FormData(form);
+      const jsonObject = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(jsonObject),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          statusBox.className = 'form-status-message success';
+          statusBox.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+          form.reset();
+        } else {
+          statusBox.className = 'form-status-message error';
+          statusBox.textContent =
+            result.message ||
+            'Não foi possível enviar a mensagem no momento. Por favor, envie diretamente para orcamento@bizsys.com.br.';
+        }
+      } catch (err) {
+        statusBox.className = 'form-status-message error';
+        statusBox.textContent =
+          'Erro de conexão ao enviar a mensagem. Por favor, tente novamente ou entre em contato via orcamento@bizsys.com.br.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('is-loading');
+      }
+    });
+  }
+
+  setupWeb3Forms();
+  document.addEventListener('astro:after-swap', setupWeb3Forms);
+</script>

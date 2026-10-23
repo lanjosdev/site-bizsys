@@ -1,78 +1,436 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { FEATURED_CASES, getPageById } from '../data/wpData';
+
+// Consumindo metadados de Page ID 8 (bizsys / home)
+const pageData = getPageById(8);
+const pageTitle = 'Viabilizando ideias';
+const pageDescription = 'Bizsys é uma produtora sediada em São Paulo, que há mais de 15 anos projeta experiências que unem marcas e público através da criatividade, tecnologia, engenharia de produto e projetos especiais.';
+
+const categories = [
+  { name: 'OOH', slug: 'ooh' },
+  { name: 'Web App', slug: 'webapp' },
+  { name: 'Lives', slug: 'lives' },
+  { name: 'AR', slug: 'ar' },
+  { name: 'Sensor de Movimento', slug: 'sensor-de-movimento' },
+  { name: 'Cenografia', slug: 'cenografia' },
+  { name: 'IA', slug: 'ia' },
+  { name: 'Player de Áudio', slug: 'player-de-audio' },
+  { name: 'LED', slug: 'led' },
+  { name: 'Impressão Lenticular', slug: 'impressao-lenticular' },
+  { name: 'Aromatizador', slug: 'aromatizador' },
+  { name: 'Projetos Especiais', slug: 'projetos-especiais' },
+  { name: 'Produto', slug: 'produto' },
+  { name: 'Sampling', slug: 'sampling' },
+];
 ---
 
-<BaseLayout title="Viabilizando ideias">
-  <section class="hero-shell">
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  isTransparentHeader={true}
+>
+  <!-- 1. Hero Section com vídeo de fundo fiel ao baseline -->
+  <section class="home-hero" aria-label="Apresentação Bizsys">
+    <div class="video-background-wrap" aria-hidden="true">
+      <iframe
+        id="hero-youtube-video"
+        class="video-iframe"
+        src="https://www.youtube.com/embed/IfXxwk2Nt3k?autoplay=1&mute=1&controls=0&loop=1&playlist=IfXxwk2Nt3k&playsinline=1&enablejsapi=1&origin=https%3A%2F%2Fwww.bizsys.com.br"
+        title="Bizsys Showreel"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        loading="eager"
+      ></iframe>
+      <div class="hero-overlay"></div>
+    </div>
+
     <div class="hero-content container">
-      <h1 class="hero-title">BIZSYS</h1>
-      <p class="hero-subtitle">Viabilizando ideias através da criatividade, tecnologia e engenharia de produto.</p>
-      <div class="hero-status">
-        <span class="status-badge">Fase 1 Concluída</span>
-        <p class="status-text">Astro Shell, BaseLayout, Design System, Header responsivo e Footer configurados.</p>
+      <h1 class="hero-headline">Tecnologia e Criatividade</h1>
+    </div>
+  </section>
+
+  <!-- 2. Seção Manifesto -->
+  <section class="manifesto-section" aria-label="Sobre a Bizsys">
+    <div class="container manifesto-inner">
+      <p class="manifesto-text">
+        Bizsys é uma produtora sediada em São Paulo, que há mais de 15 anos projeta experiências que unem marcas e público através da criatividade, tecnologia, engenharia de produto e projetos especiais.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. Seção WORK (Destaques) -->
+  <section class="work-section" aria-label="Projetos em Destaque">
+    <div class="container work-header">
+      <h2 class="work-title">WORK</h2>
+    </div>
+
+    <div class="container work-grid">
+      {FEATURED_CASES.map((item) => (
+        <article class="work-card">
+          <a href="/nosso-projetos" class="work-card-link" aria-label={`Ver case ${item.title} para ${item.client}`}>
+            <div class="work-thumb-wrapper">
+              <img
+                src={item.image}
+                alt={`${item.title} - ${item.client}`}
+                width="720"
+                height="405"
+                class="work-thumb"
+                loading="lazy"
+              />
+              <div class="work-badge">{item.category}</div>
+            </div>
+            <div class="work-info">
+              <h3 class="work-case-title">{item.title}</h3>
+              <p class="work-case-client">{item.client}</p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. Nuvem de Categorias -->
+  <section class="categories-section" aria-label="Navegue por Categoria">
+    <div class="container categories-inner">
+      <p class="categories-label">Ou navegue por categoria</p>
+      <div class="categories-tags">
+        {categories.map((cat) => (
+          <a
+            href={`/nosso-projetos?categoria=${cat.slug}`}
+            class="category-tag animated-link"
+          >
+            {cat.name}
+          </a>
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- 5. Banner de Reconhecimento e Prêmios -->
+  <section class="awards-banner" aria-label="Reconhecimento e Premiações">
+    <div class="container awards-banner-inner">
+      <p class="awards-statement">Projetos reconhecidos com 60 Prêmios de excelência.</p>
+      <a href="/sobre-nos#premios" class="awards-cta animated-link">
+        Cases Premiados →
+      </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .hero-shell {
-    min-height: 80vh;
+  /* Hero Section */
+  .home-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    padding: 120px 24px 60px;
-    background: radial-gradient(circle at 50% 30%, #151515 0%, #000000 70%);
+    padding-bottom: 60px;
+    overflow: hidden;
+    background-color: #000000;
+  }
+
+  .video-background-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    min-width: 177.77vh; /* 16:9 ratio */
+    min-height: 56.25vw;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border: none;
+    transform: scale(1.15); /* Elimina eventuais bordas pretas do player */
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.85) 85%);
+    z-index: 2;
   }
 
   .hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
     text-align: center;
-    max-width: 800px;
+  }
+
+  .hero-headline {
+    font-size: clamp(48px, 8vw, 108px);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -4.5px;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 767px) {
+    .home-hero {
+      min-height: 80vh;
+      padding-bottom: 40px;
+    }
+    .hero-headline {
+      font-size: clamp(36px, 10vw, 56px);
+      letter-spacing: -2.5px;
+      text-align: left;
+    }
+  }
+
+  /* Manifesto Section */
+  .manifesto-section {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .manifesto-inner {
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .manifesto-text {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 767px) {
+    .manifesto-section {
+      padding: 60px 0 50px;
+    }
+    .manifesto-inner {
+      text-align: left;
+    }
+    .manifesto-text {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+  }
+
+  /* WORK Section */
+  .work-section {
+    padding: 80px 0 60px;
+    background-color: var(--color-bg);
+  }
+
+  .work-header {
+    margin-bottom: 40px;
+  }
+
+  .work-title {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 100;
+    letter-spacing: -2.5px;
+    color: #ffffff;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .work-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal);
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .work-card-link {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .work-thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #111111;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+  }
+
+  .work-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .work-card:hover .work-thumb {
+    transform: scale(1.05);
+  }
+
+  .work-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+
+  .work-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .work-case-title {
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .work-case-client {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+  }
+
+  /* Nuvem de Categorias */
+  .categories-section {
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background-color: #050505;
+  }
+
+  .categories-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 24px;
   }
 
-  .hero-title {
-    font-size: clamp(48px, 8vw, 96px);
-    font-weight: 300;
-    letter-spacing: -0.04em;
-    color: var(--color-text);
-  }
-
-  .hero-subtitle {
-    font-size: clamp(18px, 2.5vw, 24px);
+  .categories-label {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--color-text-secondary);
-    max-width: 650px;
-    line-height: 1.5;
   }
 
-  .hero-status {
-    margin-top: 20px;
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
+  .categories-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    max-width: 1000px;
+  }
+
+  .category-tag {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    padding: 4px 0;
+  }
+
+  @media (max-width: 767px) {
+    .categories-inner {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .categories-tags {
+      justify-content: flex-start;
+      gap: 12px 18px;
+    }
+  }
+
+  /* Awards Banner */
+  .awards-banner {
+    padding: 100px 0 120px;
+    background-color: var(--color-bg);
+    text-align: center;
+  }
+
+  .awards-banner-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 32px;
   }
 
-  .status-badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    color: var(--color-text);
+  .awards-statement {
+    font-size: clamp(28px, 4.5vw, 60px);
+    font-weight: 300;
+    letter-spacing: -3.5px;
+    line-height: 1.15;
+    color: #ffffff;
+    max-width: 900px;
   }
 
-  .status-text {
-    font-size: 14px;
-    color: var(--color-text-secondary);
+  .awards-cta {
+    font-size: clamp(32px, 5.5vw, 72px);
+    font-weight: 300;
+    letter-spacing: -2.5px;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  @media (max-width: 767px) {
+    .awards-banner {
+      padding: 60px 0 80px;
+      text-align: left;
+    }
+    .awards-banner-inner {
+      align-items: flex-start;
+    }
+    .awards-statement {
+      font-size: 28px;
+      letter-spacing: -1.5px;
+    }
+    .awards-cta {
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
   }
 </style>

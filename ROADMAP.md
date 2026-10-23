@@ -32,12 +32,12 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [x] Componente `Header.astro` com navegação idêntica e menu mobile responsivo
 - [x] Componente `Footer.astro` com links institucionais e redes sociais
 
-### [ ] Fase 2: Páginas Institucionais Prioritárias
-- [ ] `src/pages/index.astro`: Home com hero estático leve e seções fiéis
-- [ ] `src/pages/sobre-nos.astro`: Página Sobre Nós
-- [ ] `src/pages/contato.astro`: Página de Contato com formulário Web3Forms integrado
-- [ ] `src/pages/nosso-projetos/index.astro`: Portfólio com grid de projetos
-- [ ] `src/pages/nossos-clientes.astro`: Página de Clientes
+### [x] Fase 2: Páginas Institucionais Prioritárias
+- [x] `src/pages/index.astro`: Home com hero estático leve e seções fiéis
+- [x] `src/pages/sobre-nos.astro`: Página Sobre Nós
+- [x] `src/pages/contato.astro`: Página de Contato com formulário Web3Forms integrado
+- [x] `src/pages/nosso-projetos/index.astro`: Portfólio com grid de projetos
+- [x] `src/pages/nossos-clientes.astro`: Página de Clientes
 
 ### [ ] Fase 3: Artigos Prioritários Conectados
 - [ ] Setup de Content Collections (`src/content/config.ts`)
