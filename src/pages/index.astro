@@ -83,20 +83,20 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     <section class="section-categories" aria-label="Categorias de Atuação">
       <div class="container categories-container">
         <div class="categories-text-wrap">
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=ooh">OOH</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=webapp"> Web App</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=lives">Lives</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=ar">AR</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=sensor-de-movimento">Sensor de Movimento</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=cenografia">Cenografia</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=ia">IA</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=player-de-audio">Player de Áudio</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=led">LED</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=impressao-lenticular">Impressão Lenticular</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=aromatizador">Aromatizador</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=projetos-especiais">Projetos Especiais</a>
-          <a class="cat-link is-white" href="/nosso-projetos?categoria=produto">Produto</a>
-          <a class="cat-link is-gray" href="/nosso-projetos?categoria=sampling">Sampling</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=ooh">OOH</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=webapp">Web App</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=lives">Lives</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=ar">AR</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=sensor-de-movimento">Sensor<span class="space-mobile"> </span><br class="br-desktop" />de Movimento</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=cenografia">Cenografia</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=ia">IA</a><br class="br-desktop" /><span class="space-mobile"> </span>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=player-de-audio">Player de Áudio</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=led">LED</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=impressao-lenticular">Impressão<span class="space-mobile"> </span><br class="br-desktop" />Lenticular</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=aromatizador">Aromatizador</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=projetos-especiais">Projetos<span class="space-mobile"> </span><br class="br-desktop" />Especiais</a>
+          <a class="cat-link menu2 is-white" href="/nosso-projetos?categoria=produto">Produto</a>
+          <a class="cat-link menu2 is-gray" href="/nosso-projetos?categoria=sampling">Sampling</a>
         </div>
       </div>
     </section>
@@ -107,7 +107,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
         <p class="awards-title">
           Projetos reconhecidos com<br />
           60 Prêmios de excelência.<br />
-          <a class="awards-link animated-link" href="/sobre-nos#premios">Cases Premiados →</a>
+          <a class="awards-link premiosLink animated-link" href="/sobre-nos#premios">Cases Premiados →</a>
         </p>
       </div>
     </section>
@@ -227,7 +227,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
       line-height: 22px;
     }
     .br-desktop {
-      display: inline;
+      display: none;
     }
   }
 
@@ -323,13 +323,17 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   /* 4. NUVEM DE CATEGORIAS 72px (elementor-element-a2e2c71 & 9ae6be3) */
   .section-categories {
     background-color: #000000;
-    padding: 80px 0;
+    padding: 150px 0;
     position: relative;
     z-index: 10;
   }
 
   .categories-container {
     max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .categories-text-wrap {
@@ -339,25 +343,34 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     line-height: 80.64px;
     letter-spacing: -4.5px;
     word-spacing: 0.05em;
+    text-align: left;
   }
 
-  .cat-link {
+  .cat-link,
+  .menu2 {
     display: inline;
     text-decoration: none;
-    transition: color var(--transition-fast), opacity var(--transition-fast);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-fast);
   }
 
-  .cat-link.is-white {
+  .cat-link.is-white,
+  .menu2.is-white {
     color: #ffffff;
   }
 
-  .cat-link.is-gray {
+  .cat-link.is-gray,
+  .menu2.is-gray {
     color: #656362;
   }
 
-  .cat-link:hover {
-    color: #ffffff;
-    opacity: 0.75;
+  .cat-link:hover,
+  .menu2:hover {
+    border-bottom: 1px solid #656362;
+  }
+
+  .space-mobile {
+    display: none;
   }
 
   @media (max-width: 767px) {
@@ -368,17 +381,25 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
       font-size: 32px;
       line-height: 38.4px;
       letter-spacing: 0.2px;
+      word-spacing: normal;
+    }
+    .space-mobile {
+      display: inline;
     }
   }
 
   /* 5. BANNER DE PRÊMIOS 60px (elementor-element-a8576c5 & ed5b2c4) */
   .section-awards {
     background-color: #000000;
-    min-height: 80vh;
+    background-image: url('/images/awards-bg.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 0;
+    padding: 100px 0;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -386,6 +407,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
 
   .awards-container {
     max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: relative;
+    z-index: 2;
   }
 
   .awards-title {
@@ -398,23 +425,47 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     margin: 0;
   }
 
-  .awards-link {
+  .awards-link,
+  .premiosLink {
+    position: relative;
+    display: inline-block;
     color: #ffffff;
     text-decoration: none;
-    display: inline-block;
     padding-bottom: 4px;
+  }
+
+  .awards-link::before,
+  .premiosLink::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 2px;
+    left: 0;
+    background-color: #ffffff;
+    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  }
+
+  .awards-link:hover::before,
+  .premiosLink:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
   }
 
   @media (max-width: 767px) {
     .section-awards {
-      min-height: auto;
+      min-height: 70vh;
+      background-position: top center;
       padding: 60px 0;
       text-align: left;
     }
     .awards-title {
-      font-size: 40px;
-      line-height: 48px;
-      letter-spacing: -2px;
+      font-size: 36px;
+      line-height: 44px;
+      letter-spacing: -1.5px;
     }
   }
 
