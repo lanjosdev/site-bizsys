@@ -25,12 +25,12 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [x] Mapeamento e análise de dependências: identificar quais posts/cases são linkados nas páginas institucionais prioritárias (`data/linked_posts.json` - 15 posts identificados)
 - [x] Incorporação do baseline visual local (`baseline/`) com CSS compilado, fontes WOFF/WOFF2 e assets da Home
 
-### [ ] Fase 1: Astro Shell & Design System
-- [ ] Inicialização da estrutura Astro (`output: 'static'`)
-- [ ] Configuração das fontes locais e variáveis globais de CSS
-- [ ] Implementação de `BaseLayout.astro` (metadados, OpenGraph, viewport)
-- [ ] Componente `Header.astro` com navegação idêntica e menu mobile responsivo
-- [ ] Componente `Footer.astro` com links institucionais e redes sociais
+### [x] Fase 1: Astro Shell & Design System
+- [x] Inicialização da estrutura Astro (`output: 'static'`)
+- [x] Configuração das fontes locais e variáveis globais de CSS
+- [x] Implementação de `BaseLayout.astro` (metadados, OpenGraph, viewport)
+- [x] Componente `Header.astro` com navegação idêntica e menu mobile responsivo
+- [x] Componente `Footer.astro` com links institucionais e redes sociais
 
 ### [ ] Fase 2: Páginas Institucionais Prioritárias
 - [ ] `src/pages/index.astro`: Home com hero estático leve e seções fiéis

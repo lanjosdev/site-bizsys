@@ -1,0 +1,22 @@
+{
+  "name": "site-bizsys",
+  "version": "1.0.0",
+  "description": "Migração estática do site Bizsys para Astro",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [
+    "bizsys",
+    "astro",
+    "static"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.4.2"
+  }
+}

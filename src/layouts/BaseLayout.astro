@@ -1,0 +1,91 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  isTransparentHeader?: boolean;
+}
+
+const {
+  title = 'Viabilizando ideias',
+  description = 'Desenvolvemos soluções criativas usando nossa expertise, focando em conectar marcas a seus consumidores, gerando engajamento e proximidade.',
+  image = '/images/logo.png',
+  canonicalUrl,
+  isTransparentHeader = true,
+} = Astro.props;
+
+const siteUrl = 'https://www.bizsys.com.br';
+const fullTitle = title.includes('Bizsys') ? title : `Bizsys | ${title}`;
+const pathname = Astro.url.pathname;
+const canonical = canonicalUrl || `${siteUrl}${pathname}`;
+const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicons fiéis -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- SEO Primário -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bizsys" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageUrl} />
+
+    <!-- Preload da fonte principal Good Sans -->
+    <link
+      rel="preload"
+      href="/fonts/GoodSans-Light.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only">Pular para o conteúdo principal</a>
+
+    <Header currentPath={pathname} isTransparent={isTransparentHeader} />
+
+    <main id="main" class="site-main">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .site-main {
+    flex: 1;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+  }
+</style>

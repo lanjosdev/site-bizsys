@@ -1,0 +1,232 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="site-footer" class:list={['site-footer', className]} role="contentinfo">
+  <div class="footer-inner container">
+    <!-- Coluna 1: Informações Institucionais & Contato -->
+    <div class="footer-col footer-col-info">
+      <p class="footer-copyright">©{currentYear} BIZSYS</p>
+      <address class="footer-address">
+        Rua Hassib Mofarref, 200<br />
+        Vila Leopoldina – São Paulo
+      </address>
+      <p class="footer-phone">
+        <a href="tel:+551132882121">+55 (11) 3288-2121</a>
+      </p>
+    </div>
+
+    <!-- Coluna 2: Navegação Institucional -->
+    <div class="footer-col footer-col-nav">
+      <ul class="footer-nav-list">
+        <li><a href="/" class="animated-link">Home</a></li>
+        <li><a href="/sobre-nos" class="animated-link">Sobre Nós</a></li>
+        <li><a href="/nosso-projetos" class="animated-link">Portfólio</a></li>
+        <li><a href="/nossos-clientes" class="animated-link">Nossos Clientes</a></li>
+        <li><a href="/contato" class="animated-link">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3: Redes Sociais -->
+    <div class="footer-col footer-col-social">
+      <ul class="footer-social-list">
+        <li>
+          <a
+            href="https://www.instagram.com/_bizsys/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="animated-link"
+          >
+            INSTAGRAM
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://facebook.com/bizsystech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="animated-link"
+          >
+            FACEBOOK
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://br.linkedin.com/company/bizsys"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="animated-link"
+          >
+            LINKEDIN
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Botão Voltar ao Topo -->
+  <button type="button" id="scroll-top" class="scroll-top" aria-label="Voltar ao topo da página">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding: 80px 0 60px 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 2fr 1fr 1fr;
+      align-items: start;
+      gap: 60px;
+    }
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Info / Endereço */
+  .footer-copyright {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    color: var(--color-text);
+  }
+
+  .footer-address {
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-phone a {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-phone a:hover {
+    color: var(--color-text);
+  }
+
+  /* Links institucionais */
+  .footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-list a {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-nav-list a:hover {
+    color: var(--color-text);
+  }
+
+  /* Redes Sociais */
+  .footer-col-social {
+    text-align: left;
+  }
+
+  @media (min-width: 768px) {
+    .footer-col-social {
+      text-align: right;
+    }
+  }
+
+  .footer-social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-social-list a {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    color: var(--color-text);
+  }
+
+  /* Scroll to top */
+  .scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(20, 20, 20, 0.85);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal), background-color var(--transition-fast);
+    z-index: 900;
+  }
+
+  .scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .scroll-top:hover {
+    background-color: rgba(40, 40, 40, 0.95);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+</style>
+
+<script>
+  function setupScrollTop() {
+    const scrollBtn = document.getElementById('scroll-top');
+    if (!scrollBtn) return;
+
+    function onScroll() {
+      if (window.scrollY > 300) {
+        scrollBtn?.classList.add('is-visible');
+      } else {
+        scrollBtn?.classList.remove('is-visible');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  setupScrollTop();
+  document.addEventListener('astro:after-swap', setupScrollTop);
+</script>

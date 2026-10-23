@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Viabilizando ideias">
+  <section class="hero-shell">
+    <div class="hero-content container">
+      <h1 class="hero-title">BIZSYS</h1>
+      <p class="hero-subtitle">Viabilizando ideias através da criatividade, tecnologia e engenharia de produto.</p>
+      <div class="hero-status">
+        <span class="status-badge">Fase 1 Concluída</span>
+        <p class="status-text">Astro Shell, BaseLayout, Design System, Header responsivo e Footer configurados.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-shell {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 60px;
+    background: radial-gradient(circle at 50% 30%, #151515 0%, #000000 70%);
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  .hero-status {
+    margin-top: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+
+  .status-text {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+</style>

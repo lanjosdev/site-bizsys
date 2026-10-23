@@ -1,0 +1,171 @@
+/* ==========================================================================
+   BIZSYS - Design System Global Styles
+   Extraído e adaptado com fidelidade do baseline visual WordPress/OceanWP
+   ========================================================================== */
+
+/* Fonte Local: Good Sans */
+@font-face {
+  font-family: 'Good Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/GoodSans-Light.otf') format('opentype');
+}
+
+/* Fallback / sistema de variáveis */
+:root {
+  --color-bg: #000000;
+  --color-bg-translucent: rgba(0, 0, 0, 0.85);
+  --color-bg-header: rgba(0, 0, 0, 0.5);
+  --color-surface: #0a0a0a;
+  --color-surface-hover: #141414;
+  --color-text: #ffffff;
+  --color-text-secondary: #656362;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-dark: #1d1d1d;
+  --color-accent: #ffffff;
+
+  --font-primary: 'Good Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+
+  --header-height: 73px;
+  --container-max-width: 1400px;
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-fast: 0.15s ease-in-out;
+}
+
+/* Reset básico moderno */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary) !important;
+  font-weight: var(--font-weight-light) !important;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizada fiel ao baseline WordPress */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #656362;
+  border-radius: 10px;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary) !important;
+  font-weight: var(--font-weight-light) !important;
+  color: var(--color-text);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-weight: var(--font-weight-light) !important;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Classes para links com sublinhado animado (fiel ao baseline OceanWP) */
+.animated-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.animated-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-text);
+  visibility: hidden;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.animated-link:hover::before,
+.animated-link.active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
