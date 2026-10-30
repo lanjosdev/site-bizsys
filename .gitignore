@@ -31,3 +31,7 @@ Desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Postman
+.postman/
+postman/
