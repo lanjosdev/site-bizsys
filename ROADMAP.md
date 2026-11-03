@@ -33,11 +33,13 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [x] Componente `Footer.astro` com links institucionais e redes sociais
 
 ### [x] Fase 2: Páginas Institucionais Prioritárias
-- [x] `src/pages/index.astro`: Home com hero estático leve e seções fiéis
+- [x] `src/pages/index.astro`: Home com hero estático leve e seções fiéis (carrossel, nuvem de categorias e banner de prêmios conectados)
 - [x] `src/pages/sobre-nos.astro`: Página Sobre Nós
 - [x] `src/pages/contato.astro`: Página de Contato com formulário Web3Forms integrado
-- [x] `src/pages/nosso-projetos/index.astro`: Portfólio com grid de projetos
+- [x] `src/pages/projetos/index.astro`: Portfólio oficial (Work) com grid de 19 cases e nuvem de categorias
+- [x] `src/pages/premios/index.astro`: Página de Prêmios com 4 contadores animados e galeria de 23 cases premiados
 - [x] `src/pages/nossos-clientes.astro`: Página de Clientes
+- [x] Redirecionamentos 301 configurados no Astro (`/work`, `/nosso-projetos`, `/premios-2`)
 
 ### [ ] Fase 3: Artigos Prioritários Conectados
 - [ ] Setup de Content Collections (`src/content/config.ts`)
