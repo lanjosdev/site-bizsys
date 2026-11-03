@@ -52,8 +52,8 @@ html {
 }
 
 body {
-  font-family: var(--font-primary) !important;
-  font-weight: var(--font-weight-light) !important;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-light);
   line-height: 1.6;
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -77,15 +77,15 @@ body::-webkit-scrollbar-thumb {
 
 /* Tipografia */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary) !important;
-  font-weight: var(--font-weight-light) !important;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-light);
   color: var(--color-text);
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 p {
-  font-weight: var(--font-weight-light) !important;
+  font-weight: var(--font-weight-light);
   color: inherit;
 }
 
