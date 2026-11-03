@@ -1,8 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const pageTitle = 'Projetos';
 const pageDescription = 'Digital, Cenografia, Produto. A Bizsys trabalha com foco nessas três frentes de desenvolvimento.';
+
+// Carrega os 15 cases com cobertura e páginas dedicadas
+const priorityPosts = await getCollection('posts');
 
 // 19 Últimos Cases fiéis ao Elementor original
 const ultimosCases = [
@@ -24,7 +28,7 @@ const ultimosCases = [
   { caption: '#BatuqueChallenge - Chevrolet', image: '/images/projetos/7-1-1536x864.jpg' },
   { caption: 'Você Nunca Esteve Sozinha - Globoplay', image: '/images/projetos/Cactos-1536x864.png' },
   { caption: 'Nova Devassa', image: '/images/projetos/devassa-1536x864.png' },
-  { caption: 'Cozinha Às Cegas - Maggi', image: '/images/projetos/CAC_9-1536x864.png' },
+  { caption: 'Cozinha Às Cegas - Maggi', image: '/images/projetos/CAC_9-1536x864.png', slug: 'cozinha-as-cegas-maggi' },
 ];
 
 // 3 Colunas de Categorias fiéis ao Elementor original
@@ -80,7 +84,7 @@ const categoryColumns = [
         <div class="cases-4col-grid">
           {ultimosCases.map((c) => (
             <article class="case-grid-card">
-              <a href="/projetos" class="case-card-link">
+              <a href={c.slug ? `/posts/${c.slug}` : '/projetos'} class="case-card-link">
                 <figure class="case-thumb-figure">
                   <div class="case-thumb-box">
                     <img
@@ -101,7 +105,38 @@ const categoryColumns = [
       </div>
     </section>
 
-    <!-- 3. NAVEGUE POR CATEGORIA (3 Colunas em lista vertical, 32px) -->
+    <!-- 3. CASES EM DESTAQUE COM COBERTURA COMPLETA -->
+    <section class="section-ultimos-cases section-priority-cases scroll-fade" aria-label="Cases em Destaque">
+      <div class="container container-cases">
+        <h2 class="section-tag-title">Cases em Destaque & Prêmios</h2>
+        <div class="cases-4col-grid">
+          {priorityPosts.map((p) => (
+            <article class="case-grid-card">
+              <a href={`/posts/${p.id}`} class="case-card-link">
+                <figure class="case-thumb-figure">
+                  <div class="case-thumb-box">
+                    <img
+                      src={p.data.featuredImage}
+                      alt={p.data.title}
+                      width="1536"
+                      height="864"
+                      class="case-thumb-img"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="widget-image-caption">
+                    <span class="caption-client">{p.data.client}</span>
+                    <span class="caption-title">{p.data.title}</span>
+                  </figcaption>
+                </figure>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. NAVEGUE POR CATEGORIA (3 Colunas em lista vertical, 32px) -->
     <section class="section-work-categories scroll-fade" aria-label="Categorias">
       <div class="container container-categories">
         <h2 class="section-tag-title cat-tag-title">Ou navegue por categoria</h2>
@@ -128,123 +163,113 @@ const categoryColumns = [
     background-color: #000000;
     color: #ffffff;
     width: 100%;
+    padding-bottom: 160px;
     overflow-x: hidden;
   }
 
-  /* Animações nativas de Scroll (fiel a animated-slow fadeIn do Elementor) */
-  .scroll-fade {
-    opacity: 0;
-    transition: opacity 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-    will-change: opacity;
-  }
-
-  .scroll-fade.is-visible {
-    opacity: 1;
-  }
-
-  /* 1. HERO INSTITUCIONAL */
+  /* --------------------------------------------------------------------------
+     1. HERO SECTION (Digital, Cenografia, Produto - 108px)
+     -------------------------------------------------------------------------- */
   .section-work-hero {
-    padding: 160px 0 80px 0;
+    padding-top: calc(var(--header-height, 73px) + 70px);
+    padding-bottom: 60px;
+    text-align: center;
   }
 
   .container-hero {
     max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
   .frentes-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 0;
+    margin-bottom: 40px;
   }
 
   .frente-title {
-    font-family: var(--font-primary);
-    font-size: 108px;
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(3rem, 8vw, 108px);
     font-weight: 300;
-    line-height: 120.96px;
-    letter-spacing: -2.5px;
+    line-height: 1.05;
     color: #ffffff;
-    text-align: center;
     margin: 0;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
   }
 
   .frentes-desc {
-    font-family: var(--font-primary);
-    font-size: 20px;
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(1rem, 2vw, 24px);
     font-weight: 300;
-    line-height: 23.6px;
+    line-height: 1.5;
     color: #ffffff;
-    text-align: center;
-    max-width: 900px;
-    margin: 32px auto 0 auto;
+    max-width: 860px;
+    margin: 0 auto;
+    opacity: 0.9;
   }
 
-  /* TÍTULOS DE SEÇÃO CINZA 20px (Fiel a Elementor post-13) */
-  .section-tag-title {
-    font-family: var(--font-primary);
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 23.6px;
-    color: #656362;
-    margin: 0 0 24px 0;
-  }
-
-  /* 2. ÚLTIMOS CASES */
+  /* --------------------------------------------------------------------------
+     2. ÚLTIMOS CASES (Grid 4 colunas fiel)
+     -------------------------------------------------------------------------- */
   .section-ultimos-cases {
-    padding: 20px 0 60px 0;
+    padding-top: 60px;
+  }
+
+  .section-priority-cases {
+    padding-top: 80px;
   }
 
   .container-cases {
     max-width: 1400px;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  .section-tag-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 35px 0;
+    text-transform: none;
+    letter-spacing: normal;
   }
 
   .cases-4col-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 48px 30px;
-  }
-
-  @media (min-width: 640px) {
-    .cases-4col-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .cases-4col-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 56px 30px;
-    }
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 24px;
   }
 
   .case-grid-card {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    width: 100%;
   }
 
   .case-card-link {
     display: block;
     text-decoration: none;
     color: inherit;
+    transition: opacity 0.3s ease;
   }
 
   .case-thumb-figure {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
   }
 
   .case-thumb-box {
+    position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1536 / 864;
     overflow: hidden;
-    background-color: #080808;
+    background-color: #111111;
   }
 
   .case-thumb-img {
@@ -252,148 +277,185 @@ const categoryColumns = [
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 1;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.3s ease, transform 0.4s ease;
   }
 
-  /* Hover fiel ao WordPress: fade de opacidade a 0.75 (sem zoom) */
+  /* Efeito Hover fiel ao Elementor: opacity 0.75 */
   .case-card-link:hover .case-thumb-img {
     opacity: 0.75;
+    transform: scale(1.02);
   }
 
-  /* Legenda do Case 24px Good Sans */
   .widget-image-caption {
-    font-family: var(--font-primary);
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 300;
     color: #ffffff;
     line-height: 1.3;
-    margin-top: 10px;
-    text-align: left;
+    margin-top: 14px;
+    margin-bottom: 0;
   }
 
-  /* 3. CATEGORIAS (3 Colunas Verticais 32px) */
+  .caption-client {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #656362;
+    margin-bottom: 4px;
+  }
+
+  .caption-title {
+    display: block;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. NAVEGUE POR CATEGORIA (3 Colunas em lista vertical, 32px)
+     -------------------------------------------------------------------------- */
   .section-work-categories {
-    padding-top: 40px;
+    padding-top: 120px;
   }
 
   .container-categories {
     max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
   }
 
   .cat-tag-title {
-    margin-top: 120px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   .categories-3col-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-bottom: 200px;
-  }
-
-  @media (min-width: 768px) {
-    .categories-3col-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 40px;
   }
 
   .cat-col-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .cat-col-item {
     margin: 0;
+    padding: 0;
   }
 
   .cat-item-link {
-    font-family: var(--font-primary);
-    font-size: 32px;
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(1.25rem, 2.5vw, 32px);
     font-weight: 300;
-    line-height: 39.84px;
-    color: #656362;
+    color: #ffffff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    line-height: 1.25;
+    transition: color 0.25s ease, transform 0.25s ease;
     display: inline-block;
   }
 
   .cat-item-link:hover {
-    color: #ffffff;
+    color: #656362;
+    transform: translateX(4px);
   }
 
-  /* RESPONSIVIDADE MOBILE (< 768px) */
-  @media (max-width: 767px) {
-    .section-work-hero {
-      padding: 120px 0 40px 0;
-    }
+  /* --------------------------------------------------------------------------
+     4. SCROLL-FADE REVEAL ANIMATION
+     -------------------------------------------------------------------------- */
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
 
-    .frentes-header {
-      align-items: flex-start;
-      text-align: left;
-    }
+  .scroll-fade.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .frente-title {
-      font-size: 56px;
-      line-height: 48px;
-      text-align: left;
-      letter-spacing: -1.5px;
+  /* --------------------------------------------------------------------------
+     5. RESPONSIVIDADE FIEL
+     -------------------------------------------------------------------------- */
+  @media (max-width: 1200px) {
+    .cases-4col-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px 20px;
     }
+  }
 
-    .frentes-desc {
-      font-size: 16px;
-      line-height: 22px;
-      text-align: left;
-      margin: 20px 0 0 0;
-    }
-
-    .widget-image-caption {
-      font-size: 18px;
-      line-height: 1.3;
-    }
-
-    .cat-tag-title {
-      margin-top: 60px;
-      margin-bottom: 20px;
-    }
-
-    .cat-item-link {
-      font-size: 24px;
-      line-height: 30px;
+  @media (max-width: 860px) {
+    .cases-4col-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 16px;
     }
 
     .categories-3col-grid {
-      padding-bottom: 80px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .widget-image-caption {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .section-work-hero {
+      padding-top: calc(var(--header-height, 73px) + 40px);
+      padding-bottom: 40px;
+    }
+
+    .container-cases,
+    .container-categories {
+      padding: 0 20px;
+    }
+
+    .cases-4col-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .categories-3col-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .section-work-categories {
+      padding-top: 80px;
     }
   }
 </style>
 
 <script>
-  function setupScrollAnimations() {
+  function setupScrollFade() {
     const elements = document.querySelectorAll('.scroll-fade');
     if (!elements.length) return;
 
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1 }
     );
 
     elements.forEach((el) => observer.observe(el));
   }
 
-  setupScrollAnimations();
-  document.addEventListener('astro:after-swap', setupScrollAnimations);
+  document.addEventListener('DOMContentLoaded', () => {
+    setupScrollFade();
+  });
 </script>

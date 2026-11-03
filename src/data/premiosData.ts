@@ -9,6 +9,7 @@ export interface PremiaCase {
   client: string;
   image: string;
   festivals: AwardFestivalGroup[];
+  slug?: string;
 }
 
 export interface PremioCounter {
@@ -29,6 +30,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Desalma",
     "client": "GloboPlay",
     "image": "/images/premios/WhatsApp-Image-2020-10-29-at-20.34.52.jpeg",
+    "slug": "desalma-globoplay",
     "festivals": [
       {
         "festival": "Muse Awards 2021",
@@ -44,6 +46,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Cozinha Às Cegas",
     "client": "Maggi",
     "image": "/images/premios/CozinhaAsCegas_Conjunto.jpg",
+    "slug": "cozinha-as-cegas-maggi",
     "festivals": [
       {
         "festival": "Cannes Lions 2021",
@@ -60,6 +63,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Acessibility Mat",
     "client": "Ford Brasil",
     "image": "/images/premios/acessibi_MAT_play.jpg",
+    "slug": "acessibility-mat",
     "festivals": [
       {
         "festival": "Cannes Lions 2019",
@@ -113,6 +117,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "110 Anos",
     "client": "Johnnie Walker",
     "image": "/images/premios/johnnie-walker.png",
+    "slug": "johnnie-walker-110-anos-aeroporto-projecao-e-ooh",
     "festivals": [
       {
         "festival": "Cannes Lions 2019",
@@ -128,6 +133,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Freezer Beerboard",
     "client": "Amstel – Heineken",
     "image": "/images/premios/amstel.png",
+    "slug": "freezer-beerboard-amstel",
     "festivals": [
       {
         "festival": "Cannes Lions 2019",
@@ -143,6 +149,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "A Rota de Emergência",
     "client": "JC Decaux",
     "image": "/images/premios/rota-de-emergencia.png",
+    "slug": "a-rota-de-emergencia",
     "festivals": [
       {
         "festival": "Cannes Lions 2018",
@@ -161,6 +168,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Reactive Poster",
     "client": "Nike",
     "image": "/images/premios/nike_reactive3.png",
+    "slug": "reactive-poster-nike",
     "festivals": [
       {
         "festival": "Cannes Lions 2018",
@@ -175,6 +183,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "McCode",
     "client": "McDonald’s",
     "image": "/images/premios/mcode3.jpg",
+    "slug": "mcdonalds-mccode",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -190,6 +199,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Pinlist",
     "client": "Tok&Stok",
     "image": "/images/premios/pin5.jpg",
+    "slug": "pinlist-tokstok",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -206,6 +216,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Jogadores Invisíveis",
     "client": "ESPNW",
     "image": "/images/premios/espnw2.jpg",
+    "slug": "jogadores-invisiveis",
     "festivals": [
       {
         "festival": "Clio Awards 2016",
@@ -236,6 +247,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "The Speaking Fireworks",
     "client": "Military with PTSD",
     "image": "/images/premios/PF_04.jpg",
+    "slug": "the-speaking-fireworks",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -250,6 +262,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "School Zone Radio",
     "client": "Suzuki",
     "image": "/images/premios/school-zone-radio-min.png",
+    "slug": "school-zone-radio-suzuki",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -264,6 +277,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Radio Finger",
     "client": "Itaipava",
     "image": "/images/premios/finger.jpg",
+    "slug": "itaipava-radio-finger",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -278,6 +292,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "Parking Radio",
     "client": "FMA Brasil Insurance",
     "image": "/images/premios/Parking-Radio.jpg",
+    "slug": "parking-radio-fma-brasil-insurance",
     "festivals": [
       {
         "festival": "Cannes Lions 2016",
@@ -383,6 +398,7 @@ export const PREMIOS_CASES: PremiaCase[] = [
     "title": "The Clean Braille",
     "client": "Lifebuoy",
     "image": "/images/premios/clean-braille.png",
+    "slug": "lifebuoy-the-clean-braille",
     "festivals": [
       {
         "festival": "Cannes Lions 2013",
