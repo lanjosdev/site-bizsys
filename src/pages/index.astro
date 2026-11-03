@@ -83,20 +83,20 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     <section class="section-categories" aria-label="Categorias de Atuação">
       <div class="container categories-container">
         <div class="categories-text-wrap">
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=ooh">OOH</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=webapp">Web App</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=lives">Lives</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=ar">AR</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=sensor-de-movimento">Sensor<span class="space-mobile"> </span><br class="br-desktop" />de Movimento</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=cenografia">Cenografia</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=ia">IA</a><br class="br-desktop" /><span class="space-mobile"> </span>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=player-de-audio">Player de Áudio</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=led">LED</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=impressao-lenticular">Impressão<span class="space-mobile"> </span><br class="br-desktop" />Lenticular</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=aromatizador">Aromatizador</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=projetos-especiais">Projetos<span class="space-mobile"> </span><br class="br-desktop" />Especiais</a>
-          <a class="cat-link menu2 is-white" href="/projetos?categoria=produto">Produto</a>
-          <a class="cat-link menu2 is-gray" href="/projetos?categoria=sampling">Sampling</a>
+          <a class="cat-link is-white" href="/categoria/ooh">OOH</a>
+          <a class="cat-link is-gray" href="/categoria/webapp">Web App</a>
+          <a class="cat-link is-white" href="/categoria/lives">Lives</a>
+          <a class="cat-link is-gray" href="/categoria/ar">AR</a>
+          <a class="cat-link is-white" href="/categoria/sensor-de-movimento">Sensor de Movimento</a>
+          <a class="cat-link is-gray" href="/categoria/cenografia">Cenografia</a>
+          <a class="cat-link is-white" href="/categoria/ia">IA</a>
+          <a class="cat-link is-gray" href="/categoria/player-de-audio">Player de Áudio</a>
+          <a class="cat-link is-white" href="/categoria/led">LED</a>
+          <a class="cat-link is-gray" href="/categoria/impressao-lenticular">Impressão Lenticular</a>
+          <a class="cat-link is-white" href="/categoria/aromatizador">Aromatizador</a>
+          <a class="cat-link is-gray" href="/categoria/projetos-especiais">Projetos Especiais</a>
+          <a class="cat-link is-white" href="/categoria/produto">Produto</a>
+          <a class="cat-link is-gray" href="/categoria/sampling">Sampling</a>
         </div>
       </div>
     </section>
@@ -326,6 +326,8 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     padding: 150px 0;
     position: relative;
     z-index: 10;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .categories-container {
@@ -334,6 +336,8 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     margin-right: auto;
     padding-left: 24px;
     padding-right: 24px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .categories-text-wrap {
@@ -344,18 +348,18 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     letter-spacing: -4.5px;
     word-spacing: 0.05em;
     text-align: left;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
   .cat-link,
   .menu2 {
-    display: inline;
+    display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color var(--transition-fast);
-  }
-
-  .cat-link {
-    margin-right: 1rem;
+    margin-right: 1.5rem;
+    margin-bottom: 0.25rem;
   }
 
   .cat-link.is-white,
@@ -373,22 +377,39 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     border-bottom: 1px solid #656362;
   }
 
-  .space-mobile {
-    display: none;
+  @media (max-width: 959px) {
+    .section-categories {
+      padding: 80px 0;
+    }
+    .categories-text-wrap {
+      font-size: clamp(32px, 5.5vw, 48px);
+      line-height: 1.25;
+      letter-spacing: -1.5px;
+    }
+    .cat-link {
+      margin-right: 1rem;
+    }
   }
 
   @media (max-width: 767px) {
     .section-categories {
       padding: 50px 0;
     }
-    .categories-text-wrap {
-      font-size: 32px;
-      line-height: 38.4px;
-      letter-spacing: 0.2px;
-      word-spacing: normal;
+    .categories-container {
+      padding-left: 16px;
+      padding-right: 16px;
     }
-    .space-mobile {
-      display: inline;
+    .categories-text-wrap {
+      font-size: clamp(22px, 6.5vw, 32px);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      word-spacing: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .cat-link {
+      margin-right: 0.75rem;
+      margin-bottom: 0.25rem;
     }
   }
 
@@ -470,6 +491,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
       font-size: 36px;
       line-height: 44px;
       letter-spacing: -1.5px;
+    }
+    /* Sublinhado visível por padrão no mobile para indicar que é clicável */
+    .awards-link::before,
+    .premiosLink::before {
+      visibility: visible;
+      transform: scaleX(1);
     }
   }
 
