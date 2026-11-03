@@ -1,0 +1,339 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseMedia from '../../components/CaseMedia.astro';
+import FichaTecnica from '../../components/FichaTecnica.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  // Ordena por data decrescente para navegação consistente
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
+
+  return sortedPosts.map((post, index) => {
+    const prevPost = index > 0 ? sortedPosts[index - 1] : sortedPosts[sortedPosts.length - 1];
+    const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : sortedPosts[0];
+    return {
+      params: { slug: post.id },
+      props: { post, prevPost, nextPost },
+    };
+  });
+}
+
+const { post, prevPost, nextPost } = Astro.props;
+const { Content } = await render(post);
+
+const {
+  title,
+  client,
+  year,
+  partnership,
+  categories = [],
+  mediaType = 'image',
+  videoUrl,
+  galleryImages = [],
+  featuredImage,
+  excerpt,
+  awards = [],
+} = post.data;
+
+const pageTitle = `${title} — Bizsys`;
+const metaDescription = excerpt || `Case ${title} desenvolvido pela Bizsys para ${client}.`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={metaDescription}
+  image={featuredImage}
+  isTransparentHeader={false}
+>
+  <article class="post-detail-page">
+    <div class="container container-post">
+      <!-- Navegação Superior / Breadcrumb -->
+      <nav class="top-breadcrumb" aria-label="Navegação estrutural">
+        <a href="/projetos" class="back-link">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span>Voltar para Projetos</span>
+        </a>
+      </nav>
+
+      <!-- Cabeçalho do Case -->
+      <header class="post-header">
+        <div class="client-badge-wrap">
+          <span class="client-badge">{client}</span>
+          {year && <span class="year-divider" aria-hidden="true">•</span>}
+          {year && <span class="year-badge">{year}</span>}
+        </div>
+        <h1 class="post-title">{title}</h1>
+      </header>
+
+      <!-- Mídia Principal (Vídeo / Carrossel / Imagem) -->
+      <CaseMedia
+        mediaType={mediaType}
+        videoUrl={videoUrl}
+        galleryImages={galleryImages}
+        featuredImage={featuredImage}
+        title={title}
+      />
+
+      <!-- Conteúdo Editorial do Case -->
+      <section class="post-content-section" aria-label="História do Case">
+        <div class="post-markdown-body">
+          <Content />
+        </div>
+      </section>
+
+      <!-- Ficha Técnica & Metadados -->
+      <FichaTecnica
+        title={title}
+        client={client}
+        year={year}
+        partnership={partnership}
+        categories={categories}
+        awards={awards}
+      />
+
+      <!-- Navegação Entre Cases (Anterior / Próximo) -->
+      <nav class="post-pagination-nav" aria-label="Navegação entre projetos">
+        <a href={`/posts/${prevPost.id}`} class="pagination-card pagination-prev">
+          <span class="nav-direction">← Case Anterior</span>
+          <span class="nav-case-title">{prevPost.data.title}</span>
+        </a>
+
+        <a href="/projetos" class="pagination-all-cases">
+          <span class="grid-icon" aria-hidden="true">⊞</span>
+          <span>Ver Todos</span>
+        </a>
+
+        <a href={`/posts/${nextPost.id}`} class="pagination-card pagination-next">
+          <span class="nav-direction">Próximo Case →</span>
+          <span class="nav-case-title">{nextPost.data.title}</span>
+        </a>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-detail-page {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height, 73px) + 2rem);
+    padding-bottom: 6rem;
+  }
+
+  .container-post {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Breadcrumb Superior */
+  .top-breadcrumb {
+    margin-bottom: 2.5rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover {
+    color: #ffffff;
+  }
+
+  .back-arrow {
+    font-size: 1.125rem;
+    transition: transform var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover .back-arrow {
+    transform: translateX(-4px);
+  }
+
+  /* Cabeçalho */
+  .post-header {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto 3rem;
+  }
+
+  .client-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #999999;
+    margin-bottom: 1rem;
+  }
+
+  .year-divider {
+    color: #555555;
+  }
+
+  .post-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  /* Seção de Texto Editorial */
+  .post-content-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1rem 0 2rem;
+  }
+
+  .post-markdown-body {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.1875rem;
+    line-height: 1.85;
+    color: #d2d2d2;
+  }
+
+  .post-markdown-body :global(p) {
+    margin-bottom: 1.75rem;
+  }
+
+  .post-markdown-body :global(p:first-of-type) {
+    font-size: 1.25rem;
+    color: #ffffff;
+    line-height: 1.75;
+  }
+
+  .post-markdown-body :global(a) {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .post-markdown-body :global(a:hover) {
+    color: #aaaaaa;
+  }
+
+  /* Paginação / Rodapé entre Cases */
+  .post-pagination-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 980px;
+    margin: 5rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .pagination-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem 1.5rem;
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .pagination-prev {
+    text-align: left;
+  }
+
+  .pagination-next {
+    text-align: right;
+  }
+
+  .pagination-card:hover {
+    background: #161616;
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .nav-direction {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #777777;
+  }
+
+  .nav-case-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pagination-all-cases {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .pagination-all-cases:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+  }
+
+  .grid-icon {
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .post-detail-page {
+      padding-top: calc(var(--header-height, 73px) + 1.25rem);
+      padding-bottom: 4rem;
+    }
+
+    .post-header {
+      margin-bottom: 2rem;
+    }
+
+    .post-pagination-nav {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+    }
+
+    .pagination-all-cases {
+      order: -1;
+      justify-content: center;
+    }
+
+    .pagination-prev,
+    .pagination-next {
+      text-align: left;
+    }
+  }
+</style>
