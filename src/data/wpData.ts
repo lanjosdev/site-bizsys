@@ -63,7 +63,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/algoritmo-da-vida.png',
     category: 'Projetos Especiais',
     slug: 'algoritmo-da-vida',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     title: 'MIA',
@@ -71,7 +71,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/mia-whiskas.jpg',
     category: 'IA / Tecnologia',
     slug: 'mia-whiskas',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     title: 'McCode',
@@ -79,7 +79,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/mccode-mcdonalds.png',
     category: 'WebApp',
     slug: 'mcdonalds-mccode',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     title: 'Strangerama',
@@ -87,7 +87,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/strangerama-netflix.png',
     category: 'Cenografia / Interação',
     slug: 'strangerama-netflix',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     title: '#BatuqueChallenge',
@@ -95,7 +95,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/batuque-challenge-chevrolet.jpg',
     category: 'Lives / Interação',
     slug: 'batuque-challenge-chevrolet',
-    link: '/nosso-projetos'
+    link: '/projetos'
   }
 ];
 
@@ -121,7 +121,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Muse Awards',
     year: '2021',
     slug: 'desalma-globoplay',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Cozinha às Cegas',
@@ -129,7 +129,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2021',
     slug: 'cozinha-as-cegas-maggi',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Accessibility Mat',
@@ -137,7 +137,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions / Wave Festival / D&AD',
     year: '2019',
     slug: 'acessibility-mat',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Algoritmo da Vida',
@@ -145,7 +145,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2019',
     slug: 'algoritmo-da-vida',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: '110 Anos Johnnie Walker',
@@ -153,7 +153,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2019',
     slug: 'johnnie-walker-110-anos-aeroporto-projecao-e-ooh',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Congelador Cerveja (Freezer Beerboard)',
@@ -161,7 +161,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2019',
     slug: 'freezer-beerboard-amstel',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'A Rota de Emergência',
@@ -169,7 +169,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2018',
     slug: 'a-rota-de-emergencia',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Reactive Poster',
@@ -177,7 +177,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2018',
     slug: 'reactive-poster-nike',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'The Clean Braille',
@@ -185,7 +185,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2017',
     slug: 'lifebuoy-the-clean-braille',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'McCode',
@@ -193,7 +193,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'mcdonalds-mccode',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'PINLIST',
@@ -201,7 +201,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'pinlist-tokstok',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Radio Finger',
@@ -209,7 +209,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'itaipava-radio-finger',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'The Speaking Fireworks',
@@ -217,7 +217,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'the-speaking-fireworks',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Parking Radio',
@@ -225,7 +225,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'parking-radio-fma-brasil-insurance',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'Jogadores Invisíveis',
@@ -233,7 +233,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'jogadores-invisiveis',
-    link: '/nosso-projetos'
+    link: '/projetos'
   },
   {
     project: 'School Zone Radio',
@@ -241,7 +241,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'school-zone-radio-suzuki',
-    link: '/nosso-projetos'
+    link: '/projetos'
   }
 ];
 
