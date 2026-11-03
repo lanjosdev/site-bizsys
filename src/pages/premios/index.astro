@@ -13,8 +13,8 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
   currentPath="/premios"
 >
   <div class="premios-page">
-    <!-- 1. HERO INSTITUCIONAL -->
-    <section class="section-premios-hero" aria-label="Hero Prêmios">
+    <!-- 1. HERO INSTITUCIONAL (108px centralizado) -->
+    <section class="section-premios-hero scroll-fade" aria-label="Hero Prêmios">
       <div class="container container-premios">
         <h1 class="premios-hero-title">Prêmios</h1>
         <p class="premios-hero-desc">
@@ -23,8 +23,8 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
       </div>
     </section>
 
-    <!-- 2. CONTADORES DE IMPACTO -->
-    <section class="section-premios-counters" aria-label="Estatísticas de Premiações">
+    <!-- 2. CONTADORES DE IMPACTO (Números 108px centralizados) -->
+    <section class="section-premios-counters scroll-fade" aria-label="Estatísticas de Premiações">
       <div class="container container-premios">
         <div class="counters-grid" id="counters-grid">
           {PREMIOS_COUNTERS.map((counter) => (
@@ -43,40 +43,37 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
       </div>
     </section>
 
-    <!-- 3. CASES SELECIONADOS (23 CASES) -->
+    <!-- 3. CASES SELECIONADOS (23 Cases, Efeito Grayscale -> Cor no Hover) -->
     <section class="section-premios-cases" aria-label="Cases Selecionados">
       <div class="container container-premios">
-        <h2 class="premios-section-title">Cases Selecionados</h2>
+        <h2 class="premios-section-title scroll-fade">Cases Selecionados</h2>
         <div class="premios-cases-grid">
           {PREMIOS_CASES.map((item) => (
-            <article class="premio-case-card">
-              <div class="premio-thumb-box">
-                <img
-                  src={item.image}
-                  alt={`${item.title} - ${item.client}`}
-                  width="800"
-                  height="450"
-                  class="premio-thumb-img"
-                  loading="lazy"
-                />
-              </div>
+            <article class="premio-case-card scroll-fade">
+              <figure class="premio-figure">
+                <div class="premio-thumb-box">
+                  <img
+                    src={item.image}
+                    alt={`${item.title} - ${item.client}`}
+                    width="800"
+                    height="512"
+                    class="premio-thumb-img"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption class="widget-image-caption">{item.title}</figcaption>
+              </figure>
 
               <div class="premio-card-body">
-                <h3 class="premio-case-title">{item.title}</h3>
                 <p class="premio-case-client">{item.client}</p>
 
-                <div class="premio-festivals-list">
+                <div class="premio-awards-text">
                   {item.festivals.map((fest) => (
-                    <div class="premio-festival-group">
-                      <div class="premio-festival-heading">
-                        <span class="festival-star" aria-hidden="true">✸</span>
-                        <span class="festival-name">{fest.festival}</span>
-                      </div>
-                      <ul class="premio-award-items">
-                        {fest.items.map((award) => (
-                          <li class="premio-award-item">{award}</li>
-                        ))}
-                      </ul>
+                    <div class="premio-fest-block">
+                      <p class="fest-title">✸{fest.festival}</p>
+                      {fest.items.map((aw) => (
+                        <p class="fest-award-item">{aw}</p>
+                      ))}
                     </div>
                   ))}
                 </div>
@@ -94,230 +91,301 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
     background-color: #000000;
     color: #ffffff;
     width: 100%;
-    padding-bottom: 120px;
+    padding-bottom: 160px;
+    overflow-x: hidden;
   }
 
   .container-premios {
-    max-width: 1120px;
+    max-width: 1140px;
   }
 
-  /* 1. HERO */
+  /* Animações nativas de Scroll (fiel a animated-slow fadeIn do Elementor) */
+  .scroll-fade {
+    opacity: 0;
+    transition: opacity 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity;
+  }
+
+  .scroll-fade.is-visible {
+    opacity: 1;
+  }
+
+  /* 1. HERO INSTITUCIONAL */
   .section-premios-hero {
-    padding: 160px 0 50px 0;
+    padding: 160px 0 20px 0;
   }
 
   .premios-hero-title {
     font-family: var(--font-primary);
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: 108px;
     font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -3.5px;
+    line-height: 120.96px;
+    letter-spacing: 1.4px;
     color: #ffffff;
-    margin: 0 0 24px 0;
+    text-align: center;
+    margin: 0;
   }
 
   .premios-hero-desc {
     font-family: var(--font-primary);
-    font-size: clamp(18px, 2.2vw, 24px);
+    font-size: 20px;
     font-weight: 300;
-    line-height: 34px;
+    line-height: 1.5;
     color: #ffffff;
-    max-width: 920px;
+    text-align: left;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
   }
 
-  /* 2. CONTADORES */
+  /* 2. CONTADORES DE IMPACTO */
   .section-premios-counters {
-    padding: 48px 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    padding: 60px 0 40px 0;
   }
 
   .counters-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 20px;
+    text-align: center;
   }
 
   @media (min-width: 768px) {
     .counters-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 30px;
     }
   }
 
   .counter-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .counter-number {
     font-family: var(--font-primary);
-    font-size: clamp(52px, 6vw, 76px);
+    font-size: 108px;
     font-weight: 300;
-    line-height: 1;
-    letter-spacing: -2.5px;
+    line-height: 120.96px;
     color: #ffffff;
-    margin-bottom: 8px;
+    text-align: center;
+    margin: 0;
     font-variant-numeric: tabular-nums;
   }
 
   .counter-label {
     font-family: var(--font-primary);
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    font-weight: 400;
-    color: #888888;
-    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    color: #656362;
+    text-align: center;
+    margin-top: 10px;
   }
 
   /* 3. CASES SELECIONADOS */
   .section-premios-cases {
-    padding-top: 70px;
+    padding-top: 20px;
   }
 
   .premios-section-title {
     font-family: var(--font-primary);
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: 40px;
     font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -2.5px;
+    line-height: 45px;
     color: #ffffff;
-    margin-bottom: 48px;
+    text-align: center;
+    padding: 70px 0 50px 0;
+    margin: 0;
   }
 
   .premios-cases-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px 32px;
+    gap: 50px 32px;
   }
 
   @media (min-width: 640px) {
     .premios-cases-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 48px 28px;
     }
   }
 
   @media (min-width: 1024px) {
     .premios-cases-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 56px 32px;
+      gap: 60px 32px;
     }
   }
 
   .premio-case-card {
     display: flex;
     flex-direction: column;
-    background-color: transparent;
+  }
+
+  .premio-figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .premio-thumb-box {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: 256px;
     overflow: hidden;
     background-color: #080808;
-    border: 1px solid var(--color-border);
   }
 
+  /* EFEITO VISUAL ASSINATURA ELEMENTOR: Grayscale nativo -> Full color no hover */
   .premio-thumb-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
+    filter: brightness(100%) contrast(100%) saturate(0%) blur(0px) hue-rotate(0deg);
+    transition: filter 0.5s ease;
   }
 
   .premio-case-card:hover .premio-thumb-img {
-    transform: scale(1.04);
+    filter: brightness(100%) contrast(100%) saturate(100%) blur(0px) hue-rotate(0deg);
+  }
+
+  /* Título do Case 32px Good Sans */
+  .widget-image-caption {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 39.84px;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 10px;
   }
 
   .premio-card-body {
     display: flex;
     flex-direction: column;
-    padding-top: 16px;
   }
 
-  .premio-case-title {
-    font-family: var(--font-primary);
-    font-size: 20px;
-    font-weight: 400;
-    color: #ffffff;
-    line-height: 1.3;
-    margin: 0;
-  }
-
+  /* Cliente 32px cinza (#656362) */
   .premio-case-client {
     font-family: var(--font-primary);
-    font-size: 14px;
+    font-size: 32px;
     font-weight: 300;
-    color: #888888;
-    margin: 4px 0 16px 0;
+    line-height: 1.2;
+    color: #656362;
+    text-align: left;
+    margin: 2px 0 16px 0;
   }
 
-  /* Premiações e medalhas */
-  .premio-festivals-list {
+  /* Lista de Prêmios 16px branca com quebras originais */
+  .premio-awards-text {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19.92px;
+    color: #ffffff;
+    text-align: left;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 14px;
   }
 
-  .premio-festival-group {
+  .premio-fest-block {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
   }
 
-  .premio-festival-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
+  .fest-title {
     font-family: var(--font-primary);
-    font-size: 13px;
-    font-weight: 500;
-    color: #e0e0e0;
-    letter-spacing: 0.02em;
-  }
-
-  .festival-star {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.35;
     color: #ffffff;
-    font-size: 11px;
-    flex-shrink: 0;
-  }
-
-  .premio-award-items {
-    list-style: none;
     margin: 0;
-    padding: 0 0 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
   }
 
-  .premio-award-item {
+  .fest-award-item {
     font-family: var(--font-primary);
-    font-size: 12px;
-    line-height: 1.5;
-    color: #999999;
-    position: relative;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0;
   }
 
-  .premio-award-item::before {
-    content: '–';
-    position: absolute;
-    left: -12px;
-    color: #666666;
-  }
-
+  /* RESPONSIVIDADE MOBILE (< 768px) */
   @media (max-width: 767px) {
     .section-premios-hero {
-      padding: 120px 0 36px 0;
+      padding: 120px 0 20px 0;
+    }
+
+    .premios-hero-title {
+      font-size: 56px;
+      line-height: 62.72px;
+      letter-spacing: -2.5px;
+    }
+
+    .premios-hero-desc {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 20px 0 0 0;
+    }
+
+    .counter-number {
+      font-size: 56px;
+      line-height: 64px;
+    }
+
+    .counter-label {
+      font-size: 16px;
+    }
+
+    .premios-section-title {
+      font-size: 32px;
+      padding: 50px 0 30px 0;
+    }
+
+    .premio-thumb-box {
+      height: 200px;
+    }
+
+    .widget-image-caption {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .premio-case-client {
+      font-size: 24px;
+      line-height: 27px;
     }
   }
 </style>
 
 <script>
+  // 1. Animação de Scroll Fade-In (Elementor animated-slow)
+  function setupScrollAnimations() {
+    const elements = document.querySelectorAll('.scroll-fade');
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  // 2. Animação dos Contadores Numéricos
   function setupCounters() {
     const counterElements = document.querySelectorAll<HTMLElement>('.counter-number');
     if (!counterElements.length) return;
@@ -326,7 +394,7 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            obs.disconnect(); // Animate all counters together once visible
+            obs.disconnect();
             animateCounters(counterElements);
           }
         });
@@ -349,7 +417,6 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
     function update(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Smooth cubic ease out
       const easeOut = 1 - Math.pow(1 - progress, 3);
 
       elements.forEach((el) => {
@@ -370,6 +437,10 @@ const pageDescription = 'Cannes Lions, Clio Awards, Wave Festival e outros já r
     requestAnimationFrame(update);
   }
 
+  setupScrollAnimations();
   setupCounters();
-  document.addEventListener('astro:after-swap', setupCounters);
+  document.addEventListener('astro:after-swap', () => {
+    setupScrollAnimations();
+    setupCounters();
+  });
 </script>

@@ -4,54 +4,51 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const pageTitle = 'Projetos';
 const pageDescription = 'Digital, Cenografia, Produto. A Bizsys trabalha com foco nessas três frentes de desenvolvimento.';
 
-// Cases Selecionados fiéis ao original do Elementor
-const selectedCases = [
-  { title: '#EntubadosSony', client: 'Canal Sony', tag: 'Lives' },
-  { title: 'Luna Rubi', client: 'Natura', tag: 'Aromatizador' },
-  { title: 'Chegou Itubaína Guaraná', client: 'Itubaína', tag: 'Especiais' },
-  { title: 'Destrava Essa Conquista', client: 'Trident', tag: 'Especiais' },
-  { title: 'O Torcedor Impossível', client: 'SBT', tag: 'Especiais' },
-  { title: 'Entrega Elétrica', client: 'Rappi', tag: 'Especiais' },
-];
-
-// Últimos Cases (Grid de 4 colunas fiel ao baseline, com imagens locais de alta resolução)
+// 19 Últimos Cases fiéis ao Elementor original
 const ultimosCases = [
-  { title: 'Mega McFritas', client: "McDonald's", image: '/images/projetos/megamcfritas-1536x864.png' },
-  { title: 'Giga Gloob', client: 'Globo', image: '/images/projetos/gloob1-1536x864.png' },
-  { title: '#UberNaAvenida', client: 'Uber', image: '/images/projetos/uber6-1536x864.png' },
-  { title: 'The GPP Flare Experience', client: 'GPP', image: '/images/projetos/gpp-1-1536x864.png' },
-  { title: 'Experiência Keep Walking', client: 'Johnnie Walker', image: '/images/projetos/experiencia-johnnie-walker-1-1536x864.png' },
-  { title: 'Bonde da Curtição', client: 'Engov', image: '/images/projetos/engov-1536x864.png' },
-  { title: 'Energia Verde', client: 'Heineken', image: '/images/projetos/jeineken-energia-limpa-1536x864.jpg' },
-  { title: 'La Casa De Papel Parte 5', client: 'Netflix', image: '/images/projetos/lacasadepapel-1536x864.png' },
-  { title: 'Verdades Secretas II', client: 'Globoplay', image: '/images/projetos/verdadessecretas-1536x864.png' },
-  { title: 'Maradona: Conquista De Um Sonho', client: 'Amazon Prime Video', image: '/images/projetos/maradona-1-1-1536x864.png' },
-  { title: 'Família Addams 2: Pé Na Estrada', client: 'Universal Pictures', image: '/images/projetos/familiaaddams2-1536x864.png' },
-  { title: 'O Esquadrão Suicida', client: 'HBO Max', image: '/images/projetos/Frame-1-1536x864.png' },
-  { title: 'Lil Sugar', client: 'Hip Hop Public Health e Area 23', image: '/images/projetos/lil3-1536x864.png' },
-  { title: 'Olimpíadas 2021', client: 'SporTV', image: '/images/projetos/olimpiadas-1536x864.png' },
-  { title: 'Voz do Fernandão', client: 'Adidas', image: '/images/projetos/voz-do-fernandao-adidas-1536x864.png' },
-  { title: '#BatuqueChallenge', client: 'Chevrolet', image: '/images/projetos/7-1-1536x864.jpg' },
-  { title: 'Você Nunca Esteve Sozinha', client: 'Globoplay', image: '/images/projetos/Cactos-1536x864.png' },
-  { title: 'Nova Devassa', client: 'Devassa', image: '/images/projetos/devassa-1536x864.png' },
-  { title: 'Cozinha Às Cegas', client: 'Maggi', image: '/images/projetos/CAC_9-1536x864.png' },
+  { caption: "Mega McFritas - McDonald's", image: '/images/projetos/megamcfritas-1536x864.png' },
+  { caption: 'Giga Gloob - Globo', image: '/images/projetos/gloob1-1536x864.png' },
+  { caption: '#UberNaAvenida', image: '/images/projetos/uber6-1536x864.png' },
+  { caption: 'The GPP Flare Experince', image: '/images/projetos/gpp-1-1536x864.png' },
+  { caption: 'Experiência Keep Walking - Johnnie Walker', image: '/images/projetos/experiencia-johnnie-walker-1-1536x864.png' },
+  { caption: 'Bonde da Curtição - Engov', image: '/images/projetos/engov-1536x864.png' },
+  { caption: 'Energia Verde Heineken', image: '/images/projetos/jeineken-energia-limpa-1536x864.jpg' },
+  { caption: 'La Casa De Papel Parte 5 - Netflix', image: '/images/projetos/lacasadepapel-1536x864.png' },
+  { caption: 'Verdades Secretas II - Globoplay', image: '/images/projetos/verdadessecretas-1536x864.png' },
+  { caption: 'Maradona: Conquista De Um Sonho Amazon Prime Video', image: '/images/projetos/maradona-1-1-1536x864.png' },
+  { caption: 'Família Addams 2: Pé Na Estrada -Universal Pictures', image: '/images/projetos/familiaaddams2-1536x864.png' },
+  { caption: 'O Esquadrão Suicida - HBO Max', image: '/images/projetos/Frame-1-1536x864.png' },
+  { caption: 'Lil Sugar - Hip Hop Public Health e Area 23', image: '/images/projetos/lil3-1536x864.png' },
+  { caption: 'Olimpíadas 2021 - SporTV', image: '/images/projetos/olimpiadas-1536x864.png' },
+  { caption: 'Voz do Fernandão - Adiddas', image: '/images/projetos/voz-do-fernandao-adidas-1536x864.png' },
+  { caption: '#BatuqueChallenge - Chevrolet', image: '/images/projetos/7-1-1536x864.jpg' },
+  { caption: 'Você Nunca Esteve Sozinha - Globoplay', image: '/images/projetos/Cactos-1536x864.png' },
+  { caption: 'Nova Devassa', image: '/images/projetos/devassa-1536x864.png' },
+  { caption: 'Cozinha Às Cegas - Maggi', image: '/images/projetos/CAC_9-1536x864.png' },
 ];
 
-const categories = [
-  { name: 'OOH', slug: 'ooh', isGray: false },
-  { name: 'Web App', slug: 'webapp', isGray: true },
-  { name: 'Lives', slug: 'lives', isGray: false },
-  { name: 'AR', slug: 'ar', isGray: true },
-  { name: 'Sensor de Movimento', slug: 'sensor-de-movimento', isGray: false },
-  { name: 'Cenografia', slug: 'cenografia', isGray: true },
-  { name: 'IA', slug: 'ia', isGray: false },
-  { name: 'Player de Áudio', slug: 'player-de-audio', isGray: true },
-  { name: 'LED', slug: 'led', isGray: false },
-  { name: 'Impressão Lenticular', slug: 'impressao-lenticular', isGray: true },
-  { name: 'Aromatizador', slug: 'aromatizador', isGray: false },
-  { name: 'Projetos Especiais', slug: 'projetos-especiais', isGray: true },
-  { name: 'Produto', slug: 'produto', isGray: false },
-  { name: 'Sampling', slug: 'sampling', isGray: true },
+// 3 Colunas de Categorias fiéis ao Elementor original
+const categoryColumns = [
+  [
+    { name: 'Lives', slug: 'lives' },
+    { name: 'AR', slug: 'ar' },
+    { name: 'Sensor de Movimento', slug: 'sensor-de-movimento' },
+    { name: 'Sampling', slug: 'sampling' },
+  ],
+  [
+    { name: 'Cenografia', slug: 'cenografia' },
+    { name: 'Player de Áudio', slug: 'player-de-audio' },
+    { name: 'LED', slug: 'led' },
+    { name: 'Impressão Lenticular', slug: 'impressao-lenticular' },
+    { name: 'WebApp', slug: 'webapp' },
+  ],
+  [
+    { name: 'Aromatizador', slug: 'aromatizador' },
+    { name: 'Projetos Especiais', slug: 'projetos-especiais' },
+    { name: 'Produto', slug: 'produto' },
+    { name: 'OOH', slug: 'ooh' },
+    { name: 'IA', slug: 'ia' },
+  ],
 ];
 ---
 
@@ -62,9 +59,9 @@ const categories = [
   currentPath="/projetos"
 >
   <div class="work-page">
-    <!-- 1. HERO COM AS 3 FRENTES (Fiel a elementor-element de work.html) -->
-    <section class="section-work-hero" aria-label="Frentes de Atuação">
-      <div class="container container-work">
+    <!-- 1. HERO INSTITUCIONAL: Digital, Cenografia, Produto (108px centralizado) -->
+    <section class="section-work-hero scroll-fade" aria-label="Frentes de Atuação">
+      <div class="container container-hero">
         <div class="frentes-header">
           <h1 class="frente-title">Digital</h1>
           <h1 class="frente-title">Cenografia</h1>
@@ -76,61 +73,49 @@ const categories = [
       </div>
     </section>
 
-    <!-- 2. CASES SELECIONADOS (Fiel a Cases Selecionados de work.html) -->
-    <section class="section-selected-cases" aria-label="Cases Selecionados">
-      <div class="container container-work">
-        <h2 class="work-section-title">Cases Selecionados</h2>
-        <div class="selected-cases-list">
-          {selectedCases.map((item) => (
-            <div class="selected-case-row">
-              <span class="case-col-title">{item.title}</span>
-              <span class="case-col-client">{item.client}</span>
-              <span class="case-col-tag">{item.tag}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. ÚLTIMOS CASES (Grid de 4 colunas fiel a work.html) -->
-    <section class="section-ultimos-cases" aria-label="Últimos Cases">
-      <div class="container container-work">
-        <h2 class="work-section-title">Últimos Cases</h2>
+    <!-- 2. ÚLTIMOS CASES (19 Projetos, 20px label cinza, hover opacity 0.75, legendas 24px) -->
+    <section class="section-ultimos-cases scroll-fade" aria-label="Últimos Cases">
+      <div class="container container-cases">
+        <h2 class="section-tag-title">Últimos Cases</h2>
         <div class="cases-4col-grid">
           {ultimosCases.map((c) => (
             <article class="case-grid-card">
-              <div class="case-thumb-box">
-                <img
-                  src={c.image}
-                  alt={`${c.title} - ${c.client}`}
-                  width="1536"
-                  height="864"
-                  class="case-thumb-img"
-                  loading="lazy"
-                />
-              </div>
-              <div class="case-grid-info">
-                <h3 class="case-card-title">{c.title}</h3>
-                <p class="case-card-client">{c.client}</p>
-              </div>
+              <a href="/projetos" class="case-card-link">
+                <figure class="case-thumb-figure">
+                  <div class="case-thumb-box">
+                    <img
+                      src={c.image}
+                      alt={c.caption}
+                      width="1536"
+                      height="864"
+                      class="case-thumb-img"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption class="widget-image-caption">{c.caption}</figcaption>
+                </figure>
+              </a>
             </article>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- 4. NAVEGUE POR CATEGORIA (Fiel a work.html) -->
-    <section class="section-work-categories" aria-label="Categorias">
-      <div class="container container-work">
-        <h2 class="work-section-title">Ou navegue por categoria</h2>
-        <div class="categories-text-wrap">
-          {categories.map((cat) => (
-            <a
-              href={`/projetos?categoria=${cat.slug}`}
-              class:list={['work-cat-link', cat.isGray ? 'is-gray' : 'is-white']}
-            >
-              {cat.name}
-            </a>
+    <!-- 3. NAVEGUE POR CATEGORIA (3 Colunas em lista vertical, 32px) -->
+    <section class="section-work-categories scroll-fade" aria-label="Categorias">
+      <div class="container container-categories">
+        <h2 class="section-tag-title cat-tag-title">Ou navegue por categoria</h2>
+        <div class="categories-3col-grid">
+          {categoryColumns.map((col) => (
+            <ul class="cat-col-list">
+              {col.map((cat) => (
+                <li class="cat-col-item">
+                  <a href={`/projetos?categoria=${cat.slug}`} class="cat-item-link">
+                    {cat.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           ))}
         </div>
       </div>
@@ -143,98 +128,85 @@ const categories = [
     background-color: #000000;
     color: #ffffff;
     width: 100%;
-    padding-bottom: 100px;
+    overflow-x: hidden;
   }
 
-  .container-work {
-    max-width: 1120px;
+  /* Animações nativas de Scroll (fiel a animated-slow fadeIn do Elementor) */
+  .scroll-fade {
+    opacity: 0;
+    transition: opacity 1.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity;
   }
 
-  /* 1. HERO */
+  .scroll-fade.is-visible {
+    opacity: 1;
+  }
+
+  /* 1. HERO INSTITUCIONAL */
   .section-work-hero {
-    padding: 160px 0 60px 0;
+    padding: 160px 0 80px 0;
+  }
+
+  .container-hero {
+    max-width: 1140px;
   }
 
   .frentes-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px 40px;
-    margin-bottom: 24px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
   }
 
   .frente-title {
     font-family: var(--font-primary);
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: 108px;
     font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -3.5px;
+    line-height: 120.96px;
+    letter-spacing: -2.5px;
     color: #ffffff;
+    text-align: center;
     margin: 0;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   }
 
   .frentes-desc {
     font-family: var(--font-primary);
-    font-size: clamp(18px, 2.2vw, 24px);
+    font-size: 20px;
     font-weight: 300;
-    line-height: 34px;
+    line-height: 23.6px;
     color: #ffffff;
+    text-align: center;
     max-width: 900px;
+    margin: 32px auto 0 auto;
   }
 
-  /* TÍTULOS COMUNS */
-  .work-section-title {
+  /* TÍTULOS DE SEÇÃO CINZA 20px (Fiel a Elementor post-13) */
+  .section-tag-title {
     font-family: var(--font-primary);
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: 20px;
     font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -2.5px;
-    color: #ffffff;
-    margin-bottom: 40px;
-  }
-
-  /* 2. CASES SELECIONADOS */
-  .section-selected-cases {
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .selected-cases-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .selected-case-row {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr 1fr;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: var(--font-primary);
-    font-size: 18px;
-    font-weight: 300;
-    color: #ffffff;
-    align-items: center;
-    transition: background-color var(--transition-fast);
-  }
-
-  .selected-case-row:hover {
-    background-color: rgba(255, 255, 255, 0.02);
-  }
-
-  .case-col-client, .case-col-tag {
+    line-height: 23.6px;
     color: #656362;
-    font-size: 16px;
+    margin: 0 0 24px 0;
   }
 
-  /* 3. ÚLTIMOS CASES (4 COLUNAS) */
+  /* 2. ÚLTIMOS CASES */
   .section-ultimos-cases {
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
+    padding: 20px 0 60px 0;
+  }
+
+  .container-cases {
+    max-width: 1400px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .cases-4col-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px 24px;
+    gap: 48px 30px;
   }
 
   @media (min-width: 640px) {
@@ -246,14 +218,26 @@ const categories = [
   @media (min-width: 1024px) {
     .cases-4col-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 36px 24px;
+      gap: 56px 30px;
     }
   }
 
   .case-grid-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+  }
+
+  .case-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .case-thumb-figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .case-thumb-box {
@@ -261,91 +245,155 @@ const categories = [
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background-color: #080808;
-    border: 1px solid var(--color-border);
   }
 
   .case-thumb-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.6s ease;
   }
 
-  .case-grid-card:hover .case-thumb-img {
-    transform: scale(1.04);
+  /* Hover fiel ao WordPress: fade de opacidade a 0.75 (sem zoom) */
+  .case-card-link:hover .case-thumb-img {
+    opacity: 0.75;
   }
 
-  .case-grid-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .case-card-title {
+  /* Legenda do Case 24px Good Sans */
+  .widget-image-caption {
     font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 24px;
+    font-weight: 400;
     color: #ffffff;
     line-height: 1.3;
+    margin-top: 10px;
+    text-align: left;
   }
 
-  .case-card-client {
-    font-family: var(--font-primary);
-    font-size: 13px;
-    font-weight: 300;
-    color: #656362;
-  }
-
-  /* 4. CATEGORIAS */
+  /* 3. CATEGORIAS (3 Colunas Verticais 32px) */
   .section-work-categories {
-    padding: 80px 0;
-    border-top: 1px solid var(--color-border);
+    padding-top: 40px;
   }
 
-  .categories-text-wrap {
+  .container-categories {
+    max-width: 1140px;
+  }
+
+  .cat-tag-title {
+    margin-top: 120px;
+    margin-bottom: 30px;
+  }
+
+  .categories-3col-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 200px;
+  }
+
+  @media (min-width: 768px) {
+    .categories-3col-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .cat-col-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cat-col-item {
+    margin: 0;
+  }
+
+  .cat-item-link {
     font-family: var(--font-primary);
-    font-size: clamp(28px, 4.5vw, 60px);
+    font-size: 32px;
     font-weight: 300;
-    line-height: 1.25;
-    letter-spacing: -3px;
-  }
-
-  .work-cat-link {
-    display: inline;
-    text-decoration: none;
-    margin-right: 18px;
-    transition: opacity var(--transition-fast), color var(--transition-fast);
-  }
-
-  .work-cat-link.is-white {
-    color: #ffffff;
-  }
-
-  .work-cat-link.is-gray {
+    line-height: 39.84px;
     color: #656362;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
   }
 
-  .work-cat-link:hover {
+  .cat-item-link:hover {
     color: #ffffff;
-    opacity: 0.7;
   }
 
+  /* RESPONSIVIDADE MOBILE (< 768px) */
   @media (max-width: 767px) {
     .section-work-hero {
       padding: 120px 0 40px 0;
     }
+
     .frentes-header {
-      flex-direction: column;
-      gap: 8px;
+      align-items: flex-start;
+      text-align: left;
     }
-    .selected-case-row {
-      grid-template-columns: 1fr;
-      gap: 4px;
+
+    .frente-title {
+      font-size: 56px;
+      line-height: 48px;
+      text-align: left;
+      letter-spacing: -1.5px;
     }
-    .categories-text-wrap {
-      font-size: 26px;
-      line-height: 34px;
-      letter-spacing: -1px;
+
+    .frentes-desc {
+      font-size: 16px;
+      line-height: 22px;
+      text-align: left;
+      margin: 20px 0 0 0;
+    }
+
+    .widget-image-caption {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .cat-tag-title {
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+
+    .cat-item-link {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    .categories-3col-grid {
+      padding-bottom: 80px;
     }
   }
 </style>
+
+<script>
+  function setupScrollAnimations() {
+    const elements = document.querySelectorAll('.scroll-fade');
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  setupScrollAnimations();
+  document.addEventListener('astro:after-swap', setupScrollAnimations);
+</script>
