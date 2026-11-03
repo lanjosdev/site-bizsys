@@ -50,13 +50,15 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [x] Ocultação temporária da busca via flag `enableSearch = false` no Header e 404 (evita erro 404 enquanto a Fase 4 não for implementada)
 - [x] Redirecionamentos 301 configurados no Astro (`/work`, `/nosso-projetos`, `/premios-2`)
 
-### [ ] Fase 3: Artigos Prioritários & Rotas de Categorias
-- [ ] Setup de Content Collections (`src/content/config.ts`) com schema estrito para posts e cases
-- [ ] Template dinâmico `src/pages/posts/[slug].astro` para renderização dos artigos
-- [ ] Template dinâmico `src/pages/categoria/[slug].astro`: páginas estáticas dedicadas para cada categoria com layout de Projetos
-- [ ] Redirecionamento 301 de rotas antigas do WordPress `/category/*` para `/categoria/*`
-- [ ] Ingestão dos artigos prioritários vinculados às páginas institucionais
-- [ ] Validação dos links internos entre páginas institucionais e artigos
+### [x] Fase 3: Artigos Prioritários & Rotas de Categorias
+- [x] Setup de Content Collections (`src/content.config.ts`) com schema estrito Zod para posts e cases
+- [x] Ingestão automatizada dos 15 artigos prioritários vinculados às páginas institucionais em `src/content/posts/*.md` via `scripts/ingest-priority-posts.mjs`
+- [x] Criação de componentes modulares reutilizáveis `CaseMedia.astro` (vídeo responsivo 16:9 do YouTube/Vimeo e galeria) e `FichaTecnica.astro` (metadados estruturados, badges de categorias e prêmios)
+- [x] Template dinâmico `src/pages/posts/[slug].astro` para renderização SSG dos artigos individuais com paginação anterior/próximo
+- [x] Template dinâmico `src/pages/categoria/[slug].astro`: páginas estáticas dedicadas para as 19 categorias com layout de Projetos, nuvem com filtro ativo e fallback elegante
+- [x] Redirecionamento 301 de rotas legadas do WordPress `/category/*` para `/categoria/*` em `astro.config.mjs`
+- [x] Conexão ativa de todos os cards da Home, Projetos e Prêmios apontando diretamente para as novas rotas canônicas `/posts/[slug]`
+- [x] Build SSG validado com sucesso gerando 41 rotas estáticas no `dist/`, zero erros e zero declarações de `!important`
 
 ### [ ] Fase 4: Expansão Total de Conteúdo & Busca
 - [ ] Ingestão em lote dos 136 artigos completos da Bizsys
@@ -71,4 +73,4 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [ ] Geração de `sitemap.xml` e `robots.txt`
 - [ ] Auditoria de performance (Lighthouse / Core Web Vitals)
 - [ ] Teste de build estático final (`npm run build`)
-- [ ] Merge final da branch `feat/fase-2-institucionais` para `main` e preparação para publicação
+- [ ] Merge final da branch `feat/fase-3-artigos-vinculados` para `main` e preparação para publicação

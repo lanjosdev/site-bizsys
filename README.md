@@ -8,6 +8,7 @@ Reengenharia reversa e migração do site oficial da **Bizsys** de WordPress (PH
 
 - **Framework**: [Astro 5](https://astro.build/) (Modo `output: 'static'`)
 - **Linguagem**: TypeScript
+- **Content Collections**: Content Layer nativo do Astro com validação de schemas em [Zod](https://zod.dev/)
 - **Estilização**: CSS moderno escopado nativamente pelo Astro, tokens em CSS Variables e fontes tipográficas locais (**Good Sans**)
 - **Formulários**: [Web3Forms](https://web3forms.com/) (envio seguro de mensagens sem necessidade de backend próprio)
 - **Qualidade de Código**: Zero declarações de `!important` na codebase ativa, garantindo especificidade limpa e modular
@@ -25,18 +26,25 @@ site-bizsys/
 │   ├── favicon.png        # Favicon PNG 16x16 oficial
 │   ├── fonts/             # Família Good Sans (Light, Regular, Medium, Bold)
 │   └── images/            # Logos, banners institucionais e capas de cases
+├── scripts/               # Scripts de automação e ingestão de conteúdo
+│   └── ingest-priority-posts.mjs # Ingestão dos 15 cases prioritários do WP para Markdown
 ├── src/
-│   ├── components/        # Componentes Astro reutilizáveis (Header, Footer, etc.)
-│   ├── data/              # Bases de dados estruturadas em TypeScript (wpData.ts)
+│   ├── components/        # Componentes Astro reutilizáveis (Header, Footer, CaseMedia, FichaTecnica)
+│   ├── content.config.ts  # Configuração e schema Zod das Content Collections
+│   ├── content/           # Coleções de conteúdo tipadas em Markdown
+│   │   └── posts/         # Artigos e cases individuais (.md)
+│   ├── data/              # Bases de dados estruturadas em TypeScript (wpData.ts, premiosData.ts)
 │   ├── layouts/           # Layouts mestres (BaseLayout.astro com SEO e OpenGraph)
 │   ├── pages/             # Rotas do site (SSG)
 │   │   ├── index.astro            # Página inicial (Home)
 │   │   ├── sobre-nos.astro        # Sobre Nós
 │   │   ├── contato.astro          # Contato com Web3Forms
-│   │   ├── projetos/index.astro   # Portfólio (Work)
+│   │   ├── projetos/index.astro   # Portfólio (Work) e grid de cases
 │   │   ├── premios/index.astro    # Prêmios e contadores
 │   │   ├── nossos-clientes.astro  # Clientes
-│   │   └── 404.astro              # Página de erro 404 personalizada
+│   │   ├── 404.astro              # Página de erro 404 personalizada
+│   │   ├── posts/[slug].astro     # Template mestre dinâmico de cases individuais
+│   │   └── categoria/[slug].astro # Template de listagem por categoria
 │   └── styles/            # Folhas de estilo globais e variáveis de design
 ├── astro.config.mjs       # Configurações do Astro e redirecionamentos 301 legados
 ├── package.json           # Dependências e scripts do projeto
@@ -78,38 +86,29 @@ npm run preview
 
 ---
 
-## 🗺️ Rotas e Status Atual (Fase 2 Concluída)
+## 🗺️ Rotas e Status Atual (Fase 3 Concluída — 41 Rotas SSG)
 
 | Rota | Descrição | Status |
 | :--- | :--- | :--- |
-| `/` | **Home**: Hero leve com imagem de fundo, carrossel de cases, nuvem de categorias responsiva e banner de prêmios | Concluída |
+| `/` | **Home**: Hero com vídeo showreel, carrossel de cases conectados, nuvem de categorias e banner de prêmios | Concluída |
 | `/sobre-nos` | **Sobre Nós**: Manifesto, método dos 3 círculos conexos, time, clientes e 16 prêmios documentados | Concluída |
 | `/contato` | **Contato**: Informações de atendimento, formulário Web3Forms integrado e mapa Google Maps | Concluída |
-| `/projetos` | **Portfólio**: Grid de 19 cases destacados e nuvem categorizada de atuação | Concluída |
-| `/premios` | **Prêmios**: 4 contadores estatísticos animados e galeria com 23 cases premiados | Concluída |
+| `/projetos` | **Portfólio**: Grid de 19 cases, grid dos 15 cases conectados e nuvem categorizada de atuação | Concluída |
+| `/premios` | **Prêmios**: 4 contadores estatísticos animados e galeria com 23 cases premiados conectados | Concluída |
 | `/nossos-clientes` | **Clientes**: Grid institucional dos principais clientes atendidos | Concluída |
 | `/404` | **404 Not Found**: Página personalizada minimalista em fundo preto e retorno à home | Concluída |
+| `/posts/[slug]` | **Template de Cases**: 15 páginas estáticas individuais com player de vídeo 16:9, galeria e Ficha Técnica | Concluída (15 rotas) |
+| `/categoria/[slug]` | **Páginas de Categoria**: 19 páginas de arquivo por categoria com hero, filtro ativo e grid de cases | Concluída (19 rotas) |
 | `/work` | Redirecionamento 301 automático para `/projetos` | Ativo |
 | `/nosso-projetos` | Redirecionamento 301 automático para `/projetos` | Ativo |
 | `/premios-2` | Redirecionamento 301 automático para `/premios` | Ativo |
+| `/category/:slug` | 14 redirecionamentos 301 automáticos de `/category/*` legados do WP para `/categoria/*` | Ativo |
 
 ---
 
 ## 📌 Convenções de Git & Branching
 
 O repositório adota um fluxo de trabalho estruturado e branch-per-phase:
-
-- `main`: Branch estável de produção. Nenhum código de desenvolvimento entra diretamente nela sem aprovação.
-- Branches por fase de migração:
-  - `feat/fase-0-setup-extracao`: Extração de dados da API e baseline.
-  - `feat/fase-1-astro-shell`: Shell, layout mestre, fontes e componentes globais.
-  - `feat/fase-2-institucionais`: Páginas institucionais prioritárias e refinamento visual.
-  - `feat/fase-3-artigos-vinculados`: Content Collections, páginas de categorias `/categoria/[slug]` e artigos vinculados.
-  - `feat/fase-4-expansao-total`: Ingestão dos 136 artigos completos e sistema de busca estática.
-  - `feat/fase-5-auditoria-deploy`: Auditoria final de links, SEO e deploy em produção.
-
----
-
-## 📋 Roadmap Completo
-
-Para detalhes técnicos, decisões de engenharia reversa e checklist das próximas etapas, consulte o arquivo [ROADMAP.md](ROADMAP.md).
+- `main`: Branch estável de produção.
+- `feat/fase-3-artigos-vinculados`: Branch atual onde a Fase 3 foi implementada e validada.
+- Commits atômicos e descritivos seguindo o padrão Conventional Commits.
