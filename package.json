@@ -4,7 +4,7 @@
   "description": "Migração estática do site Bizsys para Astro",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"

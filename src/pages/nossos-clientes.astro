@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CLIENTS_LIST } from '../data/wpData';
+
+const pageTitle = 'Nossos Clientes';
+const pageDescription = 'Algumas das marcas que fazem de tudo para inovar e acreditam que conversar com seu consumidor de forma inovadora é o melhor jeito de aumentar seu poder de venda.';
+
+const colSize = Math.ceil(CLIENTS_LIST.length / 3);
+const clientCols = [
+  CLIENTS_LIST.slice(0, colSize),
+  CLIENTS_LIST.slice(colSize, colSize * 2),
+  CLIENTS_LIST.slice(colSize * 2),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  isTransparentHeader={false}
+>
+  <div class="clientes-page">
+    <!-- 1. HERO -->
+    <section class="section-clientes-hero" aria-label="Apresentação">
+      <div class="container container-clientes">
+        <h1 class="clientes-headline">As marcas que inovam conosco.</h1>
+        <p class="clientes-subheadline">
+          Algumas das marcas que fazem de tudo para inovar e acreditam que conversar com seu consumidor de forma inovadora é o melhor jeito de aumentar seu poder de venda.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. ONDE ESTÃO NOSSOS CLIENTES -->
+    <section class="section-onde-estao" aria-label="Onde Estão Nossos Clientes">
+      <div class="container container-clientes">
+        <h2 class="section-clientes-title">Onde estão nossos clientes</h2>
+        <div class="onde-grid">
+          <div class="onde-card">
+            <h3 class="onde-card-title">Ativações OOH e Praças Públicas</h3>
+            <p class="onde-card-desc">
+              Interações instaladas em locais de altíssimo fluxo nas principais capitais do país: aeroportos, shopping centers e vias públicas de grande circulação.
+            </p>
+          </div>
+          <div class="onde-card">
+            <h3 class="onde-card-title">Plataformas Conectadas & Nuvem</h3>
+            <p class="onde-card-desc">
+              Projetos especiais integrando dados em tempo real, sensores eletrônicos, inteligência artificial e streaming para ativações no Brasil e América Latina.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MARCAS EM 3 COLUNAS (Fiel ao design system do site) -->
+    <section class="section-marcas-grid" aria-label="Lista de Clientes">
+      <div class="container container-clientes">
+        <h2 class="section-clientes-title">Clientes</h2>
+        <div class="marcas-cols-grid">
+          {clientCols.map((col) => (
+            <div class="marcas-col">
+              <ul class="marcas-list">
+                {col.map((client) => (
+                  <li class="marca-item">{client}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CTA FINAL (Fiel ao original) -->
+    <section class="section-clientes-cta" aria-label="Chamada para Contato">
+      <div class="container container-clientes">
+        <div class="cta-box">
+          <p class="cta-manifesto">
+            Além das marcas, existem aqueles que confiam em nosso trabalho para que possamos compartilhar ideias e fazer acontecer.
+          </p>
+          <a href="/contato" class="cta-link animated-link">
+            Vamos viabilizar sua ideia? Fale com a gente →
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .clientes-page {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+
+  .container-clientes {
+    max-width: 1120px;
+  }
+
+  /* 1. HERO */
+  .section-clientes-hero {
+    padding: 160px 0 60px 0;
+  }
+
+  .clientes-headline {
+    font-family: var(--font-primary);
+    font-size: clamp(32px, 5.5vw, 72px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -3.5px;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+
+  .clientes-subheadline {
+    font-family: var(--font-primary);
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 300;
+    line-height: 34px;
+    color: #656362;
+    max-width: 900px;
+  }
+
+  /* TÍTULOS COMUNS */
+  .section-clientes-title {
+    font-family: var(--font-primary);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -2.5px;
+    color: #ffffff;
+    margin-bottom: 36px;
+  }
+
+  /* 2. ONDE ESTÃO */
+  .section-onde-estao {
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .onde-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .onde-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  .onde-card {
+    padding: 36px 30px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .onde-card-title {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  .onde-card-desc {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #656362;
+  }
+
+  /* 3. MARCAS */
+  .section-marcas-grid {
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .marcas-cols-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 640px) {
+    .marcas-cols-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .marcas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .marca-item {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #ffffff;
+    opacity: 0.85;
+    transition: opacity var(--transition-fast);
+  }
+
+  .marca-item:hover {
+    opacity: 1;
+  }
+
+  /* 4. CTA */
+  .section-clientes-cta {
+    padding: 80px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+  }
+
+  .cta-manifesto {
+    font-family: var(--font-primary);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .cta-link {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 767px) {
+    .section-clientes-hero {
+      padding: 120px 0 40px 0;
+    }
+    .clientes-headline {
+      letter-spacing: -1.5px;
+    }
+  }
+</style>

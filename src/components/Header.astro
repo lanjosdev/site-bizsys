@@ -6,10 +6,13 @@ interface Props {
 
 const { currentPath = '/', isTransparent = true } = Astro.props;
 
+// A busca será ativada na Fase 4 (quando as Content Collections e os artigos forem gerados)
+const enableSearch = false;
+
 const navItems = [
   { label: 'SOBRE NÓS', href: '/sobre-nos' },
-  { label: 'PORTFÓLIO', href: '/nosso-projetos' },
-  { label: 'CLIENTES', href: '/nossos-clientes' },
+  { label: 'PROJETOS', href: '/projetos' },
+  { label: 'PRÊMIOS', href: '/premios' },
   { label: 'CONTATO', href: '/contato' },
 ];
 ---
@@ -52,20 +55,22 @@ const navItems = [
 
     <!-- Ações do Header (Busca & Menu Hambúrguer) -->
     <div class="header-actions">
-      <!-- Botão de Busca -->
-      <button
-        type="button"
-        id="search-toggle-btn"
-        class="header-icon-btn search-toggle"
-        aria-label="Abrir formulário de busca"
-        aria-controls="search-overlay"
-        aria-expanded="false"
-      >
-        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </button>
+      <!-- Botão de Busca (habilitado na Fase 4) -->
+      {enableSearch && (
+        <button
+          type="button"
+          id="search-toggle-btn"
+          class="header-icon-btn search-toggle"
+          aria-label="Abrir formulário de busca"
+          aria-controls="search-overlay"
+          aria-expanded="false"
+        >
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      )}
 
       <!-- Botão Hambúrguer Mobile / Fullscreen -->
       <button
@@ -83,27 +88,29 @@ const navItems = [
   </div>
 </header>
 
-<!-- Overlay de Busca -->
-<div id="search-overlay" class="search-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Busca no site">
-  <div class="search-overlay-inner container">
-    <button type="button" id="search-close-btn" class="search-close-btn" aria-label="Fechar busca">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <form action="/busca" method="get" class="search-form">
-      <label for="search-input" class="sr-only">Digite para buscar</label>
-      <input
-        type="search"
-        id="search-input"
-        name="q"
-        placeholder="Digite o que procura e pressione Enter..."
-        autocomplete="off"
-      />
-    </form>
+<!-- Overlay de Busca (habilitado na Fase 4) -->
+{enableSearch && (
+  <div id="search-overlay" class="search-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Busca no site">
+    <div class="search-overlay-inner container">
+      <button type="button" id="search-close-btn" class="search-close-btn" aria-label="Fechar busca">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <form action="/busca" method="get" class="search-form">
+        <label for="search-input" class="sr-only">Digite para buscar</label>
+        <input
+          type="search"
+          id="search-input"
+          name="q"
+          placeholder="Digite o que procura e pressione Enter..."
+          autocomplete="off"
+        />
+      </form>
+    </div>
   </div>
-</div>
+)}
 
 <!-- Menu Fullscreen Mobile -->
 <div id="mobile-fullscreen" class="mobile-fullscreen" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu principal">
@@ -130,18 +137,20 @@ const navItems = [
       </ul>
     </nav>
 
-    <!-- Busca no menu mobile -->
-    <div class="mobile-search-box">
-      <form action="/busca" method="get" class="mobile-search-form">
-        <input type="search" name="q" placeholder="Buscar..." aria-label="Buscar no site" />
-        <button type="submit" aria-label="Buscar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-      </form>
-    </div>
+    <!-- Busca no menu mobile (habilitado na Fase 4) -->
+    {enableSearch && (
+      <div class="mobile-search-box">
+        <form action="/busca" method="get" class="mobile-search-form">
+          <input type="search" name="q" placeholder="Buscar..." aria-label="Buscar no site" />
+          <button type="submit" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+    )}
   </div>
 </div>
 
@@ -201,6 +210,7 @@ const navItems = [
   /* Desktop Nav */
   .desktop-navigation {
     display: none;
+    margin-left: auto;
   }
 
   @media (min-width: 960px) {
@@ -235,6 +245,10 @@ const navItems = [
     gap: 16px;
   }
 
+  .header-actions:empty {
+    display: none;
+  }
+
   .header-icon-btn {
     display: flex;
     align-items: center;
@@ -256,6 +270,12 @@ const navItems = [
     justify-content: center;
     gap: 6px;
     padding: 0 4px;
+  }
+
+  @media (min-width: 960px) {
+    .mobile-menu-toggle {
+      display: none;
+    }
   }
 
   .grip-line {
