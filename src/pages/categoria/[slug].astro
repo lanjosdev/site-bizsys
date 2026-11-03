@@ -1,0 +1,425 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+
+  const categories = [
+    { slug: 'ar', name: 'AR', desc: 'Realidade Aumentada e interatividade digital imersiva no mundo real.' },
+    { slug: 'aromatizador', name: 'Aromatizador', desc: 'Marketing olfativo e ativações sensoriais de alto impacto.' },
+    { slug: 'cenografia', name: 'Cenografia', desc: 'Estruturas cenográficas marcantes, ambientes imersivos e ambientações exclusivas.' },
+    { slug: 'ia', name: 'IA', desc: 'Inteligência Artificial aplicada a experiências de marca e instalações inteligentes.' },
+    { slug: 'impressao-lenticular', name: 'Impressão Lenticular', desc: 'Efeitos visuais dinâmicos em mídia física de alta definição.' },
+    { slug: 'led', name: 'LED', desc: 'Painéis, túneis e circuitos interativos de LED de última geração.' },
+    { slug: 'lives', name: 'Lives', desc: 'Transmissões interativas, eventos híbridos e experiências ao vivo.' },
+    { slug: 'midia', name: 'Mídia', desc: 'Soluções de mídia inovadoras conectando público e marcas.' },
+    { slug: 'na-bizys', name: 'Na Bizys', desc: 'Bastidores, cultura criativa e processos de inovação da Bizsys.' },
+    { slug: 'news', name: 'News', desc: 'Novidades, lançamentos e cobertura do mercado criativo e tecnológico.' },
+    { slug: 'ooh', name: 'OOH', desc: 'Out of Home de alto impacto: relógios tridimensionais, abrigos de ônibus e painéis interativos.' },
+    { slug: 'player-de-audio', name: 'Player de Áudio', desc: 'Tecnologia de áudio direcional e sonorização imersiva para ativações.' },
+    { slug: 'produto', name: 'Produto', desc: 'Engenharia de produto, prototipagem ágil e dispositivos tecnológicos customizados.' },
+    { slug: 'projetos-especiais', name: 'Projetos Especiais', desc: 'Inovações sob medida desafiando os limites entre tecnologia e criatividade.' },
+    { slug: 'reconhecimento-de-voz', name: 'Reconhecimento de Voz', desc: 'Interfaces conversacionais e ativações acionadas por voz em tempo real.' },
+    { slug: 'sampling', name: 'Sampling', desc: 'Dispensers inteligentes e ações interativas de experimentação de produto.' },
+    { slug: 'sensor-de-movimento', name: 'Sensor de Movimento', desc: 'Sensores de proximidade, presença e gestos integrados ao espaço urbano.' },
+    { slug: 'vr', name: 'VR', desc: 'Realidade Virtual imersiva e experiências tridimensionais completas.' },
+    { slug: 'webapp', name: 'WebApp', desc: 'Aplicações web interativas para ativações promocionais e mobile experiences.' },
+  ];
+
+  return categories.map((cat) => {
+    const categoryPosts = allPosts.filter((p) => p.data.categories.includes(cat.slug));
+    return {
+      params: { slug: cat.slug },
+      props: { category: cat, posts: categoryPosts, allCategories: categories },
+    };
+  });
+}
+
+const { category, posts = [], allCategories = [] } = Astro.props;
+
+// Categorias principais para o filtro rápido (as 14 oficiais de Projetos)
+const quickFilterSlugs = [
+  'ooh', 'cenografia', 'projetos-especiais', 'ia', 'webapp',
+  'produto', 'ar', 'led', 'sampling', 'lives',
+  'sensor-de-movimento', 'player-de-audio', 'impressao-lenticular', 'aromatizador'
+];
+
+const quickFilterCategories = allCategories.filter((c: { slug: string }) => quickFilterSlugs.includes(c.slug));
+
+const pageTitle = `${category.name} — Projetos Bizsys`;
+const pageDescription = category.desc;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  isTransparentHeader={false}
+  currentPath={`/categoria/${category.slug}`}
+>
+  <div class="category-page">
+    <div class="container container-category">
+      <!-- Navegação Superior / Breadcrumb -->
+      <nav class="top-breadcrumb" aria-label="Navegação estrutural">
+        <a href="/projetos" class="back-link">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span>Todos os Projetos</span>
+        </a>
+      </nav>
+
+      <!-- Hero da Categoria -->
+      <header class="category-hero">
+        <span class="category-tag-label">Categoria</span>
+        <h1 class="category-hero-title">{category.name}</h1>
+        <p class="category-hero-desc">{category.desc}</p>
+      </header>
+
+      <!-- Filtro Rápido de Categorias -->
+      <nav class="category-pills-nav" aria-label="Navegar por outras categorias">
+        <div class="pills-scroll-wrap">
+          <a href="/projetos" class="category-pill-item">
+            Todos
+          </a>
+          {quickFilterCategories.map((cat: { slug: string; name: string }) => {
+            const isActive = cat.slug === category.slug;
+            return (
+              <a
+                href={`/categoria/${cat.slug}`}
+                class={`category-pill-item ${isActive ? 'active' : ''}`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {cat.name}
+              </a>
+            );
+          })}
+        </div>
+      </nav>
+
+      <!-- Grid de Cases da Categoria -->
+      <section class="category-cases-section" aria-label={`Cases de ${category.name}`}>
+        {posts.length > 0 ? (
+          <div class="cases-4col-grid">
+            {posts.map((post: any) => (
+              <article class="case-grid-card">
+                <a href={`/posts/${post.id}`} class="case-card-link">
+                  <figure class="case-thumb-figure">
+                    <div class="case-thumb-box">
+                      <img
+                        src={post.data.featuredImage}
+                        alt={post.data.title}
+                        width="1536"
+                        height="864"
+                        class="case-thumb-img"
+                        loading="lazy"
+                      />
+                    </div>
+                    <figcaption class="widget-image-caption">
+                      <span class="caption-client">{post.data.client}</span>
+                      <span class="caption-title">{post.data.title}</span>
+                    </figcaption>
+                  </figure>
+                </a>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="empty-category-card">
+            <div class="empty-icon" aria-hidden="true">✨</div>
+            <h2 class="empty-title">Novos cases em {category.name} em breve</h2>
+            <p class="empty-desc">
+              Estamos atualizando nosso portfólio digital. Entre em contato para conhecer projetos e soluções exclusivas desenvolvidas nesta área.
+            </p>
+            <div class="empty-actions">
+              <a href="/contato" class="btn-empty-contact">Fale Conosco</a>
+              <a href="/projetos" class="btn-empty-back">Ver Todos os Projetos</a>
+            </div>
+          </div>
+        )}
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height, 73px) + 2rem);
+    padding-bottom: 6rem;
+  }
+
+  .container-category {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Breadcrumb */
+  .top-breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover {
+    color: #ffffff;
+  }
+
+  .back-arrow {
+    font-size: 1.125rem;
+    transition: transform var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover .back-arrow {
+    transform: translateX(-4px);
+  }
+
+  /* Hero da Categoria */
+  .category-hero {
+    margin-bottom: 3rem;
+  }
+
+  .category-tag-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #656362;
+    margin-bottom: 0.75rem;
+  }
+
+  .category-hero-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+
+  .category-hero-desc {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    color: #9e9e9e;
+    max-width: 760px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Filtro de Categorias (Pills) */
+  .category-pills-nav {
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .pills-scroll-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    align-items: center;
+  }
+
+  .category-pill-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #0f0f0f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: all var(--transition-normal, 0.25s ease);
+    white-space: nowrap;
+  }
+
+  .category-pill-item:hover {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .category-pill-item.active {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    font-weight: 400;
+  }
+
+  /* Grid 4 Colunas fiel a Projetos */
+  .cases-4col-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  .case-grid-card {
+    position: relative;
+    width: 100%;
+  }
+
+  .case-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .case-thumb-figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  .case-thumb-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .case-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity var(--transition-normal, 0.3s ease), transform var(--transition-normal, 0.3s ease);
+  }
+
+  .case-card-link:hover .case-thumb-img {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+
+  .widget-image-caption {
+    margin-top: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .caption-client {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #777777;
+  }
+
+  .caption-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.125rem;
+    color: #ffffff;
+    line-height: 1.35;
+    font-weight: 300;
+  }
+
+  /* Empty State */
+  .empty-category-card {
+    max-width: 640px;
+    margin: 4rem auto;
+    text-align: center;
+    padding: 3.5rem 2rem;
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+  }
+
+  .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .empty-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 1rem;
+  }
+
+  .empty-desc {
+    font-size: 1rem;
+    color: #999999;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+  }
+
+  .empty-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-empty-contact {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .btn-empty-contact:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+  }
+
+  .btn-empty-back {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .btn-empty-back:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (max-width: 1024px) {
+    .cases-4col-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .container-category {
+      padding: 0 1.25rem;
+    }
+
+    .cases-4col-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .category-pills-nav {
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>
