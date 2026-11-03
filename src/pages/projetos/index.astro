@@ -1,57 +1,57 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const pageTitle = 'Work';
+const pageTitle = 'Projetos';
 const pageDescription = 'Digital, Cenografia, Produto. A Bizsys trabalha com foco nessas três frentes de desenvolvimento.';
 
 // Cases Selecionados fiéis ao original do Elementor
 const selectedCases = [
-  { title: '#EntubadosSony', client: 'Canal Sony', tag: 'Lives', link: '/nosso-projetos' },
-  { title: 'Luna Rubi', client: 'Natura', tag: 'Aromatizador', link: '/nosso-projetos' },
-  { title: 'Chegou Itubaína Guaraná', client: 'Itubaína', tag: 'Especiais', link: '/nosso-projetos' },
-  { title: 'Destrava Essa Conquista', client: 'Trident', tag: 'Especiais', link: '/nosso-projetos' },
-  { title: 'O Torcedor Impossível', client: 'SBT', tag: 'Especiais', link: '/nosso-projetos' },
-  { title: 'Entrega Elétrica', client: 'Rappi', tag: 'Especiais', link: '/nosso-projetos' },
+  { title: '#EntubadosSony', client: 'Canal Sony', tag: 'Lives' },
+  { title: 'Luna Rubi', client: 'Natura', tag: 'Aromatizador' },
+  { title: 'Chegou Itubaína Guaraná', client: 'Itubaína', tag: 'Especiais' },
+  { title: 'Destrava Essa Conquista', client: 'Trident', tag: 'Especiais' },
+  { title: 'O Torcedor Impossível', client: 'SBT', tag: 'Especiais' },
+  { title: 'Entrega Elétrica', client: 'Rappi', tag: 'Especiais' },
 ];
 
-// Últimos Cases (Grid de 4 colunas fiel ao baseline)
+// Últimos Cases (Grid de 4 colunas fiel ao baseline, com imagens locais de alta resolução)
 const ultimosCases = [
-  { title: 'Mega McFritas', client: "McDonald's", image: '/images/cases/mccode-mcdonalds.png' },
-  { title: 'Giga Gloob', client: 'Globo', image: '/images/cases/strangerama-netflix.png' },
-  { title: '#UberNaAvenida', client: 'Uber', image: '/images/cases/algoritmo-da-vida.png' },
-  { title: 'The GPP Flare Experience', client: 'GPP', image: '/images/cases/mia-whiskas.jpg' },
-  { title: 'Experiência Keep Walking', client: 'Johnnie Walker', image: '/images/cases/batuque-challenge-chevrolet.jpg' },
-  { title: 'Bonde da Curtição', client: 'Engov', image: '/images/cases/mccode-mcdonalds.png' },
-  { title: 'Energia Verde', client: 'Heineken', image: '/images/cases/strangerama-netflix.png' },
-  { title: 'La Casa De Papel Parte 5', client: 'Netflix', image: '/images/cases/algoritmo-da-vida.png' },
-  { title: 'Verdades Secretas II', client: 'Globoplay', image: '/images/cases/mia-whiskas.jpg' },
-  { title: 'Maradona: Conquista De Um Sonho', client: 'Amazon Prime Video', image: '/images/cases/batuque-challenge-chevrolet.jpg' },
-  { title: 'Família Addams 2', client: 'Universal Pictures', image: '/images/cases/mccode-mcdonalds.png' },
-  { title: 'O Esquadrão Suicida', client: 'HBO Max', image: '/images/cases/strangerama-netflix.png' },
-  { title: 'Lil Sugar', client: 'Hip Hop Public Health e Area 23', image: '/images/cases/algoritmo-da-vida.png' },
-  { title: 'Olimpíadas 2021', client: 'SporTV', image: '/images/cases/mia-whiskas.jpg' },
-  { title: 'Voz do Fernandão', client: 'Adidas', image: '/images/cases/batuque-challenge-chevrolet.jpg' },
-  { title: '#BatuqueChallenge', client: 'Chevrolet', image: '/images/cases/batuque-challenge-chevrolet.jpg' },
-  { title: 'Você Nunca Esteve Sozinha', client: 'Globoplay', image: '/images/cases/strangerama-netflix.png' },
-  { title: 'Nova Devassa', client: 'Devassa', image: '/images/cases/mccode-mcdonalds.png' },
-  { title: 'Cozinha Às Cegas', client: 'Maggi', image: '/images/cases/mia-whiskas.jpg' },
+  { title: 'Mega McFritas', client: "McDonald's", image: '/images/projetos/megamcfritas-1536x864.png' },
+  { title: 'Giga Gloob', client: 'Globo', image: '/images/projetos/gloob1-1536x864.png' },
+  { title: '#UberNaAvenida', client: 'Uber', image: '/images/projetos/uber6-1536x864.png' },
+  { title: 'The GPP Flare Experience', client: 'GPP', image: '/images/projetos/gpp-1-1536x864.png' },
+  { title: 'Experiência Keep Walking', client: 'Johnnie Walker', image: '/images/projetos/experiencia-johnnie-walker-1-1536x864.png' },
+  { title: 'Bonde da Curtição', client: 'Engov', image: '/images/projetos/engov-1536x864.png' },
+  { title: 'Energia Verde', client: 'Heineken', image: '/images/projetos/jeineken-energia-limpa-1536x864.jpg' },
+  { title: 'La Casa De Papel Parte 5', client: 'Netflix', image: '/images/projetos/lacasadepapel-1536x864.png' },
+  { title: 'Verdades Secretas II', client: 'Globoplay', image: '/images/projetos/verdadessecretas-1536x864.png' },
+  { title: 'Maradona: Conquista De Um Sonho', client: 'Amazon Prime Video', image: '/images/projetos/maradona-1-1-1536x864.png' },
+  { title: 'Família Addams 2: Pé Na Estrada', client: 'Universal Pictures', image: '/images/projetos/familiaaddams2-1536x864.png' },
+  { title: 'O Esquadrão Suicida', client: 'HBO Max', image: '/images/projetos/Frame-1-1536x864.png' },
+  { title: 'Lil Sugar', client: 'Hip Hop Public Health e Area 23', image: '/images/projetos/lil3-1536x864.png' },
+  { title: 'Olimpíadas 2021', client: 'SporTV', image: '/images/projetos/olimpiadas-1536x864.png' },
+  { title: 'Voz do Fernandão', client: 'Adidas', image: '/images/projetos/voz-do-fernandao-adidas-1536x864.png' },
+  { title: '#BatuqueChallenge', client: 'Chevrolet', image: '/images/projetos/7-1-1536x864.jpg' },
+  { title: 'Você Nunca Esteve Sozinha', client: 'Globoplay', image: '/images/projetos/Cactos-1536x864.png' },
+  { title: 'Nova Devassa', client: 'Devassa', image: '/images/projetos/devassa-1536x864.png' },
+  { title: 'Cozinha Às Cegas', client: 'Maggi', image: '/images/projetos/CAC_9-1536x864.png' },
 ];
 
 const categories = [
+  { name: 'OOH', slug: 'ooh', isGray: false },
+  { name: 'Web App', slug: 'webapp', isGray: true },
   { name: 'Lives', slug: 'lives', isGray: false },
   { name: 'AR', slug: 'ar', isGray: true },
   { name: 'Sensor de Movimento', slug: 'sensor-de-movimento', isGray: false },
-  { name: 'Sampling', slug: 'sampling', isGray: true },
-  { name: 'Cenografia', slug: 'cenografia', isGray: false },
+  { name: 'Cenografia', slug: 'cenografia', isGray: true },
+  { name: 'IA', slug: 'ia', isGray: false },
   { name: 'Player de Áudio', slug: 'player-de-audio', isGray: true },
   { name: 'LED', slug: 'led', isGray: false },
   { name: 'Impressão Lenticular', slug: 'impressao-lenticular', isGray: true },
-  { name: 'WebApp', slug: 'webapp', isGray: false },
-  { name: 'Aromatizador', slug: 'aromatizador', isGray: true },
-  { name: 'Projetos Especiais', slug: 'projetos-especiais', isGray: false },
-  { name: 'Produto', slug: 'produto', isGray: true },
-  { name: 'OOH', slug: 'ooh', isGray: false },
-  { name: 'IA', slug: 'ia', isGray: true },
+  { name: 'Aromatizador', slug: 'aromatizador', isGray: false },
+  { name: 'Projetos Especiais', slug: 'projetos-especiais', isGray: true },
+  { name: 'Produto', slug: 'produto', isGray: false },
+  { name: 'Sampling', slug: 'sampling', isGray: true },
 ];
 ---
 
@@ -59,6 +59,7 @@ const categories = [
   title={pageTitle}
   description={pageDescription}
   isTransparentHeader={false}
+  currentPath="/projetos"
 >
   <div class="work-page">
     <!-- 1. HERO COM AS 3 FRENTES (Fiel a elementor-element de work.html) -->
@@ -75,7 +76,7 @@ const categories = [
       </div>
     </section>
 
-    <!-- 2. CASES SELECIONADOS (Fiel a "Cases Selecionados" de work.html) -->
+    <!-- 2. CASES SELECIONADOS (Fiel a Cases Selecionados de work.html) -->
     <section class="section-selected-cases" aria-label="Cases Selecionados">
       <div class="container container-work">
         <h2 class="work-section-title">Cases Selecionados</h2>
@@ -101,9 +102,9 @@ const categories = [
               <div class="case-thumb-box">
                 <img
                   src={c.image}
-                  alt={c.title}
-                  width="720"
-                  height="405"
+                  alt={`${c.title} - ${c.client}`}
+                  width="1536"
+                  height="864"
                   class="case-thumb-img"
                   loading="lazy"
                 />
@@ -125,7 +126,7 @@ const categories = [
         <div class="categories-text-wrap">
           {categories.map((cat) => (
             <a
-              href={`/nosso-projetos?categoria=${cat.slug}`}
+              href={`/projetos?categoria=${cat.slug}`}
               class:list={['work-cat-link', cat.isGray ? 'is-gray' : 'is-white']}
             >
               {cat.name}
