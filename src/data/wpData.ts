@@ -79,7 +79,7 @@ export const FEATURED_CASES: FeaturedCase[] = [
     image: '/images/cases/mccode-mcdonalds.png',
     category: 'WebApp',
     slug: 'mcdonalds-mccode',
-    link: '/projetos'
+    link: '/posts/mcdonalds-mccode'
   },
   {
     title: 'Strangerama',
@@ -121,7 +121,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Muse Awards',
     year: '2021',
     slug: 'desalma-globoplay',
-    link: '/projetos'
+    link: '/posts/desalma-globoplay'
   },
   {
     project: 'Cozinha às Cegas',
@@ -129,7 +129,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2021',
     slug: 'cozinha-as-cegas-maggi',
-    link: '/projetos'
+    link: '/posts/cozinha-as-cegas-maggi'
   },
   {
     project: 'Accessibility Mat',
@@ -137,7 +137,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions<br />Wave Festival<br />D&AD Awards',
     year: '2019',
     slug: 'acessibility-mat',
-    link: '/projetos'
+    link: '/posts/acessibility-mat'
   },
   {
     project: 'Algoritmo da Vida',
@@ -153,7 +153,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2019',
     slug: 'johnnie-walker-110-anos-aeroporto-projecao-e-ooh',
-    link: '/projetos'
+    link: '/posts/johnnie-walker-110-anos-aeroporto-projecao-e-ooh'
   },
   {
     project: 'Congelador Cerveja',
@@ -161,7 +161,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2019',
     slug: 'freezer-beerboard-amstel',
-    link: '/projetos'
+    link: '/posts/freezer-beerboard-amstel'
   },
   {
     project: 'A Rota de Emergência',
@@ -169,7 +169,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2018',
     slug: 'a-rota-de-emergencia',
-    link: '/projetos'
+    link: '/posts/a-rota-de-emergencia'
   },
   {
     project: 'Reactive Poster',
@@ -177,7 +177,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2018',
     slug: 'reactive-poster-nike',
-    link: '/projetos'
+    link: '/posts/reactive-poster-nike'
   },
   {
     project: 'The Clean Braille',
@@ -185,7 +185,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2017',
     slug: 'lifebuoy-the-clean-braille',
-    link: '/projetos'
+    link: '/posts/lifebuoy-the-clean-braille'
   },
   {
     project: 'McCode',
@@ -193,7 +193,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'mcdonalds-mccode',
-    link: '/projetos'
+    link: '/posts/mcdonalds-mccode'
   },
   {
     project: 'Pinlist',
@@ -201,7 +201,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'pinlist-tokstok',
-    link: '/projetos'
+    link: '/posts/pinlist-tokstok'
   },
   {
     project: 'Radio Finger',
@@ -209,7 +209,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'itaipava-radio-finger',
-    link: '/projetos'
+    link: '/posts/itaipava-radio-finger'
   },
   {
     project: 'The Speaking Fireworks',
@@ -217,7 +217,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'the-speaking-fireworks',
-    link: '/projetos'
+    link: '/posts/the-speaking-fireworks'
   },
   {
     project: 'Parking Radio',
@@ -225,7 +225,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'parking-radio-fma-brasil-insurance',
-    link: '/projetos'
+    link: '/posts/parking-radio-fma-brasil-insurance'
   },
   {
     project: 'Jogadores Invisíveis',
@@ -233,7 +233,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Clio Awards',
     year: '2016',
     slug: 'jogadores-invisiveis',
-    link: '/projetos'
+    link: '/posts/jogadores-invisiveis'
   },
   {
     project: 'School Zone Radio',
@@ -241,7 +241,7 @@ export const AWARDS_LIST: AwardItem[] = [
     award: 'Cannes Lions',
     year: '2016',
     slug: 'school-zone-radio-suzuki',
-    link: '/projetos'
+    link: '/posts/school-zone-radio-suzuki'
   }
 ];
 
