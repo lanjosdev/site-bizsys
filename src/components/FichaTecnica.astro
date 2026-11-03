@@ -1,0 +1,253 @@
+---
+interface Props {
+  title: string;
+  client: string;
+  year?: number;
+  partnership?: string;
+  categories: string[];
+  awards?: string[];
+}
+
+const {
+  title,
+  client,
+  year,
+  partnership,
+  categories = [],
+  awards = [],
+} = Astro.props;
+
+// Nomes amigáveis e canônicos das categorias oficiais
+const CATEGORY_NAMES: Record<string, string> = {
+  'ar': 'AR',
+  'aromatizador': 'Aromatizador',
+  'cenografia': 'Cenografia',
+  'ia': 'IA',
+  'impressao-lenticular': 'Impressão Lenticular',
+  'led': 'LED',
+  'lives': 'Lives',
+  'midia': 'Mídia',
+  'na-bizys': 'Na Bizys',
+  'news': 'News',
+  'ooh': 'OOH',
+  'player-de-audio': 'Player de Áudio',
+  'produto': 'Produto',
+  'projetos-especiais': 'Projetos Especiais',
+  'reconhecimento-de-voz': 'Reconhecimento de Voz',
+  'sampling': 'Sampling',
+  'sensor-de-movimento': 'Sensor de Movimento',
+  'software': 'Software',
+  'vr': 'VR',
+  'webapp': 'WebApp',
+};
+---
+
+<aside class="ficha-tecnica-wrapper" aria-label="Ficha Técnica do Projeto">
+  <div class="ficha-card">
+    <div class="ficha-header">
+      <h2 class="ficha-main-title">Ficha Técnica</h2>
+    </div>
+
+    <dl class="ficha-details-grid">
+      <div class="ficha-item">
+        <dt class="ficha-term">Projeto</dt>
+        <dd class="ficha-desc">{title}</dd>
+      </div>
+
+      <div class="ficha-item">
+        <dt class="ficha-term">Cliente</dt>
+        <dd class="ficha-desc">{client}</dd>
+      </div>
+
+      {year && (
+        <div class="ficha-item">
+          <dt class="ficha-term">Ano</dt>
+          <dd class="ficha-desc">{year}</dd>
+        </div>
+      )}
+
+      {partnership && (
+        <div class="ficha-item">
+          <dt class="ficha-term">Parceria / Agência</dt>
+          <dd class="ficha-desc">{partnership}</dd>
+        </div>
+      )}
+
+      {categories.length > 0 && (
+        <div class="ficha-item ficha-item-full">
+          <dt class="ficha-term">Categorias</dt>
+          <dd class="ficha-desc">
+            <ul class="categories-badge-list">
+              {categories.map((catSlug) => (
+                <li>
+                  <a href={`/categoria/${catSlug}`} class="category-badge-link">
+                    {CATEGORY_NAMES[catSlug] || catSlug}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      )}
+
+      {awards.length > 0 && (
+        <div class="ficha-item ficha-item-full">
+          <dt class="ficha-term">Reconhecimento & Prêmios</dt>
+          <dd class="ficha-desc">
+            <ul class="awards-badge-list">
+              {awards.map((award) => (
+                <li class="award-badge-item">
+                  <span class="award-icon" aria-hidden="true">🏆</span>
+                  <span class="award-text">{award}</span>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      )}
+    </dl>
+  </div>
+</aside>
+
+<style>
+  .ficha-tecnica-wrapper {
+    width: 100%;
+    max-width: 860px;
+    margin: 4rem auto 0;
+  }
+
+  .ficha-card {
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .ficha-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .ficha-main-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.625rem;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .ficha-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 2rem;
+    margin: 0;
+  }
+
+  .ficha-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .ficha-item-full {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1.5rem;
+  }
+
+  .ficha-term {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888888;
+    margin: 0;
+  }
+
+  .ficha-desc {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.0625rem;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Badges de Categorias */
+  .categories-badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .category-badge-link {
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .category-badge-link:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* Lista de Prêmios */
+  .awards-badge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .award-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    color: #e6e6e6;
+  }
+
+  .award-icon {
+    font-size: 1rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .award-text {
+    line-height: 1.4;
+  }
+
+  @media (max-width: 640px) {
+    .ficha-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .ficha-details-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .ficha-main-title {
+      font-size: 1.375rem;
+    }
+  }
+</style>
