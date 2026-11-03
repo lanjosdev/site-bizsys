@@ -134,7 +134,7 @@ export const AWARDS_LIST: AwardItem[] = [
   {
     project: 'Accessibility Mat',
     client: 'Ford Brasil',
-    award: 'Cannes Lions / Wave Festival / D&AD',
+    award: 'Cannes Lions<br />Wave Festival<br />D&AD Awards',
     year: '2019',
     slug: 'acessibility-mat',
     link: '/projetos'
@@ -156,8 +156,8 @@ export const AWARDS_LIST: AwardItem[] = [
     link: '/projetos'
   },
   {
-    project: 'Congelador Cerveja (Freezer Beerboard)',
-    client: 'Amstel / Heineken',
+    project: 'Congelador Cerveja',
+    client: 'Heineken',
     award: 'Cannes Lions',
     year: '2019',
     slug: 'freezer-beerboard-amstel',
@@ -196,7 +196,7 @@ export const AWARDS_LIST: AwardItem[] = [
     link: '/projetos'
   },
   {
-    project: 'PINLIST',
+    project: 'Pinlist',
     client: 'Tok&Stok',
     award: 'Cannes Lions',
     year: '2016',
@@ -213,7 +213,7 @@ export const AWARDS_LIST: AwardItem[] = [
   },
   {
     project: 'The Speaking Fireworks',
-    client: 'Projetos Especiais',
+    client: 'Area 23',
     award: 'Cannes Lions',
     year: '2016',
     slug: 'the-speaking-fireworks',
@@ -229,8 +229,8 @@ export const AWARDS_LIST: AwardItem[] = [
   },
   {
     project: 'Jogadores Invisíveis',
-    client: 'Projetos Especiais',
-    award: 'Cannes Lions',
+    client: 'ESPNW',
+    award: 'Clio Awards',
     year: '2016',
     slug: 'jogadores-invisiveis',
     link: '/projetos'
