@@ -12,7 +12,7 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
   - `feat/fase-1-astro-shell`: Setup do Astro, Header, Footer, menu mobile e design system global.
   - `feat/fase-2-institucionais`: Home (estática fiel), Sobre Nós, Contato (Web3Forms), Portfólio, Prêmios, Clientes e 404.
   - `feat/fase-3-artigos-vinculados`: Content Collections, páginas de categorias `/categoria/[slug]` e artigos prioritários.
-  - `feat/fase-4-expansao-total`: Ingestão dos 136 artigos completos, catalogação de mídias e sistema de busca estática.
+  - `feat/fase-4-expansao-total`: Ingestão dos 136 artigos completos, catalogação de mídias, galerias locais, motor de busca e páginas institucionais secundárias.
   - `feat/fase-5-auditoria-deploy`: Verificação de links legados, sitemap.xml, robots.txt, performance e deploy.
 
 ---
@@ -60,17 +60,36 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
 - [x] Conexão ativa de todos os cards da Home, Projetos e Prêmios apontando diretamente para as novas rotas canônicas `/posts/[slug]`
 - [x] Build SSG validado com sucesso gerando 41 rotas estáticas no `dist/`, zero erros e zero declarações de `!important`
 
-### [ ] Fase 4: Expansão Total de Conteúdo & Busca
-- [ ] Ingestão em lote dos 136 artigos completos da Bizsys
-- [ ] Ingestão das 25 páginas institucionais secundárias
-- [ ] Download e catalogação local das 745 imagens/mídias em `public/uploads/` com reescrita de caminhos
-- [ ] Implementação da página estática de busca `src/pages/busca.astro` com indexação estática (Pagefind ou client-side)
-  - Visual idêntico ao template original do WordPress (cards horizontais com thumbnail, título, excerto de texto, link `CONTINUAR LENDO` e paginação numerada)
-  - Ativação das flags `enableSearch = true` no `Header.astro` e na `404.astro`
+### [x] Fase 4: Expansão Total de Conteúdo & Busca
+- [x] **Ingestão Completa & Deduplicação de Artigos**:
+  - Ingestão em lote dos 136 artigos do WordPress para Markdown tipado em `src/content/posts/*.md` via `scripts/ingest-all-posts.mjs`;
+  - Deduplicação inteligente de 16 notícias clonadas no WordPress em junho de 2021, consolidando o acervo em **120 artigos canônicos** (94 cases técnicos de portfólio + 26 matérias de imprensa/news).
+- [x] **Catalogação e Autonomia Total de Mídias (201 Imagens Locais)**:
+  - Download e catalogação de 121 imagens de destaque em `public/images/posts/` via `scripts/download-post-media.mjs`;
+  - Resgate e download de 77 novas imagens de galerias e mapeamento de 15 imagens locais em `public/images/premios/` via `scripts/download-and-fix-all-galleries.mjs`;
+  - Eliminação de 18 referências a `localhost` herdadas da base do WordPress;
+  - Auditoria automatizada (`scripts/audit-images.mjs`) confirmando 0 referências a servidores externos ou links quebrados.
+- [x] **Rotas de Categorias & Arquivo Completo**:
+  - Implementação de paginação progressiva em lotes de 16 itens ("Carregar mais projetos"), badges contadoras de cases e ordenação cronológica decrescente em `src/pages/categoria/[slug].astro`;
+  - Layout editorial diferenciado para `/categoria/news` (exibindo badges de data e resumos jornalísticos);
+  - Criação da página estática `/categoria/todos` exibindo o acervo completo de projetos (94 cases) com pill "Todos os Projetos";
+  - Alinhamento da vitrine `/projetos` com a página original `/work` da Bizsys (19 cases selecionados + nuvem de categorias + CTA para `/categoria/todos`).
+- [x] **Sistema de Busca Estática Instantânea**:
+  - Gerador automatizado de índice minificado `public/search-index.json` (51.24 KB, 120 itens) integrado ao ciclo de build (`scripts/generate-search-index.mjs`);
+  - Criação da rota `src/pages/busca.astro` com busca reativa client-side, debounce de 150ms, accent folding, highlight de termos, tags sugeridas rápidas, cards horizontais (estilo OceanWP) e botão de limpar exclusivo com ícone SVG;
+  - Ativação das flags `enableSearch = true` no `Header.astro` e na `404.astro`;
+  - Ajuste de espaçamento desktop de 36px na lupa do Header em perfeita harmonia com o menu institucional.
+- [x] **Páginas Institucionais Secundárias & Conformidade**:
+  - Criação da rota institucional `src/pages/politica-de-privacidade.astro` com diretrizes LGPD e preservação da declaração do app **SolAR** (ID 1629 do WordPress);
+  - Redirecionamento 301 de `/politica-de-privacidade-solar` para `/politica-de-privacidade` em `astro.config.mjs`;
+  - Inclusão do link de Privacidade no rodapé (`Footer.astro`).
+- [x] **Validação SSG**:
+  - Total de **149 rotas estáticas** geradas com sucesso no `dist/` (contra 41 da Fase 3);
+  - Zero declarações `!important` na codebase ativa.
 
 ### [ ] Fase 5: Auditoria, SEO e Build Final
 - [ ] Verificação contra referências a `wp-content` ou domínios PHP antigos
 - [ ] Geração de `sitemap.xml` e `robots.txt`
 - [ ] Auditoria de performance (Lighthouse / Core Web Vitals)
 - [ ] Teste de build estático final (`npm run build`)
-- [ ] Merge final da branch `feat/fase-3-artigos-vinculados` para `main` e preparação para publicação
+- [ ] Merge final da branch `feat/fase-4-expansao-total` para `main` e preparação para publicação

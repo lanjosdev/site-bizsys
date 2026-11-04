@@ -7,7 +7,7 @@ partnership: "GTB Brasil"
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=tZqcMKburUY"
-galleryImages: ["http://localhost/bizsys-real/wp-content/uploads/2021/06/image.imgs_.full_-6.png","https://www.bizsys.com.br/wp-content/uploads/2021/08/accessibility-mat1.png","https://www.bizsys.com.br/wp-content/uploads/2021/08/accessibility-mat2.png","https://www.bizsys.com.br/wp-content/uploads/2021/08/accessibility-mat3.png"]
+galleryImages: ["/images/posts/acessibility-mat-gallery-1-image.imgs_.full_-6.png","/images/posts/acessibility-mat-gallery-2-accessibility-mat1.png","/images/posts/acessibility-mat-gallery-3-accessibility-mat2.png","/images/posts/acessibility-mat-gallery-4-accessibility-mat3.png"]
 featuredImage: "/images/premios/acessibi_MAT_play.jpg"
 excerpt: "Um protótipo que promete levar mais liberdade e mobilidade à vida das pessoas. O Accessibility Mat (Tapete de Acessibilidade Ford), é o protótipo do tapete de p..."
 date: "2019-05-02T15:31:52"

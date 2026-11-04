@@ -6,7 +6,7 @@ year: 2021
 categories: ["cenografia","ooh"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=E7Xv5lbvjrg"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/WhatsApp-Image-2020-10-29-at-20.34.52.jpeg"]
+galleryImages: ["/images/premios/WhatsApp-Image-2020-10-29-at-20.34.52.jpeg"]
 featuredImage: "/images/premios/WhatsApp-Image-2020-10-29-at-20.34.52.jpeg"
 excerpt: "Elementos cenográficos e o clima sombrio da série Desalma, produção original da GloboPlay, acabam de ganhar o mobiliário urbano e as ruas do Rio de Janeiro (RJ)..."
 date: "2021-06-25T18:03:58"

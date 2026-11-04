@@ -6,7 +6,7 @@ year: 2016
 categories: ["webapp"]
 mediaType: "video"
 videoUrl: "https://youtu.be/G18kwGWptQs"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/banners_produtos_BIZSYS_mccode2.png"]
+galleryImages: ["/images/premios/mcode3.jpg"]
 featuredImage: "/images/premios/mcode3.jpg"
 excerpt: "Para aumentar a conversão de vendas dos cupons promocionais McDonald ‘s, uma ação uniu o desconto à tecnologia. Com o design do código de barras imitando os fam..."
 date: "2016-07-31T14:39:00"

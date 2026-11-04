@@ -7,7 +7,7 @@ partnership: "Africa"
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/KJHQibu7NUk"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/schooradio3.jpg"]
+galleryImages: ["/images/premios/school-zone-radio-min.png"]
 featuredImage: "/images/premios/school-zone-radio-min.png"
 excerpt: "A área ao redor das escolas são um espaço propício a acidentes graves com crianças. Os motoristas devem redobrar a atenção ao dirigir por essas áreas, mas nem s..."
 date: "2016-06-30T15:16:00"

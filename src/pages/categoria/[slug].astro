@@ -6,6 +6,7 @@ export async function getStaticPaths() {
   const allPosts = await getCollection('posts');
 
   const categories = [
+    { slug: 'todos', name: 'Todos os Projetos', desc: 'Conheça o acervo completo de projetos, inovações e tecnologias desenvolvidas pela Bizsys.' },
     { slug: 'ar', name: 'AR', desc: 'Realidade Aumentada e interatividade digital imersiva no mundo real.' },
     { slug: 'aromatizador', name: 'Aromatizador', desc: 'Marketing olfativo e ativações sensoriais de alto impacto.' },
     { slug: 'cenografia', name: 'Cenografia', desc: 'Estruturas cenográficas marcantes, ambientes imersivos e ambientações exclusivas.' },
@@ -28,7 +29,18 @@ export async function getStaticPaths() {
   ];
 
   return categories.map((cat) => {
-    const categoryPosts = allPosts.filter((p) => p.data.categories.includes(cat.slug));
+    let categoryPosts;
+    if (cat.slug === 'todos') {
+      // Todos os projetos de portfólio (exclui clipping de 'news')
+      categoryPosts = allPosts
+        .filter((p) => !p.data.categories.includes('news'))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    } else {
+      categoryPosts = allPosts
+        .filter((p) => p.data.categories.includes(cat.slug))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    }
+
     return {
       params: { slug: cat.slug },
       props: { category: cat, posts: categoryPosts, allCategories: categories },
@@ -38,17 +50,31 @@ export async function getStaticPaths() {
 
 const { category, posts = [], allCategories = [] } = Astro.props;
 
-// Categorias principais para o filtro rápido (as 14 oficiais de Projetos)
+// Categorias principais para o filtro rápido (projetos técnicos + news)
 const quickFilterSlugs = [
   'ooh', 'cenografia', 'projetos-especiais', 'ia', 'webapp',
   'produto', 'ar', 'led', 'sampling', 'lives',
-  'sensor-de-movimento', 'player-de-audio', 'impressao-lenticular', 'aromatizador'
+  'sensor-de-movimento', 'player-de-audio', 'impressao-lenticular', 'aromatizador',
+  'news'
 ];
 
 const quickFilterCategories = allCategories.filter((c: { slug: string }) => quickFilterSlugs.includes(c.slug));
 
-const pageTitle = `${category.name} — Projetos Bizsys`;
+const pageTitle = category.slug === 'news'
+  ? 'News & Imprensa — Bizsys'
+  : (category.slug === 'todos' ? 'Todos os Projetos — Bizsys' : `${category.name} — Projetos Bizsys`);
+
 const pageDescription = category.desc;
+
+function formatDate(dateStr: string) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+const isNews = category.slug === 'news';
+const isAll = category.slug === 'todos';
+const itemsPerPage = 16;
 ---
 
 <BaseLayout
@@ -61,15 +87,20 @@ const pageDescription = category.desc;
     <div class="container container-category">
       <!-- Navegação Superior / Breadcrumb -->
       <nav class="top-breadcrumb" aria-label="Navegação estrutural">
-        <a href="/projetos" class="back-link">
+        <a href={isNews ? '/' : '/projetos'} class="back-link">
           <span class="back-arrow" aria-hidden="true">←</span>
-          <span>Todos os Projetos</span>
+          <span>{isNews ? 'Página Inicial' : 'Destaques (Work)'}</span>
         </a>
       </nav>
 
       <!-- Hero da Categoria -->
       <header class="category-hero">
-        <span class="category-tag-label">Categoria</span>
+        <div class="category-meta-header">
+          <span class="category-tag-label">{isNews ? 'Imprensa & Novidades' : (isAll ? 'Portfólio Completo' : 'Categoria')}</span>
+          <span class="category-counter-pill">
+            {posts.length} {isNews ? (posts.length === 1 ? 'artigo' : 'artigos') : (posts.length === 1 ? 'case' : 'cases')}
+          </span>
+        </div>
         <h1 class="category-hero-title">{category.name}</h1>
         <p class="category-hero-desc">{category.desc}</p>
       </header>
@@ -77,8 +108,12 @@ const pageDescription = category.desc;
       <!-- Filtro Rápido de Categorias -->
       <nav class="category-pills-nav" aria-label="Navegar por outras categorias">
         <div class="pills-scroll-wrap">
-          <a href="/projetos" class="category-pill-item">
-            Todos
+          <a
+            href="/categoria/todos"
+            class={`category-pill-item ${category.slug === 'todos' ? 'active' : ''}`}
+            aria-current={category.slug === 'todos' ? 'page' : undefined}
+          >
+            Todos os Projetos
           </a>
           {quickFilterCategories.map((cat: { slug: string; name: string }) => {
             const isActive = cat.slug === category.slug;
@@ -95,33 +130,62 @@ const pageDescription = category.desc;
         </div>
       </nav>
 
-      <!-- Grid de Cases da Categoria -->
+      <!-- Grid de Conteúdo da Categoria -->
       <section class="category-cases-section" aria-label={`Cases de ${category.name}`}>
         {posts.length > 0 ? (
-          <div class="cases-4col-grid">
-            {posts.map((post: any) => (
-              <article class="case-grid-card">
-                <a href={`/posts/${post.id}`} class="case-card-link">
-                  <figure class="case-thumb-figure">
-                    <div class="case-thumb-box">
-                      <img
-                        src={post.data.featuredImage}
-                        alt={post.data.title}
-                        width="1536"
-                        height="864"
-                        class="case-thumb-img"
-                        loading="lazy"
-                      />
-                    </div>
-                    <figcaption class="widget-image-caption">
-                      <span class="caption-client">{post.data.client}</span>
-                      <span class="caption-title">{post.data.title}</span>
-                    </figcaption>
-                  </figure>
-                </a>
-              </article>
-            ))}
-          </div>
+          <>
+            <div class="cases-4col-grid" id="category-posts-grid">
+              {posts.map((post: any, index: number) => {
+                const isHidden = index >= itemsPerPage;
+                return (
+                  <article class={`case-grid-card ${isHidden ? 'is-paged-hidden' : ''}`} data-index={index}>
+                    <a href={`/posts/${post.id}`} class="case-card-link">
+                      <figure class="case-thumb-figure">
+                        <div class="case-thumb-box">
+                          <img
+                            src={post.data.featuredImage}
+                            alt={post.data.title}
+                            width="1536"
+                            height="864"
+                            class="case-thumb-img"
+                            loading={index < 8 ? 'eager' : 'lazy'}
+                          />
+                          {isNews && post.data.date && (
+                            <span class="news-date-badge">{formatDate(post.data.date)}</span>
+                          )}
+                        </div>
+                        <figcaption class="widget-image-caption">
+                          <span class="caption-client">{isNews ? 'Notícia Bizsys' : post.data.client}</span>
+                          <span class="caption-title">{post.data.title}</span>
+                          {isNews && post.data.excerpt && (
+                            <p class="caption-excerpt">{post.data.excerpt}</p>
+                          )}
+                        </figcaption>
+                      </figure>
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+
+            {posts.length > itemsPerPage && (
+              <div class="load-more-wrap">
+                <button
+                  type="button"
+                  id="btn-load-more"
+                  class="btn-load-more"
+                  data-total={posts.length}
+                  data-page-size={itemsPerPage}
+                  data-loaded={itemsPerPage}
+                  aria-label={`Carregar mais ${isNews ? 'artigos' : 'cases'}`}
+                >
+                  <span class="btn-text">Carregar mais {isNews ? 'notícias' : 'projetos'}</span>
+                  <span class="btn-badge" id="remaining-count">({posts.length - itemsPerPage} restantes)</span>
+                  <span class="btn-icon" aria-hidden="true">↓</span>
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <div class="empty-category-card">
             <div class="empty-icon" aria-hidden="true">✨</div>
@@ -131,7 +195,7 @@ const pageDescription = category.desc;
             </p>
             <div class="empty-actions">
               <a href="/contato" class="btn-empty-contact">Fale Conosco</a>
-              <a href="/projetos" class="btn-empty-back">Ver Todos os Projetos</a>
+              <a href="/categoria/todos" class="btn-empty-back">Ver Todos os Projetos</a>
             </div>
           </div>
         )}
@@ -139,6 +203,42 @@ const pageDescription = category.desc;
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  function setupCategoryPagination() {
+    const btn = document.getElementById('btn-load-more');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const pageSize = parseInt(btn.getAttribute('data-page-size') || '16', 10);
+      let loaded = parseInt(btn.getAttribute('data-loaded') || '16', 10);
+      const total = parseInt(btn.getAttribute('data-total') || '0', 10);
+
+      const hiddenItems = document.querySelectorAll('.case-grid-card.is-paged-hidden');
+      const toShow = Array.from(hiddenItems).slice(0, pageSize);
+
+      toShow.forEach((el) => {
+        el.classList.remove('is-paged-hidden');
+      });
+
+      loaded += toShow.length;
+      btn.setAttribute('data-loaded', String(loaded));
+
+      const remaining = total - loaded;
+      const countSpan = document.getElementById('remaining-count');
+      if (countSpan) {
+        countSpan.textContent = `(${remaining} restantes)`;
+      }
+
+      if (remaining <= 0) {
+        btn.parentElement?.remove();
+      }
+    });
+  }
+
+  setupCategoryPagination();
+  document.addEventListener('astro:page-load', setupCategoryPagination);
+</script>
 
 <style>
   .category-page {
@@ -190,13 +290,29 @@ const pageDescription = category.desc;
     margin-bottom: 3rem;
   }
 
+  .category-meta-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
   .category-tag-label {
     display: inline-block;
     font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #656362;
-    margin-bottom: 0.75rem;
+  }
+
+  .category-counter-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #a0a0a0;
+    background-color: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
   }
 
   .category-hero-title {
@@ -258,7 +374,7 @@ const pageDescription = category.desc;
     font-weight: 400;
   }
 
-  /* Grid 4 Colunas fiel a Projetos */
+  /* Grid 4 Colunas */
   .cases-4col-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -268,6 +384,10 @@ const pageDescription = category.desc;
   .case-grid-card {
     position: relative;
     width: 100%;
+  }
+
+  .case-grid-card.is-paged-hidden {
+    display: none;
   }
 
   .case-card-link {
@@ -304,11 +424,26 @@ const pageDescription = category.desc;
     transform: scale(1.02);
   }
 
+  .news-date-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    color: #e0e0e0;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
   .widget-image-caption {
     margin-top: 0.875rem;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.25rem;
   }
 
   .caption-client {
@@ -324,6 +459,61 @@ const pageDescription = category.desc;
     color: #ffffff;
     line-height: 1.35;
     font-weight: 300;
+  }
+
+  .caption-excerpt {
+    font-size: 0.8125rem;
+    color: #888888;
+    line-height: 1.45;
+    margin: 0.25rem 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Paginação / Carregar Mais */
+  .load-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .btn-load-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all var(--transition-normal, 0.25s ease);
+  }
+
+  .btn-load-more:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .btn-badge {
+    font-size: 0.8125rem;
+    opacity: 0.7;
+  }
+
+  .btn-icon {
+    font-size: 1rem;
+    transition: transform var(--transition-normal, 0.25s ease);
+  }
+
+  .btn-load-more:hover .btn-icon {
+    transform: translateY(2px);
   }
 
   /* Empty State */

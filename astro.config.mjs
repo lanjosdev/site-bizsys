@@ -8,6 +8,9 @@ export default defineConfig({
     '/work': '/projetos',
     '/nosso-projetos': '/projetos',
     '/premios-2': '/premios',
+    '/categoria': '/categoria/todos',
+    '/category': '/categoria/todos',
+    '/category/todos': '/categoria/todos',
     '/category/ooh': '/categoria/ooh',
     '/category/cenografia': '/categoria/cenografia',
     '/category/ia': '/categoria/ia',
@@ -23,5 +26,7 @@ export default defineConfig({
     '/category/impressao-lenticular': '/categoria/impressao-lenticular',
     '/category/aromatizador': '/categoria/aromatizador',
     '/category/reconhecimento-de-voz': '/categoria/reconhecimento-de-voz',
+    '/category/news': '/categoria/news',
+    '/politica-de-privacidade-solar': '/politica-de-privacidade',
   }
 });

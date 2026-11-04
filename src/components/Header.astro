@@ -7,7 +7,7 @@ interface Props {
 const { currentPath = '/', isTransparent = true } = Astro.props;
 
 // A busca será ativada na Fase 4 (quando as Content Collections e os artigos forem gerados)
-const enableSearch = false;
+const enableSearch = true;
 
 const navItems = [
   { label: 'SOBRE NÓS', href: '/sobre-nos' },
@@ -243,6 +243,12 @@ const navItems = [
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+
+  @media (min-width: 960px) {
+    .header-actions {
+      margin-left: 36px;
+    }
   }
 
   .header-actions:empty {

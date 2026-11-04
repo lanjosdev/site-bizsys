@@ -7,7 +7,7 @@ partnership: "Ampfy"
 categories: ["ar","webapp"]
 mediaType: "video"
 videoUrl: "https://youtu.be/IR4bKB0jxjw"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2018/02/nike_reactive2.png","https://www.bizsys.com.br/wp-content/uploads/2018/02/nike_reactive1.png","https://www.bizsys.com.br/wp-content/uploads/2018/02/nike_reactive3.png"]
+galleryImages: ["/images/posts/reactive-poster-nike-gallery-1-nike_reactive2.png","/images/posts/reactive-poster-nike-gallery-2-nike_reactive1.png","/images/premios/nike_reactive3.png"]
 featuredImage: "/images/premios/nike_reactive3.png"
 excerpt: "Pôster que, por meio de realidade aumentada, possibilita que o público experimente o novo tênis de corrida Nike Epic React sem necessidade de ir até uma loja fí..."
 date: "2018-02-28T14:27:00"

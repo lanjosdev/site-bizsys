@@ -10,8 +10,10 @@ Reengenharia reversa e migração do site oficial da **Bizsys** de WordPress (PH
 - **Linguagem**: TypeScript
 - **Content Collections**: Content Layer nativo do Astro com validação de schemas em [Zod](https://zod.dev/)
 - **Estilização**: CSS moderno escopado nativamente pelo Astro, tokens em CSS Variables e fontes tipográficas locais (**Good Sans**)
+- **Motor de Busca**: Busca estática instantânea client-side com índice JSON minificado (51 KB) gerado no pré-build
 - **Formulários**: [Web3Forms](https://web3forms.com/) (envio seguro de mensagens sem necessidade de backend próprio)
 - **Qualidade de Código**: Zero declarações de `!important` na codebase ativa, garantindo especificidade limpa e modular
+- **Autonomia de Mídias**: 100% dos 120 posts canônicos operam com imagens locais (201 mídias em `public/images/`) sem qualquer dependência de servidores legados
 
 ---
 
@@ -24,27 +26,36 @@ site-bizsys/
 ├── public/                # Arquivos públicos estáticos
 │   ├── favicon.ico        # Monograma circular oficial Bizsys
 │   ├── favicon.png        # Favicon PNG 16x16 oficial
+│   ├── search-index.json  # Índice estático minificado para busca rápida (120 artigos)
 │   ├── fonts/             # Família Good Sans (Light, Regular, Medium, Bold)
-│   └── images/            # Logos, banners institucionais e capas de cases
+│   └── images/            # Logos, banners institucionais, capas e galerias locais
+│       ├── posts/         # Imagens de destaque e galerias de todos os cases
+│       └── premios/       # Mídias em alta resolução dos cases premiados
 ├── scripts/               # Scripts de automação e ingestão de conteúdo
-│   └── ingest-priority-posts.mjs # Ingestão dos 15 cases prioritários do WP para Markdown
+│   ├── audit-images.mjs   # Auditoria de integridade e ausência de links remotos
+│   ├── download-and-fix-all-galleries.mjs # Download de galerias e correção de caminhos
+│   ├── download-post-media.mjs # Download automatizado das mídias de destaque
+│   ├── generate-search-index.mjs # Geração automatizada de public/search-index.json
+│   └── ingest-all-posts.mjs # Ingestão dos 120 posts canônicos para Markdown tipado
 ├── src/
 │   ├── components/        # Componentes Astro reutilizáveis (Header, Footer, CaseMedia, FichaTecnica)
 │   ├── content.config.ts  # Configuração e schema Zod das Content Collections
 │   ├── content/           # Coleções de conteúdo tipadas em Markdown
-│   │   └── posts/         # Artigos e cases individuais (.md)
+│   │   └── posts/         # 120 artigos e cases individuais canônicos (.md)
 │   ├── data/              # Bases de dados estruturadas em TypeScript (wpData.ts, premiosData.ts)
 │   ├── layouts/           # Layouts mestres (BaseLayout.astro com SEO e OpenGraph)
 │   ├── pages/             # Rotas do site (SSG)
 │   │   ├── index.astro            # Página inicial (Home)
 │   │   ├── sobre-nos.astro        # Sobre Nós
 │   │   ├── contato.astro          # Contato com Web3Forms
-│   │   ├── projetos/index.astro   # Portfólio (Work) e grid de cases
+│   │   ├── busca.astro            # Sistema de busca estática instantânea
+│   │   ├── politica-de-privacidade.astro # Política de Privacidade e SolAR (LGPD)
+│   │   ├── projetos/index.astro   # Vitrine de Portfólio (Work) e 19 cases curados
 │   │   ├── premios/index.astro    # Prêmios e contadores
 │   │   ├── nossos-clientes.astro  # Clientes
-│   │   ├── 404.astro              # Página de erro 404 personalizada
-│   │   ├── posts/[slug].astro     # Template mestre dinâmico de cases individuais
-│   │   └── categoria/[slug].astro # Template de listagem por categoria
+│   │   ├── 404.astro              # Página de erro 404 personalizada com busca integrada
+│   │   ├── posts/[slug].astro     # Template dinâmico de cases (120 rotas estáticas)
+│   │   └── categoria/[slug].astro # Template de categorias, /categoria/todos e /categoria/news
 │   └── styles/            # Folhas de estilo globais e variáveis de design
 ├── astro.config.mjs       # Configurações do Astro e redirecionamentos 301 legados
 ├── package.json           # Dependências e scripts do projeto
@@ -73,7 +84,7 @@ npm run dev
 Acesse no navegador: `http://localhost:4321`
 
 ### Build estático de produção
-Gera os arquivos HTML/CSS/JS estáticos na pasta `dist/`:
+Gera o índice de busca estático e compila os arquivos HTML/CSS/JS na pasta `dist/`:
 ```bash
 npm run build
 ```
@@ -86,23 +97,29 @@ npm run preview
 
 ---
 
-## 🗺️ Rotas e Status Atual (Fase 3 Concluída — 41 Rotas SSG)
+## 🗺️ Rotas e Status Atual (Fase 4 Concluída — 149 Rotas SSG)
 
 | Rota | Descrição | Status |
 | :--- | :--- | :--- |
 | `/` | **Home**: Hero com vídeo showreel, carrossel de cases conectados, nuvem de categorias e banner de prêmios | Concluída |
 | `/sobre-nos` | **Sobre Nós**: Manifesto, método dos 3 círculos conexos, time, clientes e 16 prêmios documentados | Concluída |
 | `/contato` | **Contato**: Informações de atendimento, formulário Web3Forms integrado e mapa Google Maps | Concluída |
-| `/projetos` | **Portfólio**: Grid de 19 cases, grid dos 15 cases conectados e nuvem categorizada de atuação | Concluída |
+| `/projetos` | **Vitrine de Portfólio**: Vitrine fiel a `/work` com 19 cases selecionados, nuvem técnica e link para catálogo completo | Concluída |
+| `/categoria/todos` | **Todos os Projetos**: Acervo completo com 94 cases de portfólio, paginação progressiva de 16 itens e contadores | Concluída |
+| `/categoria/news` | **Notícias e Imprensa**: Acervo com 26 artigos editoriais da Bizsys com badges de data e resumos | Concluída |
+| `/categoria/[slug]` | **Páginas de Categoria**: 19 páginas de arquivo por categoria técnica (OOH, Cenografia, IA, etc.) | Concluída (19 rotas) |
+| `/busca` | **Buscador do Acervo**: Busca client-side ultrarrápida cobrindo os 120 posts com debounce de 150ms e highlight | Concluída |
+| `/politica-de-privacidade` | **Política de Privacidade**: Diretrizes de privacidade, conformidade LGPD e declaração do app SolAR (ID 1629) | Concluída |
 | `/premios` | **Prêmios**: 4 contadores estatísticos animados e galeria com 23 cases premiados conectados | Concluída |
 | `/nossos-clientes` | **Clientes**: Grid institucional dos principais clientes atendidos | Concluída |
-| `/404` | **404 Not Found**: Página personalizada minimalista em fundo preto e retorno à home | Concluída |
-| `/posts/[slug]` | **Template de Cases**: 15 páginas estáticas individuais com player de vídeo 16:9, galeria e Ficha Técnica | Concluída (15 rotas) |
-| `/categoria/[slug]` | **Páginas de Categoria**: 19 páginas de arquivo por categoria com hero, filtro ativo e grid de cases | Concluída (19 rotas) |
+| `/404` | **404 Not Found**: Página personalizada minimalista em fundo preto e formulário de busca integrado | Concluída |
+| `/posts/[slug]` | **Cases e Artigos**: 120 páginas estáticas individuais com player 16:9, galeria local e Ficha Técnica | Concluída (120 rotas) |
 | `/work` | Redirecionamento 301 automático para `/projetos` | Ativo |
 | `/nosso-projetos` | Redirecionamento 301 automático para `/projetos` | Ativo |
 | `/premios-2` | Redirecionamento 301 automático para `/premios` | Ativo |
-| `/category/:slug` | 14 redirecionamentos 301 automáticos de `/category/*` legados do WP para `/categoria/*` | Ativo |
+| `/politica-de-privacidade-solar` | Redirecionamento 301 automático para `/politica-de-privacidade` | Ativo |
+| `/categoria` e `/category` | Redirecionamentos 301 automáticos para `/categoria/todos` | Ativo |
+| `/category/:slug` | 15 redirecionamentos 301 automáticos de `/category/*` legados do WP para `/categoria/*` | Ativo |
 
 ---
 
@@ -110,5 +127,5 @@ npm run preview
 
 O repositório adota um fluxo de trabalho estruturado e branch-per-phase:
 - `main`: Branch estável de produção.
-- `feat/fase-3-artigos-vinculados`: Branch atual onde a Fase 3 foi implementada e validada.
+- `feat/fase-4-expansao-total`: Branch onde a Fase 4 foi integralmente implementada, validada e documentada.
 - Commits atômicos e descritivos seguindo o padrão Conventional Commits.
