@@ -6,7 +6,7 @@ year: 2022
 partnership: "Alterlabs"
 categories: ["cenografia","projetos-especiais"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2022/04/gloob4.png","https://www.bizsys.com.br/wp-content/uploads/2022/04/gloob3.png","https://www.bizsys.com.br/wp-content/uploads/2022/04/gloob2.png"]
+galleryImages: ["/images/posts/giga-gloob-gallery-1-gloob4.png","/images/posts/giga-gloob-gallery-2-gloob3.png","/images/posts/giga-gloob-gallery-3-gloob2.png"]
 featuredImage: "/images/posts/giga-gloob-featured.png"
 excerpt: "Para ampliar o alcance do Giga Gloob, novo aplicativo da Globo voltado para o público infantil, realizamos uma ativação levando a novidade aos pequeninos."
 date: "2022-04-12T16:31:40"

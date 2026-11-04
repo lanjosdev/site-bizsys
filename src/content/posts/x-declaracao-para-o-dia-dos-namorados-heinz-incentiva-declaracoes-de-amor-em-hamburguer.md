@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2021
 categories: ["news"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/08/topo.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/06/ambev-mascaras-coronavirus.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/06/natal-do-bradesco-6-.jpg"]
+galleryImages: ["/images/posts/x-declaracao-para-o-dia-dos-namorados-heinz-incentiva-declaracoes-de-amor-em-hamburguer-gallery-1-topo.jpg","/images/posts/x-declaracao-para-o-dia-dos-namorados-heinz-incentiva-declaracoes-de-amor-em-hamburguer-gallery-2-ambev-mascaras-coronavirus.jpg","/images/posts/x-declaracao-para-o-dia-dos-namorados-heinz-incentiva-declaracoes-de-amor-em-hamburguer-gallery-3-natal-do-bradesco-6-.jpg"]
 featuredImage: "/images/posts/x-declaracao-para-o-dia-dos-namorados-heinz-incentiva-declaracoes-de-amor-em-hamburguer-featured.jpg"
 excerpt: "X-Declaração: para o Dia dos Namorados, Heinz incentiva declarações de amor em hambúrguer"
 date: "2021-06-10T17:28:06"

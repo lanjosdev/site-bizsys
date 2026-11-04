@@ -7,7 +7,7 @@ partnership: "JCDecaux"
 categories: ["projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/q10RcpGuyho"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/rota.jpg"]
+galleryImages: ["/images/premios/rota-de-emergencia.png"]
 featuredImage: "/images/premios/rota-de-emergencia.png"
 excerpt: "O projeto Rota de Emergência uniu três tendências do segmento OOH: inovação, integração mobile e comunicação de causas. Um aplicativo desenvolvido pela JCDecaux..."
 date: "2018-12-15T10:25:33"

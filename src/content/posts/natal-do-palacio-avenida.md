@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2019
 categories: ["news"]
 mediaType: "image"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2019/10/natal-do-bradesco-4--1024x617.jpg"]
+galleryImages: ["/images/posts/natal-do-palacio-avenida-gallery-1-natal-do-bradesco-4--1024x617.jpg"]
 featuredImage: "/images/posts/natal-do-palacio-avenida-featured.jpg"
 excerpt: "O Bradesco lançou neste mês de novembro o app do Natal do Bradesco (Android, iOS) que traz informações sobre um dos eventos de fim de ano mais visitados do Bras..."
 date: "2019-12-20T18:24:09"

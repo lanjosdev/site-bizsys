@@ -7,7 +7,7 @@ partnership: "Otima – JWT"
 categories: ["ar","ooh"]
 mediaType: "video"
 videoUrl: "https://youtu.be/SJFCSQNqMr0"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/pikachu.jpg"]
+galleryImages: []
 featuredImage: "/images/posts/warner-detetive-pikachu-em-realidade-aumentada-featured.png"
 excerpt: "O lançamento do filme Detetive Pikachu contou com uma ação digital onde o Pokémon mais querido foi levado às ruas de São Paulo. Um MUB instalado com a tecnologi..."
 date: "2020-04-10T12:25:33"

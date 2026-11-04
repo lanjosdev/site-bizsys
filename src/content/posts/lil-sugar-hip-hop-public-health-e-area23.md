@@ -7,7 +7,7 @@ partnership: "Area 23"
 categories: ["projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=Pa1bLKxAymo"
-galleryImages: ["http://localhost/bizsys-real/wp-content/uploads/2021/06/image.imgs_.full_-6.png","https://www.bizsys.com.br/wp-content/uploads/2021/10/lil6.png","https://www.bizsys.com.br/wp-content/uploads/2021/10/lil2-1.png","https://www.bizsys.com.br/wp-content/uploads/2021/12/lil3.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/12/lil5.png"]
+galleryImages: ["/images/posts/lil-sugar-hip-hop-public-health-e-area23-gallery-1-image.imgs_.full_-6.png","/images/posts/lil-sugar-hip-hop-public-health-e-area23-gallery-2-lil6.png","/images/posts/lil-sugar-hip-hop-public-health-e-area23-gallery-3-lil2-1.png","/images/posts/lil-sugar-hip-hop-public-health-e-area23-gallery-4-lil3.jpg","/images/posts/lil-sugar-hip-hop-public-health-e-area23-gallery-5-lil5.png"]
 featuredImage: "/images/posts/lil-sugar-hip-hop-public-health-e-area23-featured.png"
 excerpt: "Lil Sugar - Master of Disguise"
 date: "2021-10-11T11:07:35"

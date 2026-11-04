@@ -7,7 +7,7 @@ partnership: "DM9DDB"
 categories: ["cenografia","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/_tgs3xTg8SA"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/pin5.jpg"]
+galleryImages: ["/images/premios/pin5.jpg"]
 featuredImage: "/images/premios/pin5.jpg"
 excerpt: "Unindo a experiência do físico com o digital, a TokStok se uniu ao Pinterest e criou uma experiência de interação totalmente voltada à decoração. Nas lojas TokS..."
 date: "2016-06-30T14:20:00"

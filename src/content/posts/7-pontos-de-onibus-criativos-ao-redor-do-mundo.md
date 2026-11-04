@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2018
 categories: ["news"]
 mediaType: "carousel"
-galleryImages: ["https://lh5.googleusercontent.com/05Xz689V19otQUKsjrgw9Hc7AET4fnBYDR9Ie3kNvf0cMCTXIIaNS2t6pdKT3VIIgV_7ny7BFuQq9wUETIJ5AZgZtiQjewSaxD73L1HidUWNKRchy-gm71xOKM0Zy-NP9f0W91yF","https://lh5.googleusercontent.com/WqfB64oXoUULRHXSFfOxi7PCt5tKf5X-BKhuV1TCfFPlMYF5UwF7So1W3eWpvTalymeQAkh_mL3Y3kSCanwup2LjQx5Bcx6PdyCtBjDRygdMBm0qUuDO37UNgHf1hdp_CoVxcTMO","https://lh4.googleusercontent.com/KBwPvQfrMJxriQRsbq5tVrziJLXDEwRBlFT18x7v5l0AFgmBIxf2kdGEusCvoECZxejrdBy8pxB4GnXJB2Piq3m-7xr3tOaCMwbz3UKAdfoswcirJkd3uwYZ4OGOmsF_lhfr3mZk"]
+galleryImages: []
 featuredImage: "/images/posts/7-pontos-de-onibus-criativos-ao-redor-do-mundo-featured.jpg"
 excerpt: "Os pontos de ônibus tornaram-se uma ótima mídia a ser explorada pelas empresas, principalmente quando os focos são criatividade e interatividade. Cartazes simpl..."
 date: "2018-11-21T18:12:41"

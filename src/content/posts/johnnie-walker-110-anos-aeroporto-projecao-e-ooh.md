@@ -7,7 +7,7 @@ partnership: "CP+B"
 categories: ["ooh","sensor-de-movimento"]
 mediaType: "video"
 videoUrl: "https://youtu.be/Vd-s2L4blB8"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/insta-jw.jpg"]
+galleryImages: ["/images/premios/johnnie-walker.png"]
 featuredImage: "/images/premios/johnnie-walker.png"
 excerpt: "Para celebrar os 110 anos do ícone Striding Man, Johnnie Walker decidiu dar vida ao símbolo da marca. O caminhante mais famoso do mundo pode ser visto e interag..."
 date: "2018-05-31T14:02:00"

@@ -6,7 +6,7 @@ year: 2020
 categories: ["news"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=VEx4eKBUbvE"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident4.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident3.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident2.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident1-1.png","https://www.bizsys.com.br/wp-content/uploads/2020/08/trident02.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/06/ambev-mascaras-coronavirus.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/06/natal-do-bradesco-6-.jpg"]
+galleryImages: ["/images/posts/destrava-essa-conquista-gallery-1-destrava-trident4.png","/images/posts/destrava-essa-conquista-gallery-2-destrava-trident3.png","/images/posts/destrava-essa-conquista-gallery-3-destrava-trident2.png","/images/posts/destrava-essa-conquista-gallery-4-destrava-trident1-1.png","/images/posts/destrava-essa-conquista-gallery-5-trident02.jpg","/images/posts/destrava-essa-conquista-gallery-6-ambev-mascaras-coronavirus.jpg","/images/posts/destrava-essa-conquista-gallery-7-natal-do-bradesco-6-.jpg"]
 featuredImage: "/images/posts/destrava-essa-conquista-featured.jpeg"
 excerpt: "VIA Clube de Criação, Exame, B9, PropMark e Grandes nomes da propaganda"
 date: "2020-08-05T11:28:07"

@@ -7,7 +7,7 @@ partnership: "Altermark e Clear Channel"
 categories: ["cenografia","ooh"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=tyF1JkpFCiY"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2021/08/cactos1.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/08/Cactos2.jpg","https://www.bizsys.com.br/wp-content/uploads/2021/08/Cactos3.jpg"]
+galleryImages: ["/images/posts/cactos-voce-nunca-esteve-sozinha-gallery-1-cactos1.jpg","/images/posts/cactos-voce-nunca-esteve-sozinha-gallery-2-Cactos2.jpg","/images/posts/cactos-voce-nunca-esteve-sozinha-gallery-3-Cactos3.jpg"]
 featuredImage: "/images/posts/cactos-voce-nunca-esteve-sozinha-featured.png"
 excerpt: "Cactos - Você Nunca Esteve Sozinha"
 date: "2021-08-09T12:32:05"

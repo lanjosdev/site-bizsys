@@ -7,7 +7,7 @@ partnership: "Sapient AG2"
 categories: ["projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=VEx4eKBUbvE"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident1-1.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident2.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident3.png","https://www.bizsys.com.br/wp-content/uploads/2020/07/destrava-trident4.png"]
+galleryImages: ["/images/posts/destrava-essa-conquista-trident-gallery-1-destrava-trident1-1.png","/images/posts/destrava-essa-conquista-trident-gallery-2-destrava-trident2.png","/images/posts/destrava-essa-conquista-trident-gallery-3-destrava-trident3.png","/images/posts/destrava-essa-conquista-trident-gallery-4-destrava-trident4.png"]
 featuredImage: "/images/posts/destrava-essa-conquista-trident-featured.png"
 excerpt: "Para dar um gás na iniciativa, a Sapient AG2 criou campanha que traz o conceito “Destrava essa Conquista“."
 date: "2020-07-07T17:27:00"

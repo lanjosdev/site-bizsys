@@ -7,7 +7,7 @@ partnership: "Otima – Mullen Lowe"
 categories: ["ooh","projetos-especiais","sampling"]
 mediaType: "video"
 videoUrl: "https://youtu.be/O6YJMrUN_SE"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/REXONAPEDALOU4.jpg"]
+galleryImages: ["/images/premios/PF_04.jpg"]
 featuredImage: "/images/posts/rexona-pedalou-ganhou-featured.png"
 excerpt: "A Rexona colocou o pessoal para pedalar na Av. Paulista. Em uma ação de sampling, o público foi desafiado a pedalar uma bicicleta de spinning até a máquina libe..."
 date: "2019-05-10T12:16:26"

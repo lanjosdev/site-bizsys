@@ -6,7 +6,7 @@ year: 2019
 categories: ["news"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/embed/O6YJMrUN_SE?feature=oembed"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2019/10/5cf90290341eb-5cf9029908d8e-980x480-1.jpg","https://www.bizsys.com.br/wp-content/uploads/2019/10/5cf902ae4a4cd-5cf902b39ad06-980x480-1.jpg"]
+galleryImages: ["/images/posts/rexona-desafia-publico-a-pedalar-gallery-1-5cf90290341eb-5cf9029908d8e-980x480-1.jpg","/images/posts/rexona-desafia-publico-a-pedalar-gallery-2-5cf902ae4a4cd-5cf902b39ad06-980x480-1.jpg"]
 featuredImage: "/images/posts/rexona-desafia-publico-a-pedalar-featured.jpg"
 excerpt: "Iniciativa criada pela Mullen Lowe e pela Otima teve desenvolvimento da Bizsys"
 date: "2019-06-10T18:24:07"

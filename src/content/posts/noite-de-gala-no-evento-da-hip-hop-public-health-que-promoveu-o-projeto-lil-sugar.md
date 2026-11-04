@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2021
 categories: ["news"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/08/topo.jpg","https://www.bizsys.com.br/wp-content/uploads/2020/08/WhatsApp-Image-2020-08-04-at-14.37.00.jpeg","https://www.bizsys.com.br/wp-content/uploads/2021/06/natal-do-bradesco-6-.jpg"]
+galleryImages: ["/images/posts/noite-de-gala-no-evento-da-hip-hop-public-health-que-promoveu-o-projeto-lil-sugar-gallery-1-topo.jpg","/images/posts/noite-de-gala-no-evento-da-hip-hop-public-health-que-promoveu-o-projeto-lil-sugar-gallery-2-WhatsApp-Image-2020-08-04-at-14.37.00.jpeg","/images/posts/noite-de-gala-no-evento-da-hip-hop-public-health-que-promoveu-o-projeto-lil-sugar-gallery-3-natal-do-bradesco-6-.jpg"]
 featuredImage: "/images/posts/noite-de-gala-no-evento-da-hip-hop-public-health-que-promoveu-o-projeto-lil-sugar-featured.png"
 excerpt: "Noite de gala no evento da Hip Hop Public Health que promoveu o projeto Lil Sugar"
 date: "2021-10-27T13:19:08"

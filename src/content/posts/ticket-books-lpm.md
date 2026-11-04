@@ -6,7 +6,7 @@ year: 2016
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=Sem6Sq7azGI"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/book3.jpg"]
+galleryImages: ["/images/premios/book3.jpg"]
 featuredImage: "/images/posts/ticket-books-lpm-featured.jpg"
 excerpt: "Incentivando ainda mais o hábito de leitura do paulistano – que geralmente faz a sua leitura no transporte público – a L&PM criou uma campanha que une o costume..."
 date: "2016-02-28T15:57:00"

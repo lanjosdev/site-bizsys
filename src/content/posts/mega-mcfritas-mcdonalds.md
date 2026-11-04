@@ -6,7 +6,7 @@ year: 2022
 partnership: "Galeria e JCDecaux"
 categories: ["cenografia"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-06-at-20.58.52-532x1024.jpeg","https://www.bizsys.com.br/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-06-at-20.58.53-1024x682.jpeg"]
+galleryImages: ["/images/posts/mega-mcfritas-mcdonalds-gallery-1-WhatsApp-Image-2022-04-06-at-20.58.52-532x1024.jpeg","/images/posts/mega-mcfritas-mcdonalds-gallery-2-WhatsApp-Image-2022-04-06-at-20.58.53-1024x682.jpeg"]
 featuredImage: "/images/posts/mega-mcfritas-mcdonalds-featured.png"
 excerpt: "O McDonald’s transformou alguns dos relógios de rua de São Paulo, administrados pela JCDecaux, em batatas fritas gigantes. A iniciativa, que foi desenvolvida pe..."
 date: "2022-04-20T14:52:07"

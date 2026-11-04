@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2018
 categories: ["news"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/04/Lolla-1024x859.jpg","https://www.bizsys.com.br/wp-content/uploads/2020/04/Doritos-Lollapalooza-Piramide-2.jpg"]
+galleryImages: ["/images/posts/um-e-pouco-dois-e-bom-tres-e-bold-2-gallery-1-Lolla-1024x859.jpg","/images/posts/um-e-pouco-dois-e-bom-tres-e-bold-2-gallery-2-Doritos-Lollapalooza-Piramide-2.jpg"]
 featuredImage: "/images/posts/um-e-pouco-dois-e-bom-tres-e-bold-2-featured.jpg"
 excerpt: "Quer tentar ganhar ingressos pro Lolla?"
 date: "2018-03-23T11:58:23"

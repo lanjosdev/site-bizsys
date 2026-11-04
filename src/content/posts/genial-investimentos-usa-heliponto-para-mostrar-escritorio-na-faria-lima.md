@@ -6,7 +6,7 @@ year: 2021
 categories: ["news"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=c95ngwHR8GU&amp;t=20s"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/08/topo.jpg","https://www.bizsys.com.br/wp-content/uploads/2020/08/WhatsApp-Image-2020-08-04-at-14.37.00.jpeg","https://www.bizsys.com.br/wp-content/uploads/2021/06/natal-do-bradesco-6-.jpg"]
+galleryImages: ["/images/posts/genial-investimentos-usa-heliponto-para-mostrar-escritorio-na-faria-lima-gallery-1-topo.jpg","/images/posts/genial-investimentos-usa-heliponto-para-mostrar-escritorio-na-faria-lima-gallery-2-WhatsApp-Image-2020-08-04-at-14.37.00.jpeg","/images/posts/genial-investimentos-usa-heliponto-para-mostrar-escritorio-na-faria-lima-gallery-3-natal-do-bradesco-6-.jpg"]
 featuredImage: "/images/posts/genial-investimentos-usa-heliponto-para-mostrar-escritorio-na-faria-lima-featured.jpg"
 excerpt: "Genial Investimentos usa heliponto para mostrar escritório na Faria Lima"
 date: "2021-11-29T15:54:10"

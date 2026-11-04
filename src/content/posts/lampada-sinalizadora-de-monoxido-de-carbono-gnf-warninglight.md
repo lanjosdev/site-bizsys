@@ -6,7 +6,7 @@ year: 2018
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/pylQPL8M1NM"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/03/lampada.png"]
+galleryImages: []
 featuredImage: "/images/posts/lampada-sinalizadora-de-monoxido-de-carbono-gnf-warninglight-featured.png"
 excerpt: "6 pessoas morrem por dia por intoxicação por monóxido de carbono. É um gás invisível e inodoro, o que torna o vazamento indetectável. A Warninglight é uma lâmpa..."
 date: "2018-10-11T14:36:00"

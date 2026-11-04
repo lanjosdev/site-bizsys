@@ -6,7 +6,7 @@ year: 2022
 partnership: "FCX (Fora da Caixa)"
 categories: ["cenografia","projetos-especiais"]
 mediaType: "carousel"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2022/03/uber4.png","https://www.bizsys.com.br/wp-content/uploads/2022/03/uber3.png","https://www.bizsys.com.br/wp-content/uploads/2022/03/uber2.png","https://www.bizsys.com.br/wp-content/uploads/2022/03/uber1.png","https://www.bizsys.com.br/wp-content/uploads/2022/03/uber5.png"]
+galleryImages: ["/images/posts/ubernaavenida-gallery-1-uber4.png","/images/posts/ubernaavenida-gallery-2-uber3.png","/images/posts/ubernaavenida-gallery-3-uber2.png","/images/posts/ubernaavenida-gallery-4-uber1.png","/images/posts/ubernaavenida-gallery-5-uber5.png"]
 featuredImage: "/images/posts/ubernaavenida-featured.png"
 excerpt: "Mesmo com o carnaval cancelado a Uber levou a alegria pras ruas🎉✨"
 date: "2022-03-08T14:33:57"

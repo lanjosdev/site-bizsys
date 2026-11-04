@@ -7,7 +7,7 @@ partnership: "Africa"
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/ZlGJzLzLYVM"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/kanui.jpg"]
+galleryImages: ["/images/premios/Kanui.jpg"]
 featuredImage: "/images/posts/first-step-project-kanui-featured.png"
 excerpt: "O projeto Kanui em parceria com The Salvation Army e Samaritan’s Feet tem a intenção de distribuir tênis aos mais necessitados. Quando o cliente faz a compra na..."
 date: "2015-06-10T16:34:00"

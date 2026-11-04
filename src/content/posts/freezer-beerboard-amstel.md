@@ -6,7 +6,7 @@ year: 2019
 categories: ["ooh","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://www.youtube.com/watch?v=PYqP66Ry4bw"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/amstel03.jpg"]
+galleryImages: ["/images/premios/amstel.png"]
 featuredImage: "/images/premios/amstel.png"
 excerpt: "Os brasileiros gostam de cerveja ridiculamente gelada. A Amstel Beerboard Freezer usou essa visão cultural para criar um outdoor inovador e conveniente durante ..."
 date: "2019-03-10T14:10:00"

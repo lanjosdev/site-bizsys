@@ -7,7 +7,7 @@ partnership: "Area 23"
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/W98V1Jgfdi0"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/fireworks_art2.jpg"]
+galleryImages: []
 featuredImage: "/images/premios/PF_04.jpg"
 excerpt: "Todos os anos os Estados Unidos comemoram o 4 de Julho com centenas de queimas de fogos ao redor do país. Cidades e vilarejos – pequenos e grandes – se reúnem p..."
 date: "2016-09-30T15:08:00"

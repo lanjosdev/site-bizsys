@@ -7,7 +7,7 @@ partnership: "Area 23"
 categories: ["produto","projetos-especiais"]
 mediaType: "video"
 videoUrl: "https://youtu.be/Iq6Sx4EHHe0"
-galleryImages: ["http://localhost/bizsys/wp-content/uploads/2021/06/braille1.jpg"]
+galleryImages: ["/images/premios/clean-braille.png"]
 featuredImage: "/images/premios/clean-braille.png"
 excerpt: "O mundo à nossa volta está repleto de bactérias e vírus. As pessoas com deficiência visual estão perigosamente mais expostas pois usam das mãos para “ver” o mun..."
 date: "2017-06-10T15:47:00"

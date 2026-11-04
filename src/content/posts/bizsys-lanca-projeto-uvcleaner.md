@@ -5,7 +5,7 @@ client: "Bizsys"
 year: 2020
 categories: ["news"]
 mediaType: "image"
-galleryImages: ["https://www.bizsys.com.br/wp-content/uploads/2020/08/IMG-20200808-WA0037-768x1024.jpg"]
+galleryImages: ["/images/posts/bizsys-lanca-projeto-uvcleaner-gallery-1-IMG-20200808-WA0037-768x1024.jpg"]
 featuredImage: "/images/posts/bizsys-lanca-projeto-uvcleaner-featured.jpg"
 excerpt: "O UVCleaner foi desenvolvido pela Bizsys, produtora brasileira de tecnologia e inovação, e é o primeiro do Brasil no setor de academias."
 date: "2020-08-13T17:27:52"
