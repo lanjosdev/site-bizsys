@@ -6,6 +6,7 @@ export async function getStaticPaths() {
   const allPosts = await getCollection('posts');
 
   const categories = [
+    { slug: 'todos', name: 'Todos os Projetos', desc: 'Conheça o acervo completo de projetos, inovações e tecnologias desenvolvidas pela Bizsys.' },
     { slug: 'ar', name: 'AR', desc: 'Realidade Aumentada e interatividade digital imersiva no mundo real.' },
     { slug: 'aromatizador', name: 'Aromatizador', desc: 'Marketing olfativo e ativações sensoriais de alto impacto.' },
     { slug: 'cenografia', name: 'Cenografia', desc: 'Estruturas cenográficas marcantes, ambientes imersivos e ambientações exclusivas.' },
@@ -28,9 +29,17 @@ export async function getStaticPaths() {
   ];
 
   return categories.map((cat) => {
-    const categoryPosts = allPosts
-      .filter((p) => p.data.categories.includes(cat.slug))
-      .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    let categoryPosts;
+    if (cat.slug === 'todos') {
+      // Todos os projetos de portfólio (exclui clipping de 'news')
+      categoryPosts = allPosts
+        .filter((p) => !p.data.categories.includes('news'))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    } else {
+      categoryPosts = allPosts
+        .filter((p) => p.data.categories.includes(cat.slug))
+        .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    }
 
     return {
       params: { slug: cat.slug },
@@ -53,7 +62,7 @@ const quickFilterCategories = allCategories.filter((c: { slug: string }) => quic
 
 const pageTitle = category.slug === 'news'
   ? 'News & Imprensa — Bizsys'
-  : `${category.name} — Projetos Bizsys`;
+  : (category.slug === 'todos' ? 'Todos os Projetos — Bizsys' : `${category.name} — Projetos Bizsys`);
 
 const pageDescription = category.desc;
 
@@ -64,6 +73,7 @@ function formatDate(dateStr: string) {
 }
 
 const isNews = category.slug === 'news';
+const isAll = category.slug === 'todos';
 const itemsPerPage = 16;
 ---
 
@@ -79,14 +89,14 @@ const itemsPerPage = 16;
       <nav class="top-breadcrumb" aria-label="Navegação estrutural">
         <a href={isNews ? '/' : '/projetos'} class="back-link">
           <span class="back-arrow" aria-hidden="true">←</span>
-          <span>{isNews ? 'Página Inicial' : 'Todos os Projetos'}</span>
+          <span>{isNews ? 'Página Inicial' : 'Destaques (Work)'}</span>
         </a>
       </nav>
 
       <!-- Hero da Categoria -->
       <header class="category-hero">
         <div class="category-meta-header">
-          <span class="category-tag-label">{isNews ? 'Imprensa & Novidades' : 'Categoria'}</span>
+          <span class="category-tag-label">{isNews ? 'Imprensa & Novidades' : (isAll ? 'Portfólio Completo' : 'Categoria')}</span>
           <span class="category-counter-pill">
             {posts.length} {isNews ? (posts.length === 1 ? 'artigo' : 'artigos') : (posts.length === 1 ? 'case' : 'cases')}
           </span>
@@ -98,7 +108,11 @@ const itemsPerPage = 16;
       <!-- Filtro Rápido de Categorias -->
       <nav class="category-pills-nav" aria-label="Navegar por outras categorias">
         <div class="pills-scroll-wrap">
-          <a href="/projetos" class="category-pill-item">
+          <a
+            href="/categoria/todos"
+            class={`category-pill-item ${category.slug === 'todos' ? 'active' : ''}`}
+            aria-current={category.slug === 'todos' ? 'page' : undefined}
+          >
             Todos os Projetos
           </a>
           {quickFilterCategories.map((cat: { slug: string; name: string }) => {
@@ -181,7 +195,7 @@ const itemsPerPage = 16;
             </p>
             <div class="empty-actions">
               <a href="/contato" class="btn-empty-contact">Fale Conosco</a>
-              <a href="/projetos" class="btn-empty-back">Ver Todos os Projetos</a>
+              <a href="/categoria/todos" class="btn-empty-back">Ver Todos os Projetos</a>
             </div>
           </div>
         )}

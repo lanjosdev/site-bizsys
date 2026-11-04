@@ -1,6 +1,7 @@
 /**
  * scripts/ingest-all-posts.mjs
- * Ingestão em lote dos 136 posts do WordPress para Astro Content Collections (src/content/posts/*.md)
+ * Ingestão dos posts do WordPress para Astro Content Collections (src/content/posts/*.md)
+ * com deduplicação de clones legados da categoria News.
  */
 
 import fs from 'node:fs';
@@ -82,6 +83,26 @@ const awardsMap = {
   ]
 };
 
+// 16 clones duplicados no WordPress em junho de 2021 (categoria news) a serem ignorados
+const duplicateSlugsToSkip = new Set([
+  'duplicated-genial-investimentos-usa-heliponto-para-mostrar-escritorio-na-faria-lima-6933',
+  'algoritmo-da-rolling-stone-identifica-propensao-ao-suicidio-2',
+  'algoritmo-da-rolling-stone-identifica-propensao-ao-suicidio',
+  'empresas-de-midia-out-of-home-investem-na-criacao-de-metricas-para-comprovar-sucesso-do-setor',
+  'bizsys-cria-primeiro-mobiliario-digital-programatico-do-brasil',
+  'lancamento-do-novo-nike-react-com-realidade-aumentada',
+  'um-e-pouco-dois-e-bom-tres-e-bold',
+  'o-ooh-e-a-midia-de-todas-as-midias-afirma-raul-nogueira-filho',
+  'novo-site-clubeonline-de-cara-nova',
+  'whiskas-cria-a-mia-assistente-pessoal-por-meio-de-inteligencia-artificial',
+  'rexona-desafia-publico-a-pedalar-em-acao-na-avenida-paulista',
+  'bizsys-nomeia-rodrigo-cassino-como-ceo',
+  'ambev-vai-fabricar-e-doar-3-milhoes-de-mascaras-de-protecao-para-profissionais-de-saude',
+  'brasileiros-criam-scanner-que-elimina-o-coronavirus-de-embalagens',
+  'natal-do-palacio-avenida-ganha-app-com-interacoes',
+  'academia-studio-boox-instala-luz-ultravioleta-para-higienizacao-contra-o-coronavirus'
+]);
+
 function decodeHtml(str) {
   if (!str) return '';
   return str
@@ -113,10 +134,25 @@ if (!fs.existsSync(targetDir)) {
   fs.mkdirSync(targetDir, { recursive: true });
 }
 
+// Remover arquivos de posts duplicados previamente criados
+for (const dupSlug of duplicateSlugsToSkip) {
+  const dupPath = path.join(targetDir, `${dupSlug}.md`);
+  if (fs.existsSync(dupPath)) {
+    fs.unlinkSync(dupPath);
+    console.log(`[DEDUPLICAÇÃO] Removido clone legado: ${dupSlug}.md`);
+  }
+}
+
 const summary = [];
 
 for (const p of rawPosts) {
   const slug = p.slug;
+
+  // Ignorar clones do WordPress
+  if (duplicateSlugsToSkip.has(slug)) {
+    continue;
+  }
+
   const html = p.content?.rendered || '';
 
   // 1. Extração de Vídeo (Elementor settings, iframes ou links diretos)
@@ -194,7 +230,6 @@ for (const p of rawPosts) {
   // Se não tem cliente na ficha técnica, tentar inferir do título ou deixar 'Bizsys'
   const rawTitle = decodeHtml(p.title.rendered);
   if (!client) {
-    // Tentar títulos com padrão "Projeto - Cliente" ou "Projeto – Cliente"
     const dashMatch = rawTitle.match(/[–—-]\s*([A-Za-z0-9À-ÿ\s&.]+?)(?:\s*[-–—]|$)/);
     if (dashMatch && dashMatch[1].length > 1 && dashMatch[1].length < 35) {
       client = dashMatch[1].trim();
@@ -215,7 +250,6 @@ for (const p of rawPosts) {
   // 5. Extração de Parágrafos Editoriais
   const blocks = [];
 
-  // Primeiro tentar blocos do Elementor
   const widgetRegex = /class="elementor-widget-container">([\s\S]*?)<\/div>/gi;
   let m;
   while ((m = widgetRegex.exec(bodyHtml)) !== null) {
@@ -239,7 +273,6 @@ for (const p of rawPosts) {
     }
   }
 
-  // Se não achou parágrafos no Elementor, tentar tags <p> padrão
   if (blocks.length === 0) {
     const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
     let pm;
@@ -258,10 +291,8 @@ for (const p of rawPosts) {
     }
   }
 
-  // Deduplicar blocos mantendo ordem
   const editorialParagraphs = blocks.filter((b, idx, arr) => arr.indexOf(b) === idx);
 
-  // Excerpt
   let excerpt = editorialParagraphs[0]
     ? editorialParagraphs[0].slice(0, 160) + (editorialParagraphs[0].length > 160 ? '...' : '')
     : decodeHtml(p.excerpt?.rendered || '').replace(/<[^>]+>/g, '').replace(/\[&hellip;\]/, '').trim();
@@ -309,5 +340,4 @@ for (const p of rawPosts) {
   });
 }
 
-console.log(`\n🎉 Ingestão de todos os posts concluída com sucesso! ${summary.length} posts gerados em src/content/posts/\n`);
-console.log(`Total de posts processados: ${summary.length}`);
+console.log(`\n🎉 Ingestão concluída com deduplicação! ${summary.length} posts canônicos gerados em src/content/posts/\n`);
