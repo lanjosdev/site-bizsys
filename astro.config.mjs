@@ -23,5 +23,6 @@ export default defineConfig({
     '/category/impressao-lenticular': '/categoria/impressao-lenticular',
     '/category/aromatizador': '/categoria/aromatizador',
     '/category/reconhecimento-de-voz': '/categoria/reconhecimento-de-voz',
+    '/category/news': '/categoria/news',
   }
 });
