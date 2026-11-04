@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
-    "build": "astro build",
+    "build:search": "node scripts/generate-search-index.mjs",
+    "build": "node scripts/generate-search-index.mjs && astro build",
     "preview": "astro preview"
   },
   "keywords": [
