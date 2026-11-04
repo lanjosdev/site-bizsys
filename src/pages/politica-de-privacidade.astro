@@ -1,0 +1,447 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'Política de Privacidade — Bizsys';
+const pageDescription = 'Conheça a política de privacidade da Bizsys e saiba como tratamos dados pessoais e aplicativos móveis em conformidade com a LGPD.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  isTransparentHeader={false}
+  currentPath="/politica-de-privacidade"
+>
+  <div class="privacy-page">
+    <div class="container container-privacy">
+      <!-- Breadcrumb -->
+      <nav class="top-breadcrumb" aria-label="Navegação estrutural">
+        <a href="/" class="back-link">
+          <span class="back-arrow" aria-hidden="true">←</span>
+          <span>Página Inicial</span>
+        </a>
+      </nav>
+
+      <!-- Cabeçalho -->
+      <header class="privacy-header">
+        <span class="privacy-tag-label">Institucional</span>
+        <h1 class="privacy-hero-title">Política de Privacidade</h1>
+        <p class="privacy-hero-desc">
+          Este documento estabelece as diretrizes da <strong>BIZSYS</strong> relativas à privacidade, confidencialidade e proteção de dados pessoais coletados ou tratados por meio de nosso website institucional e de nossas soluções e aplicações tecnológicas.
+        </p>
+        <div class="privacy-meta">
+          <span class="meta-item">Versão 1.1</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">Atualizado em Novembro de 2026</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">Conformidade LGPD (Lei nº 13.709/2018)</span>
+        </div>
+      </header>
+
+      <!-- Conteúdo Estruturado -->
+      <main class="privacy-content">
+        <!-- 1. Sobre a Bizsys -->
+        <section class="privacy-section">
+          <h2 class="section-title">1. Quem Somos</h2>
+          <p>
+            A <strong>BIZSYS</strong> é uma produtora de tecnologia criativa, engenharia de produto e soluções inovadoras em Out-of-Home (OOH), Realidade Aumentada (AR), Inteligência Artificial (IA) e cenografia interativa, com sede na Rua Hassib Mofarrej, 200 – Vila Leopoldina, São Paulo – SP, Brasil.
+          </p>
+          <p>
+            Na qualidade de controladora de dados quando aplicável, assumimos o compromisso de zelar pela integridade, confidencialidade e segurança das informações de todos os usuários, parceiros e clientes que interagem com nossos canais digitais.
+          </p>
+        </section>
+
+        <!-- 2. Coleta de Dados no Website -->
+        <section class="privacy-section">
+          <h2 class="section-title">2. Tratamento de Dados no Website</h2>
+          <p>
+            Nosso website opera primariamente sob arquitetura estática de alto desempenho (SSG), tendo por objetivo a apresentação institucional de nosso portfólio de cases e serviços.
+          </p>
+          <div class="privacy-subsection">
+            <h3 class="subsection-title">2.1 Formulários de Contato</h3>
+            <p>
+              Ao utilizar os formulários de contato ou canais diretos de e-mail disponibilizados em nossa página institucional (<a href="/contato" class="inline-link">/contato</a>), os dados fornecidos voluntariamente (como nome, endereço de e-mail, telefone corporativo e mensagem) são utilizados com a finalidade exclusiva de responder a dúvidas comerciais, solicitações de orçamento ou propostas de parceria.
+            </p>
+            <p>
+              Esses dados não são comercializados, alugados ou compartilhados com terceiros para finalidades de marketing direto.
+            </p>
+          </div>
+
+          <div class="privacy-subsection">
+            <h3 class="subsection-title">2.2 Dados de Navegação e Cookies</h3>
+            <p>
+              Utilizamos apenas recursos estritamente necessários ao funcionamento técnico e cache do site, além de métricas analíticas agregadas e anônimas para aferir desempenho e volume de tráfego, sem identificar individualmente os visitantes.
+            </p>
+          </div>
+        </section>
+
+        <!-- 3. Soluções Móveis e Realidade Aumentada (SolAR) -->
+        <section class="privacy-section highlight-box">
+          <div class="highlight-badge">Aplicativos Móveis & AR</div>
+          <h2 class="section-title">3. Aplicativos Mobile de Realidade Aumentada (SolAR / SolA.R.)</h2>
+          <p class="highlight-lead">
+            O aplicativo <strong>SolAR / SolA.R.</strong> disponível para as plataformas Android e iOS, produzido e desenvolvido pela <strong>BIZSYS</strong>, não coleta nem armazena quaisquer dados pessoais ou comportamentais do usuário final.
+          </p>
+          <ul class="privacy-list">
+            <li>
+              <strong>Acesso à Câmera:</strong> A permissão de câmera solicitada pelo aplicativo é utilizada única e exclusivamente em tempo real no dispositivo para posicionar e projetar os modelos tridimensionais (3D) no ambiente físico do usuário.
+            </li>
+            <li>
+              <strong>Não Armazenamento de Imagens:</strong> Nenhuma imagem, vídeo ou transmissão da câmera do usuário é gravada, salva ou transmitida a servidores remotos da Bizsys ou de terceiros.
+            </li>
+            <li>
+              <strong>Sem Cadastro Prévio:</strong> O aplicativo não exige criação de conta, login social ou fornecimento de informações cadastrais para ser operado.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 4. Direitos do Titular (LGPD) -->
+        <section class="privacy-section">
+          <h2 class="section-title">4. Seus Direitos (LGPD)</h2>
+          <p>
+            Em cumprimento ao Artigo 18 da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você, na condição de titular dos dados pessoais eventualmente fornecidos em nossos canais de atendimento, possui o direito de solicitar a qualquer momento:
+          </p>
+          <ul class="privacy-list">
+            <li>Confirmação da existência de tratamento de dados;</li>
+            <li>Acesso aos dados coletados;</li>
+            <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+            <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a lei;</li>
+            <li>Revogação do consentimento concedido anteriormente.</li>
+          </ul>
+        </section>
+
+        <!-- 5. Segurança da Informação -->
+        <section class="privacy-section">
+          <h2 class="section-title">5. Segurança da Informação</h2>
+          <p>
+            Adotamos medidas técnicas, administrativas e organizacionais adequadas para proteger as informações pessoais sob nossa custódia contra perda, roubo, acesso não autorizado, alteração ou divulgação indevida. Toda a comunicação trafegada pelo nosso portal é criptografada utilizando o protocolo HTTPS / TLS de ponta a ponta.
+          </p>
+        </section>
+
+        <!-- 6. Encarregado e Canal de Comunicação -->
+        <section class="privacy-section contact-card">
+          <h2 class="section-title">6. Canal de Atendimento e Encarregado (DPO)</h2>
+          <p>
+            Para exercer seus direitos de titular, solicitar esclarecimentos ou enviar sugestões sobre nossas práticas de privacidade, entre em contato direto com a nossa equipe de governança:
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-label">E-mail de Contato:</span>
+              <a href="mailto:contato@bizsys.com.br" class="contact-value">contato@bizsys.com.br</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Telefone:</span>
+              <a href="tel:+551132882121" class="contact-value">+55 (11) 3288-2121</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Endereço Comercial:</span>
+              <span class="contact-value">Rua Hassib Mofarrej, 200 – Vila Leopoldina, São Paulo – SP, CEP 05312-000</span>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a href="/contato" class="btn-primary-privacy">Ir para Formulário de Contato</a>
+            <a href="/" class="btn-secondary-privacy">Voltar à Página Inicial</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .privacy-page {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    padding-top: calc(var(--header-height, 73px) + 2rem);
+    padding-bottom: 6rem;
+  }
+
+  .container-privacy {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Breadcrumb */
+  .top-breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover {
+    color: #ffffff;
+  }
+
+  .back-arrow {
+    font-size: 1.125rem;
+    transition: transform var(--transition-normal, 0.25s ease);
+  }
+
+  .back-link:hover .back-arrow {
+    transform: translateX(-4px);
+  }
+
+  /* Cabeçalho */
+  .privacy-header {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .privacy-tag-label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #656362;
+    margin-bottom: 0.75rem;
+  }
+
+  .privacy-hero-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+  }
+
+  .privacy-hero-desc {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: clamp(1rem, 1.4vw, 1.1875rem);
+    color: #b5b5b5;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+  }
+
+  .privacy-hero-desc strong {
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .privacy-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    color: #777777;
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+  }
+
+  .meta-divider {
+    color: #444444;
+  }
+
+  /* Conteúdo Principal */
+  .privacy-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .privacy-section {
+    line-height: 1.7;
+    color: #d1d1d1;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .privacy-section p {
+    margin-bottom: 1.25rem;
+  }
+
+  .privacy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .privacy-section strong {
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+  }
+
+  .privacy-subsection {
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .subsection-title {
+    font-family: var(--font-primary, 'Good Sans', sans-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .inline-link {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast, 0.15s ease);
+  }
+
+  .inline-link:hover {
+    color: #aaaaaa;
+  }
+
+  .privacy-list {
+    margin: 1rem 0 1.25rem 1.25rem;
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .privacy-list li {
+    padding-left: 0.25rem;
+  }
+
+  /* Destaque SolAR / Aplicativos Móveis */
+  .highlight-box {
+    position: relative;
+    background-color: #0d0d0f;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 2.25rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .highlight-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .highlight-lead {
+    font-size: 1.0625rem;
+    color: #f0f0f0;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Card de Contato e DPO */
+  .contact-card {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .contact-item {
+      flex-direction: row;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+  }
+
+  .contact-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888888;
+    min-width: 170px;
+    flex-shrink: 0;
+  }
+
+  .contact-value {
+    color: #ffffff;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast, 0.15s ease);
+  }
+
+  a.contact-value:hover {
+    color: #cccccc;
+    text-decoration: underline;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-primary-privacy {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: opacity var(--transition-fast, 0.15s ease), transform var(--transition-fast, 0.15s ease);
+  }
+
+  .btn-primary-privacy:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary-privacy {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: border-color var(--transition-fast, 0.15s ease), background-color var(--transition-fast, 0.15s ease);
+  }
+
+  .btn-secondary-privacy:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+</style>

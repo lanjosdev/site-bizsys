@@ -27,5 +27,6 @@ export default defineConfig({
     '/category/aromatizador': '/categoria/aromatizador',
     '/category/reconhecimento-de-voz': '/categoria/reconhecimento-de-voz',
     '/category/news': '/categoria/news',
+    '/politica-de-privacidade-solar': '/politica-de-privacidade',
   }
 });
