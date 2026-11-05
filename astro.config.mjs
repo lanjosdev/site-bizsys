@@ -1,9 +1,15 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
   site: 'https://www.bizsys.com.br',
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/404') && !page.includes('/search-index.json'),
+    }),
+  ],
   redirects: {
     '/work': '/projetos',
     '/nosso-projetos': '/projetos',
@@ -28,5 +34,5 @@ export default defineConfig({
     '/category/reconhecimento-de-voz': '/categoria/reconhecimento-de-voz',
     '/category/news': '/categoria/news',
     '/politica-de-privacidade-solar': '/politica-de-privacidade',
-  }
+  },
 });
