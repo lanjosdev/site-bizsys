@@ -24,6 +24,10 @@ const fullTitle = title.includes('Bizsys') ? title : `Bizsys | ${title}`;
 const pathname = Astro.url.pathname;
 const canonical = canonicalUrl || `${siteUrl}${pathname}`;
 const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Google Tag Manager: container padrão da Bizsys com suporte a override por env var
+const envGtm = import.meta.env.PUBLIC_GTM_ID;
+const gtmId = envGtm !== undefined ? (envGtm === 'disabled' || envGtm === '' ? null : envGtm) : 'GTM-K53DP29';
 ---
 
 <!doctype html>
@@ -32,6 +36,12 @@ const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Google Tag Manager -->
+    {gtmId && (
+      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`} />
+    )}
+    <!-- End Google Tag Manager -->
 
     <!-- Favicons fiéis -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -70,6 +80,19 @@ const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    {gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        ></iframe>
+      </noscript>
+    )}
+    <!-- End Google Tag Manager (noscript) -->
+
     <a href="#main" class="sr-only focus:not-sr-only">Pular para o conteúdo principal</a>
 
     <Header currentPath={pathname} isTransparent={isTransparentHeader} />
