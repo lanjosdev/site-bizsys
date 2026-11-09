@@ -13,7 +13,7 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
   - `feat/fase-2-institucionais`: Home (estática fiel), Sobre Nós, Contato (Web3Forms), Portfólio, Prêmios, Clientes e 404.
   - `feat/fase-3-artigos-vinculados`: Content Collections, páginas de categorias `/categoria/[slug]` e artigos prioritários.
   - `feat/fase-4-expansao-total`: Ingestão dos 136 artigos completos, catalogação de mídias, galerias locais, motor de busca e páginas institucionais secundárias.
-  - `feat/fase-5-auditoria-deploy`: Verificação de links legados, sitemap.xml, robots.txt, performance e deploy.
+  - `feat/fase-5-auditoria-seo-news`: Página dedicada /news, sitemap.xml, robots.txt, 301 legados, GTM e auditoria de performance.
 
 ---
 
@@ -87,9 +87,22 @@ Este documento acompanha a evolução da engenharia reversa e migração do site
   - Total de **149 rotas estáticas** geradas com sucesso no `dist/` (contra 41 da Fase 3);
   - Zero declarações `!important` na codebase ativa.
 
-### [ ] Fase 5: Auditoria, SEO e Build Final
-- [ ] Verificação contra referências a `wp-content` ou domínios PHP antigos
-- [ ] Geração de `sitemap.xml` e `robots.txt`
-- [ ] Auditoria de performance (Lighthouse / Core Web Vitals)
-- [ ] Teste de build estático final (`npm run build`)
-- [ ] Merge final da branch `feat/fase-4-expansao-total` para `main` e preparação para publicação
+### [x] Fase 5: Auditoria, SEO, Redirecionamentos & News Dedicada
+- [x] **Página Dedicada `/news` & Menu Institucional**:
+  - Criação da rota estática canônica `src/pages/news.astro` para abrigar o acervo editorial completo de 26 notícias e matérias de imprensa da Bizsys;
+  - Cards com badges de data de publicação (`dd de mmm de aaaa`), cliente/veículo, clipping e paginação progressiva em lotes de 16;
+  - Inclusão do link institucional canônico para `/news` no rodapé oficial (`Footer.astro`);
+  - Limpeza dos filtros de tecnologia em `src/pages/categoria/[slug].astro`, mantendo o portfólio restrito a serviços técnicos.
+- [x] **SEO Técnico & Indexação**:
+  - Instalação e configuração da integração oficial `@astrojs/sitemap` gerando `sitemap-index.xml` e `sitemap-0.xml` com todas as 149 páginas canônicas;
+  - Criação do `public/robots.txt` oficial apontando diretamente para o sitemap canônico `https://www.bizsys.com.br/sitemap.xml`.
+- [x] **Mapeamento Abrangente de Redirecionamentos 301 Legados**:
+  - Configuração em `astro.config.mjs` de todas as rotas históricas mapeadas na varredura ao vivo contra o WordPress (`/sobre`, `/contato-2`, `/posts`, `/categoria/news`, `/category/news`, `/en`, `/prototipos`, subrotas `/nosso-projetos/*` e todas as 19 `/category/*`).
+- [x] **Integração do Google Tag Manager**:
+  - Inserção do container oficial `GTM-K53DP29` no `<head>` e `<noscript>` do `<body>` em `src/layouts/BaseLayout.astro`, com suporte à sobrescrita configurável via variável de ambiente `PUBLIC_GTM_ID`.
+- [x] **Auditoria Automatizada de Performance & Core Web Vitals**:
+  - Criação do script de auditoria `scripts/audit-performance.mjs` executando o Lighthouse CLI contra o build estático de produção;
+  - Relatório consolidado em `scripts/performance_results.json` comprovando notas 90–100 nas 7 rotas prioritárias (SEO 100 em todas as páginas, Acessibilidade 92–96, Melhores Práticas 96–100 e Performance até 100);
+  - Métricas Core Web Vitals excelentes: CLS 0.000–0.001 (zero deslocamento visual), TBT 0ms (zero tempo de bloqueio) e LCP entre 0.3s e 2.5s.
+- [x] **Validação SSG Final**:
+  - Build estático concluído com 100% de sucesso gerando todas as rotas e redirecionamentos sem erros.

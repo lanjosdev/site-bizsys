@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-11-05T19:08:53.365Z",
+  "routesCount": 7,
+  "routes": [
+    {
+      "name": "Home",
+      "path": "/",
+      "scores": {
+        "performance": 92,
+        "accessibility": 96,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.6 s",
+        "LCP": "1.1 s",
+        "TBT": "0 ms",
+        "CLS": "0.001",
+        "SpeedIndex": "2.4 s"
+      }
+    },
+    {
+      "name": "Projetos",
+      "path": "/projetos/",
+      "scores": {
+        "performance": 100,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.3 s",
+        "LCP": "0.3 s",
+        "TBT": "0 ms",
+        "CLS": "0",
+        "SpeedIndex": "0.3 s"
+      }
+    },
+    {
+      "name": "News & Imprensa",
+      "path": "/news/",
+      "scores": {
+        "performance": 87,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.4 s",
+        "LCP": "2.5 s",
+        "TBT": "0 ms",
+        "CLS": "0",
+        "SpeedIndex": "0.4 s"
+      }
+    },
+    {
+      "name": "Sobre Nós",
+      "path": "/sobre-nos/",
+      "scores": {
+        "performance": 100,
+        "accessibility": 92,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.7 s",
+        "LCP": "0.7 s",
+        "TBT": "0 ms",
+        "CLS": "0",
+        "SpeedIndex": "0.7 s"
+      }
+    },
+    {
+      "name": "Prêmios",
+      "path": "/premios/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.3 s",
+        "LCP": "0.9 s",
+        "TBT": "0 ms",
+        "CLS": "0.001",
+        "SpeedIndex": "0.3 s"
+      }
+    },
+    {
+      "name": "Contato",
+      "path": "/contato/",
+      "scores": {
+        "performance": 100,
+        "accessibility": 92,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.3 s",
+        "LCP": "0.3 s",
+        "TBT": "0 ms",
+        "CLS": "0",
+        "SpeedIndex": "0.8 s"
+      }
+    },
+    {
+      "name": "Case Detalhe",
+      "path": "/posts/mega-mcfritas-mcdonalds/",
+      "scores": {
+        "performance": 88,
+        "accessibility": 96,
+        "bestPractices": 100,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "FCP": "0.3 s",
+        "LCP": "2.4 s",
+        "TBT": "0 ms",
+        "CLS": "0",
+        "SpeedIndex": "0.3 s"
+      }
+    }
+  ]
+}

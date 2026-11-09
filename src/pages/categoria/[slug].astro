@@ -16,7 +16,7 @@ export async function getStaticPaths() {
     { slug: 'lives', name: 'Lives', desc: 'Transmissões interativas, eventos híbridos e experiências ao vivo.' },
     { slug: 'midia', name: 'Mídia', desc: 'Soluções de mídia inovadoras conectando público e marcas.' },
     { slug: 'na-bizys', name: 'Na Bizys', desc: 'Bastidores, cultura criativa e processos de inovação da Bizsys.' },
-    { slug: 'news', name: 'News', desc: 'Novidades, lançamentos e cobertura do mercado criativo e tecnológico.' },
+
     { slug: 'ooh', name: 'OOH', desc: 'Out of Home de alto impacto: relógios tridimensionais, abrigos de ônibus e painéis interativos.' },
     { slug: 'player-de-audio', name: 'Player de Áudio', desc: 'Tecnologia de áudio direcional e sonorização imersiva para ativações.' },
     { slug: 'produto', name: 'Produto', desc: 'Engenharia de produto, prototipagem ágil e dispositivos tecnológicos customizados.' },
@@ -54,8 +54,8 @@ const { category, posts = [], allCategories = [] } = Astro.props;
 const quickFilterSlugs = [
   'ooh', 'cenografia', 'projetos-especiais', 'ia', 'webapp',
   'produto', 'ar', 'led', 'sampling', 'lives',
-  'sensor-de-movimento', 'player-de-audio', 'impressao-lenticular', 'aromatizador',
-  'news'
+  'sensor-de-movimento', 'player-de-audio', 'impressao-lenticular', 'aromatizador'
+
 ];
 
 const quickFilterCategories = allCategories.filter((c: { slug: string }) => quickFilterSlugs.includes(c.slug));
