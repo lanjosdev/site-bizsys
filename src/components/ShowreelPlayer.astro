@@ -22,13 +22,13 @@ const {
   <picture class="showreel-picture">
     <source
       type="image/avif"
-      srcset="/images/hero/showreel-poster-640.avif 640w, /images/hero/showreel-poster-1280.avif 1280w"
-      sizes="(max-width: 767px) 100vw, 1280px"
+      srcset="/images/hero/showreel-poster-640.avif 640w, /images/hero/showreel-poster-800.avif 800w, /images/hero/showreel-poster-1280.avif 1280w"
+      sizes="(max-width: 767px) 100vw, 1400px"
     />
     <source
       type="image/webp"
-      srcset="/images/hero/showreel-poster-640.webp 640w, /images/hero/showreel-poster-1280.webp 1280w"
-      sizes="(max-width: 767px) 100vw, 1280px"
+      srcset="/images/hero/showreel-poster-640.webp 640w, /images/hero/showreel-poster-800.webp 800w, /images/hero/showreel-poster-1280.webp 1280w"
+      sizes="(max-width: 767px) 100vw, 1400px"
     />
     <img
       src="/images/hero/showreel-poster-1280.jpg"
@@ -47,7 +47,7 @@ const {
   <button
     type="button"
     class:list={['showreel-play-btn', `is-${variant}`]}
-    aria-label={`Assistir ${title}`}
+    aria-label={`Assistir Showreel — ${title}`}
   >
     <span class="play-icon-circle" aria-hidden="true">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,16 @@ const {
     overflow: hidden;
   }
 
-  .showreel-player.is-hero,
+  .showreel-player.is-hero {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100vh - var(--header-height) - 96px);
+    height: auto;
+  }
+
   .showreel-player.is-inline {
     position: absolute;
     inset: 0;
@@ -82,7 +91,7 @@ const {
   .showreel-poster {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
   }
@@ -117,6 +126,7 @@ const {
     font-weight: 300;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    white-space: nowrap;
     backdrop-filter: blur(8px);
     transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
   }
@@ -169,14 +179,11 @@ const {
 
   @media (max-width: 767px) {
     .showreel-player.is-hero {
-      position: relative;
-      inset: auto;
-      aspect-ratio: 16 / 9;
-      height: auto;
+      max-height: none;
     }
 
     .showreel-play-btn.is-hero {
-      bottom: 14px;
+      bottom: 12px;
       padding: 6px 14px 6px 8px;
       font-size: 11px;
     }
