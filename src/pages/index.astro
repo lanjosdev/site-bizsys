@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ShowreelPlayer from '../components/ShowreelPlayer.astro';
 import { FEATURED_CASES } from '../data/wpData';
 
 const pageTitle = 'Viabilizando ideias';
@@ -12,22 +13,14 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   isTransparentHeader={true}
 >
   <div class="bizsys-home">
-    <!-- 1. HERO COM VÍDEO SHOWREEL YOUTUBE (Fiel a elementor-element-916fa90) -->
+    <!-- 1. HERO COM POSTER OTIMIZADO E FACADE YOUTUBE -->
     <section class="section-hero" aria-label="Apresentação Bizsys">
-      <div class="video-container" aria-hidden="true">
-        <iframe
-          class="video-embed"
-          src="https://www.youtube.com/embed/IfXxwk2Nt3k?controls=0&rel=0&playsinline=1&enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=IfXxwk2Nt3k&origin=https%3A%2F%2Fwww.bizsys.com.br"
-          title="BIZSYS - Showreel"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          tabindex="-1"
-        ></iframe>
-      </div>
-      <div class="hero-overlay"></div>
-
-      <!-- Spacer de 600px exato ao baseline (elementor-element-efbf05b) -->
-      <div class="hero-spacer"></div>
+      <ShowreelPlayer
+        videoId="IfXxwk2Nt3k"
+        title="BIZSYS - Showreel"
+        variant="hero"
+        fetchPriority="high"
+      />
 
       <!-- Título de acessibilidade / SEO fiel ao baseline (elementor-element-f72d50e) -->
       <h1 class="sr-only">Tecnologia e Criatividade - Bizsys</h1>
@@ -182,49 +175,11 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     background-color: #000000;
   }
 
-  .video-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    min-width: 177.77vh; /* 16:9 aspect ratio */
-    min-height: 56.25vw;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .video-embed {
-    width: 100%;
-    height: 100%;
-    border: none;
-    pointer-events: none;
-    transform: scale(1.15); /* Elimina bordas do YouTube */
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25);
-    z-index: 2;
-  }
-
-  .hero-spacer {
-    height: 600px;
-    width: 100%;
-    position: relative;
-    z-index: 3;
-    pointer-events: none;
-  }
-
   @media (max-width: 767px) {
     .section-hero {
-      height: 85vh;
-      min-height: 480px;
-    }
-    .hero-spacer {
-      height: 350px;
+      height: auto;
+      min-height: 0;
+      padding-top: var(--header-height);
     }
   }
 

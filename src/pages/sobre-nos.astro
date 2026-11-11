@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ShowreelPlayer from '../components/ShowreelPlayer.astro';
 import { AWARDS_LIST, CLIENTS_LIST } from '../data/wpData';
 
 const pageTitle = 'Sobre Nós';
@@ -32,14 +33,11 @@ const clientCols = [
     <section class="section-sobre-video" aria-label="Vídeo Showreel">
       <div class="container container-sobre">
         <div class="video-aspect-box">
-          <iframe
-            class="video-player"
-            src="https://www.youtube.com/embed/IfXxwk2Nt3k?controls=1&rel=0&playsinline=1"
+          <ShowreelPlayer
+            videoId="IfXxwk2Nt3k"
             title="Bizsys Showreel"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            variant="inline"
+          />
         </div>
       </div>
     </section>
@@ -214,14 +212,7 @@ const clientCols = [
     margin: 0 auto;
     background-color: #050505;
     border: 1px solid var(--color-border);
-  }
-
-  .video-player {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+    overflow: hidden;
   }
 
   /* TÍTULOS COMUNS */
