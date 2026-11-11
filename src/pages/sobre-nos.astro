@@ -66,11 +66,11 @@ const clientCols = [
         <div class="metodo-list-mobile">
           <div class="metodo-mobile-step">
             <span class="metodo-mobile-text">Ideia + Design</span>
-            <span class="metodo-mobile-arrow">🡣</span>
+            <span class="metodo-mobile-arrow" aria-hidden="true">🡣</span>
           </div>
           <div class="metodo-mobile-step">
             <span class="metodo-mobile-text">Teste/Execução</span>
-            <span class="metodo-mobile-arrow">🡣</span>
+            <span class="metodo-mobile-arrow" aria-hidden="true">🡣</span>
           </div>
           <div class="metodo-mobile-step">
             <span class="metodo-mobile-text">Manutenção/Análise de dados</span>
@@ -112,17 +112,19 @@ const clientCols = [
         <h2 class="section-sobre-title">Prêmios</h2>
 
         <!-- Tabela Desktop com linhas divisórias de ponta a ponta (Fiel a 950270a & 04bfa0c) -->
-        <div class="premios-table-desktop">
+        <div class="premios-table-desktop" role="table" aria-label="Prêmios conquistados">
           <!-- Cabeçalho da Tabela -->
-          <div class="premios-header-row" role="row">
-            <span class="col-header col-proj" role="columnheader">Projeto</span>
-            <span class="col-header col-cli" role="columnheader">Cliente</span>
-            <span class="col-header col-prem" role="columnheader">Prêmio</span>
-            <span class="col-header col-ano" role="columnheader">Ano</span>
+          <div role="rowgroup">
+            <div class="premios-header-row" role="row">
+              <span class="col-header col-proj" role="columnheader">Projeto</span>
+              <span class="col-header col-cli" role="columnheader">Cliente</span>
+              <span class="col-header col-prem" role="columnheader">Prêmio</span>
+              <span class="col-header col-ano" role="columnheader">Ano</span>
+            </div>
           </div>
 
           <!-- Linhas de Premiações Desktop -->
-          <div class="premios-body">
+          <div class="premios-body" role="rowgroup">
             {AWARDS_LIST.map((row) => (
               <div class="premios-item-row" role="row">
                 <div class="col-data col-proj" role="cell">
@@ -318,7 +320,7 @@ const clientCols = [
   }
 
   .metodo-mobile-arrow {
-    color: #656362;
+    color: var(--color-text-secondary);
     font-size: 24px;
     line-height: 27px;
     margin-top: 8px;
@@ -447,7 +449,7 @@ const clientCols = [
     font-size: 16px;
     font-weight: 300;
     line-height: 19.2px;
-    color: #656362;
+    color: var(--color-text-secondary);
     text-align: center;
   }
 
@@ -482,7 +484,7 @@ const clientCols = [
   }
 
   .col-data.col-cli {
-    color: #656362;
+    color: var(--color-text-secondary);
   }
 
   .col-data.col-prem {
@@ -490,7 +492,7 @@ const clientCols = [
   }
 
   .col-data.col-ano {
-    color: #656362;
+    color: var(--color-text-secondary);
   }
 
   .premio-link {
@@ -504,7 +506,7 @@ const clientCols = [
   }
 
   .premio-link-year {
-    color: #656362;
+    color: var(--color-text-secondary);
     text-decoration: none;
     transition: color var(--transition-fast);
   }
@@ -561,7 +563,7 @@ const clientCols = [
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
-    color: #656362;
+    color: var(--color-text-secondary);
     margin-top: 4px;
   }
 
@@ -578,7 +580,7 @@ const clientCols = [
     font-size: 20px;
     font-weight: 300;
     line-height: 24px;
-    color: #656362;
+    color: var(--color-text-secondary);
     margin-top: 4px;
   }
 
@@ -592,7 +594,7 @@ const clientCols = [
     font-family: var(--font-primary);
     font-size: 32px;
     font-weight: 300;
-    color: #656362;
+    color: var(--color-text-secondary);
     text-decoration: none;
     display: inline-block;
     transition: color var(--transition-fast), opacity var(--transition-fast);
