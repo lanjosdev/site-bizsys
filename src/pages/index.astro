@@ -12,17 +12,20 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   isTransparentHeader={true}
 >
   <div class="bizsys-home">
-    <!-- 1. HERO COM VÍDEO SHOWREEL YOUTUBE (Fiel a elementor-element-916fa90) -->
+    <!-- 1. HERO COM VÍDEO SHOWREEL NATIVO (WebM VP9 + MP4 H.264, sem cookies de terceiros) -->
     <section class="section-hero" aria-label="Apresentação Bizsys">
       <div class="video-container" aria-hidden="true">
-        <iframe
+        <video
           class="video-embed"
-          src="https://www.youtube.com/embed/IfXxwk2Nt3k?controls=0&rel=0&playsinline=1&enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=IfXxwk2Nt3k&origin=https%3A%2F%2Fwww.bizsys.com.br"
-          title="BIZSYS - Showreel"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          tabindex="-1"
-        ></iframe>
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="/videos/showreel.webm" type="video/webm" />
+          <source src="/videos/showreel.mp4" type="video/mp4" />
+        </video>
       </div>
       <div class="hero-overlay"></div>
 
@@ -59,14 +62,52 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
               <a href={item.link} class="slide-link">
                 <figure class="slide-figure">
                   <div class="slide-image-wrap">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      width="1120"
-                      height="630"
-                      class="slide-image"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
+                    {index === 0 ? (
+                      <picture class="slide-picture">
+                        <source
+                          type="image/avif"
+                          srcset={`${item.imageBase}-640.avif 640w, ${item.imageBase}-1120.avif 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset={`${item.imageBase}-640.webp 640w, ${item.imageBase}-1120.webp 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <img
+                          src={item.image}
+                          alt={`${item.title} - ${item.client}`}
+                          width="1120"
+                          height="509"
+                          class="slide-image"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
+                    ) : (
+                      <picture class="slide-picture">
+                        <source
+                          type="image/avif"
+                          data-srcset={`${item.imageBase}-640.avif 640w, ${item.imageBase}-1120.avif 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <source
+                          type="image/webp"
+                          data-srcset={`${item.imageBase}-640.webp 640w, ${item.imageBase}-1120.webp 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <img
+                          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1120 509'%3E%3C/svg%3E"
+                          data-src={item.image}
+                          alt={`${item.title} - ${item.client}`}
+                          width="1120"
+                          height="509"
+                          class="slide-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                    )}
                   </div>
                   <figcaption class="slide-caption">
                     {item.title} - {item.client}
@@ -136,6 +177,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100svh;
     min-height: 600px;
     display: flex;
     flex-direction: column;
@@ -146,13 +188,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
 
   .video-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    min-width: 177.77vh; /* 16:9 aspect ratio */
-    min-height: 56.25vw;
-    transform: translate(-50%, -50%);
+    inset: 0;
     pointer-events: none;
     z-index: 1;
   }
@@ -160,9 +196,10 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   .video-embed {
     width: 100%;
     height: 100%;
-    border: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
     pointer-events: none;
-    transform: scale(1.15); /* Elimina bordas do YouTube */
   }
 
   .hero-overlay {
@@ -183,6 +220,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   @media (max-width: 767px) {
     .section-hero {
       height: 85vh;
+      height: 85svh;
       min-height: 480px;
     }
     .hero-spacer {
@@ -295,6 +333,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     background-color: #050505;
   }
 
+  .slide-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .slide-image {
     width: 100%;
     height: 100%;
@@ -304,7 +348,7 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
 
   .slide-caption {
     text-align: left;
-    color: #656362;
+    color: var(--color-text-secondary);
     font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 300;
@@ -369,12 +413,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
 
   .cat-link.is-gray,
   .menu2.is-gray {
-    color: #656362;
+    color: var(--color-text-secondary);
   }
 
   .cat-link:hover,
   .menu2:hover {
-    border-bottom: 1px solid #656362;
+    border-bottom: 1px solid var(--color-text-secondary);
   }
 
   @media (max-width: 959px) {
@@ -416,7 +460,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   /* 5. BANNER DE PRÊMIOS 60px (elementor-element-a8576c5 & ed5b2c4) */
   .section-awards {
     background-color: #000000;
-    background-image: url('/images/awards-bg.png');
+    background-image: url('/images/awards-bg.webp');
+    background-image: image-set(
+      url('/images/awards-bg.avif') type('image/avif'),
+      url('/images/awards-bg.webp') type('image/webp'),
+      url('/images/awards-bg.png') type('image/png')
+    );
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -561,9 +610,31 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     let autoplayTimer: ReturnType<typeof setInterval> | null = null;
     const intervalTime = 5000; // 5 segundos, idêntico a elementor data-settings
 
+    function hydrateSlideMedia(slide: HTMLElement | undefined) {
+      if (!slide || slide.dataset.hydrated === '1') return;
+      slide.querySelectorAll<HTMLSourceElement>('source[data-srcset]').forEach((srcEl) => {
+        const val = srcEl.getAttribute('data-srcset');
+        if (val) {
+          srcEl.setAttribute('srcset', val);
+          srcEl.removeAttribute('data-srcset');
+        }
+      });
+      slide.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((imgEl) => {
+        const val = imgEl.getAttribute('data-src');
+        if (val) {
+          imgEl.setAttribute('src', val);
+          imgEl.removeAttribute('data-src');
+        }
+      });
+      slide.dataset.hydrated = '1';
+    }
+
     function goToSlide(index: number) {
+      const nextIndex = (index + slides.length) % slides.length;
+      hydrateSlideMedia(slides[nextIndex]);
+      hydrateSlideMedia(slides[(nextIndex + 1) % slides.length]);
       slides[currentIndex]?.classList.remove('is-active');
-      currentIndex = (index + slides.length) % slides.length;
+      currentIndex = nextIndex;
       slides[currentIndex]?.classList.add('is-active');
     }
 

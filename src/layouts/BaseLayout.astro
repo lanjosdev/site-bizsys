@@ -37,9 +37,9 @@ const gtmId = envGtm !== undefined ? (envGtm === 'disabled' || envGtm === '' ? n
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (carregamento nao bloqueante apos interacao/idle) -->
     {gtmId && (
-      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`} />
+      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var loaded=false;function loadGtm(){if(loaded)return;loaded=true;var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}['pointerdown','keydown','scroll'].forEach(function(evt){w.addEventListener(evt,loadGtm,{once:true,passive:true});});w.addEventListener('load',function(){if('requestIdleCallback' in w){w.requestIdleCallback(loadGtm,{timeout:2000});}else{setTimeout(loadGtm,1500);}},{once:true});})(window,document,'script','dataLayer','${gtmId}');`} />
     )}
     <!-- End Google Tag Manager -->
 
