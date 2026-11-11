@@ -59,14 +59,52 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
               <a href={item.link} class="slide-link">
                 <figure class="slide-figure">
                   <div class="slide-image-wrap">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      width="1120"
-                      height="630"
-                      class="slide-image"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
+                    {index === 0 ? (
+                      <picture class="slide-picture">
+                        <source
+                          type="image/avif"
+                          srcset={`${item.imageBase}-640.avif 640w, ${item.imageBase}-1120.avif 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset={`${item.imageBase}-640.webp 640w, ${item.imageBase}-1120.webp 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <img
+                          src={item.image}
+                          alt={`${item.title} - ${item.client}`}
+                          width="1120"
+                          height="509"
+                          class="slide-image"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
+                    ) : (
+                      <picture class="slide-picture">
+                        <source
+                          type="image/avif"
+                          data-srcset={`${item.imageBase}-640.avif 640w, ${item.imageBase}-1120.avif 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <source
+                          type="image/webp"
+                          data-srcset={`${item.imageBase}-640.webp 640w, ${item.imageBase}-1120.webp 1120w`}
+                          sizes="(max-width: 767px) calc(100vw - 48px), 1072px"
+                        />
+                        <img
+                          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1120 509'%3E%3C/svg%3E"
+                          data-src={item.image}
+                          alt={`${item.title} - ${item.client}`}
+                          width="1120"
+                          height="509"
+                          class="slide-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
+                    )}
                   </div>
                   <figcaption class="slide-caption">
                     {item.title} - {item.client}
@@ -295,6 +333,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     background-color: #050505;
   }
 
+  .slide-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .slide-image {
     width: 100%;
     height: 100%;
@@ -416,7 +460,12 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
   /* 5. BANNER DE PRÊMIOS 60px (elementor-element-a8576c5 & ed5b2c4) */
   .section-awards {
     background-color: #000000;
-    background-image: url('/images/awards-bg.png');
+    background-image: url('/images/awards-bg.webp');
+    background-image: image-set(
+      url('/images/awards-bg.avif') type('image/avif'),
+      url('/images/awards-bg.webp') type('image/webp'),
+      url('/images/awards-bg.png') type('image/png')
+    );
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -561,9 +610,31 @@ const pageDescription = 'Desenvolvemos soluções criativas usando nossa experti
     let autoplayTimer: ReturnType<typeof setInterval> | null = null;
     const intervalTime = 5000; // 5 segundos, idêntico a elementor data-settings
 
+    function hydrateSlideMedia(slide: HTMLElement | undefined) {
+      if (!slide || slide.dataset.hydrated === '1') return;
+      slide.querySelectorAll<HTMLSourceElement>('source[data-srcset]').forEach((srcEl) => {
+        const val = srcEl.getAttribute('data-srcset');
+        if (val) {
+          srcEl.setAttribute('srcset', val);
+          srcEl.removeAttribute('data-srcset');
+        }
+      });
+      slide.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((imgEl) => {
+        const val = imgEl.getAttribute('data-src');
+        if (val) {
+          imgEl.setAttribute('src', val);
+          imgEl.removeAttribute('data-src');
+        }
+      });
+      slide.dataset.hydrated = '1';
+    }
+
     function goToSlide(index: number) {
+      const nextIndex = (index + slides.length) % slides.length;
+      hydrateSlideMedia(slides[nextIndex]);
+      hydrateSlideMedia(slides[(nextIndex + 1) % slides.length]);
       slides[currentIndex]?.classList.remove('is-active');
-      currentIndex = (index + slides.length) % slides.length;
+      currentIndex = nextIndex;
       slides[currentIndex]?.classList.add('is-active');
     }
 

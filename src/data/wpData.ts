@@ -50,17 +50,19 @@ export interface FeaturedCase {
   title: string;
   client: string;
   image: string;
+  imageBase: string;
   category: string;
   slug: string;
   link: string;
 }
 
-// 5 Cases de Destaque da Home com imagens locais fiéis
+// 5 Cases de Destaque da Home com imagens locais responsivas (AVIF/WebP + fallback JPG)
 export const FEATURED_CASES: FeaturedCase[] = [
   {
     title: 'O Algoritmo da Vida',
     client: 'RollingStone',
-    image: '/images/cases/algoritmo-da-vida.png',
+    image: '/images/cases/algoritmo-da-vida-1120.jpg',
+    imageBase: '/images/cases/algoritmo-da-vida',
     category: 'Projetos Especiais',
     slug: 'algoritmo-da-vida',
     link: '/projetos'
@@ -68,7 +70,8 @@ export const FEATURED_CASES: FeaturedCase[] = [
   {
     title: 'MIA',
     client: 'Whiskas',
-    image: '/images/cases/mia-whiskas.jpg',
+    image: '/images/cases/mia-whiskas-1120.jpg',
+    imageBase: '/images/cases/mia-whiskas',
     category: 'IA / Tecnologia',
     slug: 'mia-whiskas',
     link: '/projetos'
@@ -76,7 +79,8 @@ export const FEATURED_CASES: FeaturedCase[] = [
   {
     title: 'McCode',
     client: "McDonald's",
-    image: '/images/cases/mccode-mcdonalds.png',
+    image: '/images/cases/mccode-mcdonalds-1120.jpg',
+    imageBase: '/images/cases/mccode-mcdonalds',
     category: 'WebApp',
     slug: 'mcdonalds-mccode',
     link: '/posts/mcdonalds-mccode'
@@ -84,7 +88,8 @@ export const FEATURED_CASES: FeaturedCase[] = [
   {
     title: 'Strangerama',
     client: 'Netflix',
-    image: '/images/cases/strangerama-netflix.png',
+    image: '/images/cases/strangerama-netflix-1120.jpg',
+    imageBase: '/images/cases/strangerama-netflix',
     category: 'Cenografia / Interação',
     slug: 'strangerama-netflix',
     link: '/projetos'
@@ -92,7 +97,8 @@ export const FEATURED_CASES: FeaturedCase[] = [
   {
     title: '#BatuqueChallenge',
     client: 'Chevrolet',
-    image: '/images/cases/batuque-challenge-chevrolet.jpg',
+    image: '/images/cases/batuque-challenge-chevrolet-1120.jpg',
+    imageBase: '/images/cases/batuque-challenge-chevrolet',
     category: 'Lives / Interação',
     slug: 'batuque-challenge-chevrolet',
     link: '/projetos'
