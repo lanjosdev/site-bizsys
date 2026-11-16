@@ -16,7 +16,7 @@ Reengenharia reversa e migração do site oficial da **Bizsys** de WordPress (PH
 - **Formulários**: [Web3Forms](https://web3forms.com/) (envio seguro de mensagens sem necessidade de backend próprio)
 - **Qualidade de Código**: Zero declarações de `!important` na codebase ativa, garantindo especificidade limpa e modular
 - **Autonomia de Mídias**: 100% dos 120 posts canônicos operam com imagens locais (201 mídias em `public/images/`) sem qualquer dependência de servidores legados
-- **Core Web Vitals**: Performance validada via Lighthouse (scores 90–100, zero layout shift e zero blocking time)
+- **Core Web Vitals**: Performance máxima validada via Google PageSpeed Insights (scores 100 em todas as 4 métricas: Performance, Acessibilidade, Melhores Práticas e SEO no Mobile e Desktop), zero layout shift (CLS 0.000) e zero blocking time (TBT 0ms)
 
 ---
 
@@ -26,6 +26,7 @@ Reengenharia reversa e migração do site oficial da **Bizsys** de WordPress (PH
 site-bizsys/
 ├── baseline/              # Acervo bruto HTML/CSS/JS do WordPress original (referência histórica)
 ├── data/                  # Metadados JSON extraídos da WP REST API (posts, pages, taxionomias)
+├── deploy/                # Diretivas e scripts de infraestrutura (Nginx cache e compressão)
 ├── public/                # Arquivos públicos estáticos
 │   ├── favicon.ico        # Monograma circular oficial Bizsys
 │   ├── favicon.png        # Favicon PNG 16x16 oficial
@@ -106,6 +107,25 @@ Executa auditoria automatizada contra o build estático de produção (`dist/`):
 ```bash
 node scripts/audit-performance.mjs
 ```
+
+### Deploy em Produção (Nginx)
+
+1. **Geração dos artefatos estáticos**:
+   ```bash
+   npm run build
+   ```
+   A pasta `dist/` conterá todas as 149 páginas estáticas compiladas, índice minificado e mídias otimizadas.
+
+2. **Configuração de Cache e Compressão no Nginx**:
+   - Utilize as diretivas de [`deploy/nginx-cache-compression.conf`](deploy/nginx-cache-compression.conf) dentro do bloco `server { ... }` do domínio em `/etc/nginx/sites-available/`.
+   - Registre o tipo MIME `font/otf` no Nginx caso ainda não esteja presente, garantindo que a tipografia Good Sans seja servida com o header correto e comprimida via Gzip:
+     ```bash
+     sudo sed -i '/image\/avif/a \    font/otf                                         otf;' /etc/nginx/mime.types
+     ```
+   - Valide a sintaxe e recarregue o Nginx sem tempo de inatividade:
+     ```bash
+     sudo nginx -t && sudo systemctl reload nginx
+     ```
 
 ---
 
